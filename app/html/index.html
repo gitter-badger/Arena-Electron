@@ -42,6 +42,9 @@
             </div>
         </div>
     </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <button class="btn btn-outline-secondary btn-glow" id="music-control"><i class="fa fa-volume-up"></i></button>
+    <p id="footer" class="text-muted"></p>
 
     <!-- Scripts -->
     <!-- Fix for electron -->
@@ -58,5 +61,23 @@
     <script src="https://use.fontawesome.com/8ce091879b.js"></script>
     <!-- /Electron fix -->
     <script>if (window.module) module = window.module;</script>
+    <!-- Grid js -->
+    <script src="../lib/grid.js"></script>
+    <script>
+        $(document).ready(function(){
+            let c = document.getElementById("canvas");
+            let ctx = c.getContext("2d");
+            grid.majorStrokeStyle = '#f00bac';
+            grid.dimetric(ctx, 0, 0, c.width, c.height, 50);
+
+            $('#music-control').click(function(e){
+                $(e.target).toggleClass("btn-glow").find("i").toggleClass("fa-volume-up fa-volume-off text-danger");
+            });
+
+            let version = require('../../package.json').version;
+            console.log(version);
+            $('#footer').html(version);
+        })
+    </script>
 </body>
 </html>

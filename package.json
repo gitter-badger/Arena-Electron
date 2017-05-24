@@ -2,7 +2,7 @@
   "name": "arena-electron",
   "version": "0.0.1",
   "description": "An electron port of the widely famous Arena: A Game of Tanks",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "npm test",
     "start": "./node_modules/electron/cli.js ."
