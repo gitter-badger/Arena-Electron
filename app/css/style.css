@@ -11,7 +11,7 @@
 */
 @keyframes text-glow{
     to {
-        text-shadow: 0 0 10px magenta;
+        text-shadow: 0 0 20px magenta;
     }
 }
 
@@ -37,6 +37,10 @@ html, body {
                                   supported by Chrome and Opera */
 }
 
+.col-xs-12 {
+    width: 100%;
+}
+
 .text-glow {
     animation: text-glow 2.5s infinite alternate;
 }
@@ -45,7 +49,12 @@ html, body {
     animation: btn-glow 2s infinite alternate;
 }
 
+.row {
+    margin-bottom: 1em;
+}
+
 .game-title {
     font-family: "Game Title", sans-serif;
     font-size: 72px;
+    margin-top: 15%;
 }
