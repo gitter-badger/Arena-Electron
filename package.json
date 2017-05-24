@@ -4,7 +4,8 @@
   "description": "An electron port of the widely famous Arena: A Game of Tanks",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "./node_modules/electron/cli.js ."
   },
   "repository": {
     "type": "git",

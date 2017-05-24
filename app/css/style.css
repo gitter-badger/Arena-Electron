@@ -1,0 +1,51 @@
+/*
+    Font Faces
+*/
+@font-face {
+    font-family: "Game Title";
+    src: url(../font/chargen.ttf) format("truetype");
+}
+
+/*
+   Animations
+*/
+@keyframes text-glow{
+    to {
+        text-shadow: 0 0 10px magenta;
+    }
+}
+
+@keyframes btn-glow{
+    to {
+        box-shadow: 0 0 10px magenta;
+    }
+}
+
+/*
+   Rules
+*/
+html, body {
+    background-color: black;
+    color: lightgrey;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.text-glow {
+    animation: text-glow 2.5s infinite alternate;
+}
+
+.btn-glow {
+    animation: btn-glow 2s infinite alternate;
+}
+
+.game-title {
+    font-family: "Game Title", sans-serif;
+    font-size: 72px;
+}

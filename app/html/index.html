@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arena:Electron</title>
+    <!-- Stylesheets -->
+    <!-- Bootstrap minified -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- MDBootstrap -->
+    <link rel="stylesheet" href="../css/mdb.min.css" />
+    <!-- Custom -->
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <p class="game-title text-glow">Arena: Electron</p>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="btn-group">
+                    <button class="btn btn-block btn-outline-secondary btn-glow">Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Fix for electron -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <!--jQuery-->
+    <script src="../lib/jquery-3.2.1.min.js"></script>
+    <!-- Tether -->
+    <script src="../lib/tether.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../lib/bootstrap.min.js"></script>
+    <!-- MDBootstrap -->
+    <script src="../lib/mdb.min.js"></script>
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/8ce091879b.js"></script>
+    <!-- /Electron fix -->
+    <script>if (window.module) module = window.module;</script>
+</body>
+</html>
