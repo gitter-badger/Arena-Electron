@@ -30,7 +30,6 @@ html, body {
 
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
@@ -41,6 +40,13 @@ canvas {
     position: fixed;
     bottom: 0;
     z-index: 0;
+}
+
+img {
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 300px;
 }
 
 #music-control {
