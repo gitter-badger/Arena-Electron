@@ -33,7 +33,7 @@ html, body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+                               supported by Chrome and Opera */
 }
 
 canvas {
@@ -57,10 +57,10 @@ img {
     margin: 0;
 }
 
-#footer {
+#version {
     position: fixed;
-    bottom: 2%;
-    left: 40px;
+    top: 185px;
+    right: 90px;
     margin: 0;
 }
 
