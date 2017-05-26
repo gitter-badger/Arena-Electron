@@ -11,7 +11,7 @@
 */
 @keyframes text-glow{
     to {
-        text-shadow: 0 0 20px magenta;
+        text-shadow: 0 0 25px magenta;
     }
 }
 
@@ -49,12 +49,19 @@ img {
     left: 300px;
 }
 
-#music-control {
+#music-control, #achievements {
     position: fixed;
     bottom: 2%;
-    right: 40px;
     min-width: 85px;
     margin: 0;
+}
+
+#music-control {
+    right: 40px;
+}
+
+#achievements{
+    left: 40px;
 }
 
 #version {
@@ -62,6 +69,10 @@ img {
     top: 185px;
     right: 90px;
     margin: 0;
+}
+
+.tooltip-inner {
+    color: #f00bac;
 }
 
 .container {
@@ -73,7 +84,7 @@ img {
 }
 
 .text-glow {
-    animation: text-glow 2.5s infinite alternate;
+    animation: text-glow 2s infinite alternate;
 }
 
 .btn-glow {

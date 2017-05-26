@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="btn-group-justified">
-                    <a href="host-game.html" class="btn btn-block btn-outline-secondary btn-glow" id="host-game"><i class="fa fa-plus left"></i> Host Game</a>
+                    <a href="host-game.html" class="btn btn-block btn-outline-secondary btn-glow active" id="host-game"><i class="fa fa-plus left"></i> Host Game</a>
                 </div>
             </div>
         </div>
@@ -67,6 +67,7 @@
     <script src="../lib/grid.js"></script>
     <script>
         $(document).ready(function(){
+            document.addEventListener("host-game", function(){console.log('e')}, false);
             let c = document.getElementById("canvas");
             let ctx = c.getContext("2d");
             grid.majorStrokeStyle = '#f00bac';
@@ -81,6 +82,11 @@
             // Tooltips Initialization
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'})
+            });
+
+            // Window changing events
+            $('#host-game').click(function(e){
+                document.dispatchEvent(new Event('host-game'));
             });
         })
     </script>
