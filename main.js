@@ -11,10 +11,10 @@ function createWindow () {
     win = new BrowserWindow({
         width: 800,
         height: 600,
-        // resizable: false,
+        resizable: false,
     });
 
-    // and load the old_index.html of the app.
+    // and load the index.html of the app.
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'app/html/index.html'),
         protocol: 'file:',
@@ -29,7 +29,10 @@ function createWindow () {
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
         win = null;
-    })
+    });
+
+    // Prepare events for new windows
+    changeWindowEvents();
 }
 
 // This method will be called when Electron has finished
@@ -56,3 +59,17 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+function changeWindowEvents() {
+    win.webContents.on('host-game', () => {
+        win = new BrowserWindow({
+            width: 800,
+            height: 600,
+        });
+
+        win.loadURL(url.format({
+            pathname: path.join(__dirname, 'app/html/index.html'),
+            protocol: 'file:',
+            slashes: true
+        }));
+    });
+}
