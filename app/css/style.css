@@ -21,6 +21,15 @@
     }
 }
 
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /*
    Rules
 */
@@ -47,6 +56,8 @@ img {
     z-index: 1;
     top: 60px;
     left: 300px;
+    transform-origin: 100px 105px;
+    animation: rotate 10s linear infinite;
 }
 
 #music-control {
