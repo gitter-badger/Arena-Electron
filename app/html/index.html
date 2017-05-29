@@ -23,21 +23,21 @@
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="btn-group-justified">
-                    <button class="btn btn-block btn-outline-secondary btn-glow"><i class="fa fa-plus"></i> Host Game</button>
+                    <a href="host-game.html" class="btn btn-block btn-outline-secondary btn-glow" id="host-game"><i class="fa fa-plus left"></i> Host Game</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="btn-group-justified">
-                    <button class="btn btn-block btn-outline-secondary btn-glow"><i class="fa fa-reply"></i> Join Game</button>
+                    <a href="join-game.html" class="btn btn-block btn-outline-secondary btn-glow" id="join-game"><i class="fa fa-reply left"></i> Join Game</a>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 text-center">
                 <div class="btn-group-justified">
-                    <button class="btn btn-block btn-outline-secondary btn-glow"><i class="fa fa-file-text"></i> News</button>
+                    <a href="news.html" class="btn btn-block btn-outline-secondary btn-glow" id="news"><i class="fa fa-file-text left"></i> News</a>
                 </div>
             </div>
         </div>
@@ -45,6 +45,7 @@
     <img src="../img/electron.svg" width="200" height="200" />
     <canvas id="canvas" width="800" height="600"></canvas>
     <button class="btn btn-outline-secondary btn-glow" id="music-control"><i class="fa fa-volume-up"></i></button>
+    <button class="btn btn-outline-secondary btn-glow" data-toggle="tooltip" data-placement="top" title="Coming Soon" id="achievements"><i class="fa fa-trophy"></i></button>
     <p id="version" class="text-muted"></p>
 
     <!-- Scripts -->
@@ -76,6 +77,11 @@
             });
 
             $('#version').html(require('../../package.json').version);
+
+            // Tooltips Initialization
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'})
+            });
         })
     </script>
 </body>
