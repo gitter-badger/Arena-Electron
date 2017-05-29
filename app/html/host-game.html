@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="elegant-color">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arena: Electron</title>
+    <title>Arena: Host Game</title>
     <!-- Stylesheets -->
     <!-- Bootstrap minified -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
@@ -13,40 +13,44 @@
     <!-- Custom -->
     <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
+<body class="elegant-color">
+    <nav class="navbar navbar-dark elegant-color-dark">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Arena: Electron</a></li>
+            <li class="breadcrumb-item active">Host Game</li>
+        </ol>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <p class="game-title text-glow text-center">Arena: Electron</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="btn-group-justified">
-                    <a href="host-game.html" class="btn btn-block btn-outline-secondary btn-glow active" id="host-game"><i class="fa fa-plus left"></i> Host Game</a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="btn-group-justified">
-                    <button class="btn btn-block btn-outline-secondary btn-glow" id="join-game"><i class="fa fa-reply left"></i> Join Game</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <div class="btn-group-justified">
-                    <button class="btn btn-block btn-outline-secondary btn-glow" id="news"><i class="fa fa-file-text left"></i> News</button>
+                <div class="card elegant-color-dark">
+                    <div class="card-block">
+
+                        <div class="form-header purple-gradient">
+                            <h3><i class="fa fa-gamepad"></i> Setup</h3>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <input type="text" id="username" class="form-control" required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix"></i>
+                            <input type="password" id="password" class="form-control">
+                            <label for="password">Server Password (optional)</label>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-secondary">Start Server</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <img src="../img/electron.svg" width="200" height="200" />
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <button class="btn btn-outline-secondary btn-glow" id="music-control"><i class="fa fa-volume-up"></i></button>
-    <button class="btn btn-outline-secondary btn-glow" data-toggle="tooltip" data-placement="top" title="Coming Soon" id="achievements"><i class="fa fa-trophy"></i></button>
-    <p id="version" class="text-muted"></p>
 
     <!-- Scripts -->
     <!-- Fix for electron -->
@@ -67,27 +71,7 @@
     <script src="../lib/grid.js"></script>
     <script>
         $(document).ready(function(){
-            document.addEventListener("host-game", function(){console.log('e')}, false);
-            let c = document.getElementById("canvas");
-            let ctx = c.getContext("2d");
-            grid.majorStrokeStyle = '#f00bac';
-            grid.dimetric(ctx, 0, 0, c.width, c.height, 50);
 
-            $('#music-control').click(function(e){
-                $(e.target).toggleClass("btn-glow").find("i").toggleClass("fa-volume-up fa-volume-off text-danger");
-            });
-
-            $('#version').html(require('../../package.json').version);
-
-            // Tooltips Initialization
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'})
-            });
-
-            // Window changing events
-            $('#host-game').click(function(e){
-                document.dispatchEvent(new Event('host-game'));
-            });
         })
     </script>
 </body>
