@@ -1,11 +1,16 @@
 const {app, BrowserWindow} = require('electron');
-const shell = require('electron').shell;
+const dialog = require('electron').dialog;
 const path = require('path');
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+let canClose = true;
+let promptCloseUrls = [
+    'file://' + path.join(__dirname, 'app/html/lobby.html'),
+    'file://' + path.join(__dirname, 'app/html/game.html'),
+];
 
 function createWindow () {
     // Create the browser window.
@@ -33,7 +38,38 @@ function createWindow () {
     });
 
     win.on('load-page', (e, url) => {
-        win.loadURL(url);
+        process.stderr.write(url);
+        if(!canClose){
+            let choice = dialog.showMessageBox(this,
+                {
+                    type: 'question',
+                    buttons: ['Yes', 'No'],
+                    title: 'Confirm',
+                    message: 'Are you sure you want to quit?'
+                });
+            if(choice === 1){
+                e.preventDefault();
+            }
+        }
+        else {
+            canClose = !(url in promptCloseUrls);
+            win.loadURL(url);
+        }
+    });
+
+    win.on('close', (e) => {
+        if(!canClose){
+            let choice = dialog.showMessageBox(this,
+                {
+                    type: 'question',
+                    buttons: ['Yes', 'No'],
+                    title: 'Confirm',
+                    message: 'Are you sure you want to quit?'
+                });
+            if(choice === 1){
+                e.preventDefault();
+            }
+        }
     });
 }
 

@@ -132,3 +132,7 @@ img {
 .pagination {
     color: black;
 }
+
+.form-control, .form-control:focus {
+    color: white;
+}
