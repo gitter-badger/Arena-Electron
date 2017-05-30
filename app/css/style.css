@@ -128,3 +128,7 @@ img {
 .md-form .prefix.active {
     color: magenta;
 }
+
+.pagination {
+    color: black;
+}

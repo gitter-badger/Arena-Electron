@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="../css/mdb.min.css" />
     <!-- Custom -->
     <link rel="stylesheet" href="../css/style.css" />
+    <style>
+        .row ~ .row {
+            display: none;
+        }
+    </style>
 </head>
 <body class="elegant-color">
 <nav class="navbar navbar-dark elegant-color-dark">
@@ -21,71 +26,11 @@
     </ol>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card text-center elegant-color">
-                <div class="card-header secondary-color white-text">
-                    22 May 2017
-                </div>
-                <div class="card-block elegant-color-dark white-text">
-                    <h4 class="card-title">Arena: Electron commences development</h4>
-                    <p class="card-text">
-                        After the small success that was Arena: A Game of Tanks, we have decided to begin production on a standalone version using Node.js and electron.
-                        <br />
-                        Just like the previous game, this version will be open source, and contributions are very much welcome
-                    </p>
-                    <a class="btn btn-outline-secondary"><i class="fa fa-gitlab"></i> View Source</a>
-                </div>
-                <div class="card-footer secondary-color white-text">
-                    <p>Ciaran Broderick</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <nav id="newsPager" class="elegant-color d-flex justify-content-center">
+        <ul class="pagination pg-purple">
 
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card text-center elegant-color">
-                <div class="card-header secondary-color white-text">
-                    22 May 2017
-                </div>
-                <div class="card-block elegant-color-dark white-text">
-                    <h4 class="card-title">Arena: Electron commences development</h4>
-                    <p class="card-text">
-                        After the small success that was Arena: A Game of Tanks, we have decided to begin production on a standalone version using Node.js and electron.
-                        <br />
-                        Just like the previous game, this version will be open source, and contributions are very much welcome
-                    </p>
-                    <a class="btn btn-outline-secondary"><i class="fa fa-gitlab"></i> View Source</a>
-                </div>
-                <div class="card-footer secondary-color white-text">
-                    <p>Ciaran Broderick</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card text-center elegant-color">
-                <div class="card-header secondary-color white-text">
-                    22 May 2017
-                </div>
-                <div class="card-block elegant-color-dark white-text">
-                    <h4 class="card-title">Arena: Electron commences development</h4>
-                    <p class="card-text">
-                        After the small success that was Arena: A Game of Tanks, we have decided to begin production on a standalone version using Node.js and electron.
-                        <br />
-                        Just like the previous game, this version will be open source, and contributions are very much welcome
-                    </p>
-                    <a class="btn btn-outline-secondary"><i class="fa fa-gitlab"></i> View Source</a>
-                </div>
-                <div class="card-footer secondary-color white-text">
-                    <p>Ciaran Broderick</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        </ul>
+    </nav>
 </div>
 
 <!-- Scripts -->
@@ -104,8 +49,100 @@
 <!-- /Electron fix -->
 <script>if (window.module) module = window.module;</script>
 <script>
-    $(document).ready(function(){
+    function createNews(news){
+        let button = '';
+        if (news.button !== null){
+            button = '<a class="btn btn-outline-secondary" href="' + news.button.link + '">' +
+                '<i class="fa fa-' + news.button.icon + '"></i>' +
+                news.button.text +
+                '</a>';
+        }
+        let newsItem =
+            '<div class="row">' +
+                '<div class="col-xs-12">' +
+                    '<div class="card text-center elegant-color">' +
+                        '<div class="card-header secondary-color white-text">' +
+                            news.date +
+                        '</div>' +
+                        '<div class="card-block elegant-color-dark white-text">' +
+                            '<h4 class="card-title">' +
+                                news.title +
+                            '</h4>' +
+                            '<p class="card-text">' +
+                                news.body +
+                            '</p>' +
+                            button +
+                        '</div>' +
+                        '<div class="card-footer secondary-color white-text">' +
+                            '<p>' +
+                                news.author +
+                            '</p>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
 
+
+        $('#newsPager').before(newsItem);
+    }
+
+    function switchToNewsItem(number){
+        let index = number - 1;
+        $('.page-number').each((i, e) => {
+            if(i === index){
+                $(e).parent().addClass('active');
+            }
+            else{
+                $(e).parent().removeClass('active');
+            }
+        });
+        $('.row').each((i, e) => {
+            if(i === index){
+                $(e).css('display', 'block');
+            }
+            else{
+                $(e).css('display', 'none');
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        // Replace with AJAX
+        let news = [
+            {
+                date: '22 May 2017',
+                author: 'Ciaran Broderick',
+                title: 'Arena: Electron commences development',
+                body: "After the small success that was Arena: A Game of Tanks, we have decided to begin production on a standalone version using Node.js and electron. <br />Just like the previous game, this version will be open source, and contributions are very much welcome",
+                button: {
+                    icon: 'gitlab',
+                    text: 'View Source',
+                    link: 'https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron'
+                }
+            },
+            {
+                date: '22 May 2017',
+                author: 'Ciaran Broderick',
+                title: 'Arena: Electron commences development',
+                body: "After the small success that was Arena: A Game of Tanks, we have decided to begin production on a standalone version using Node.js and electron. <br />Just like the previous game, this version will be open source, and contributions are very much welcome",
+                button: null
+            },
+        ];
+
+        $.each(news, function(i, e){
+            createNews(e);
+            // Insert a page link
+            let active = '';
+            if(i === 0){
+                active = ' active';
+            }
+            $('#newsPager ul').append('<li class="page-item' + active + '"><a class="page-link page-number" href="#">' + (i + 1) + '</a></li>');
+        });
+
+        // Set up listener
+        $('.page-number').click(function(e){
+            switchToNewsItem($(e.target).html());
+        });
     })
 </script>
 </body>
