@@ -73,7 +73,8 @@
             grid.dimetric(ctx, 0, 0, c.width, c.height, 50);
 
             $('#music-control').click(function(e){
-                $(e.target).toggleClass("btn-glow").find("i").toggleClass("fa-volume-up fa-volume-off text-danger");
+                $(e.target).toggleClass("btn-glow");
+                $(e.target).find("i").toggleClass("fa-volume-up fa-volume-off text-danger");
             });
 
             $('#version').html(require('../../package.json').version);

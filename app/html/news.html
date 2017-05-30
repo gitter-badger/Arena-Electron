@@ -16,6 +16,10 @@
         .row ~ .row {
             display: none;
         }
+
+        .card {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body class="elegant-color">
@@ -25,7 +29,7 @@
         <li class="breadcrumb-item active">News</li>
     </ol>
 </nav>
-<div class="container">
+<div id="newsContainer" class="container">
     <nav id="newsPager" class="elegant-color d-flex justify-content-center">
         <ul class="pagination pg-purple">
 
@@ -52,7 +56,7 @@
     function createNews(news){
         let button = '';
         if (news.button !== null){
-            button = '<a class="btn btn-outline-secondary" href="' + news.button.link + '">' +
+            button = '<a class="btn btn-outline-secondary waves-effect" target="_blank" href="' + news.button.link + '">' +
                 '<i class="fa fa-' + news.button.icon + '"></i>' +
                 news.button.text +
                 '</a>';
@@ -83,7 +87,7 @@
             '</div>';
 
 
-        $('#newsPager').before(newsItem);
+        $('#newsContainer').append(newsItem);
     }
 
     function switchToNewsItem(number){
@@ -143,6 +147,12 @@
         $('.page-number').click(function(e){
             switchToNewsItem($(e.target).html());
         });
+
+        const shell = require('electron').shell;
+        $('a[target="_blank"]').click((e) => {
+            e.preventDefault();
+            shell.openExternal(e.target.href);
+        })
     })
 </script>
 </body>

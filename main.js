@@ -1,4 +1,5 @@
 const {app, BrowserWindow} = require('electron');
+const shell = require('electron').shell;
 const path = require('path');
 const url = require('url');
 
@@ -31,9 +32,9 @@ function createWindow () {
         win = null;
     });
 
-    win.on('load-page', (e, arg) => {
-        win.loadURL(arg);
-    })
+    win.on('load-page', (e, url) => {
+        win.loadURL(url);
+    });
 }
 
 // This method will be called when Electron has finished
