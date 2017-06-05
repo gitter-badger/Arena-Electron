@@ -67,7 +67,7 @@
                         </table>
 
                         <button class="btn btn-danger pull-left" id="leave"><i class="fa fa-ban left"></i> Leave</button>
-                        <button class="btn btn-success pull-right" id="start"><i class="fa fa-reply left"></i> Start Game</button>
+                        <a href="game.html" class="btn btn-success pull-right" id="start"><i class="fa fa-reply left"></i> Start Game</a>
                     </div>
                 </div>
 
@@ -92,7 +92,25 @@
     <!-- /Electron fix -->
     <script>if (window.module) module = window.module;</script>
     <script>
-
+        $(document).ready(() => {
+            const main = require('electron').remote.require('./main.js');
+            // First, attempt to connect to ws server
+            let qs = (function(a) {
+                if (a === "") return {};
+                let b = {};
+                for (let i = 0; i < a.length; ++i)
+                {
+                    let p=a[i].split('=', 2);
+                    if (p.length === 1)
+                        b[p[0]] = "";
+                    else
+                        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                }
+                return b;
+            })(window.location.search.substr(1).split('&'));
+            console.log(qs);
+            main.gameWinSuccess();
+        })
     </script>
 </body>
 </html>

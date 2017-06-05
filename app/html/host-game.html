@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="lobby.html" class="btn btn-secondary">Start Server</a>
+                            <button class="btn btn-secondary">Start Server</button>
                         </div>
 
                     </div>
@@ -69,7 +69,10 @@
     <script>if (window.module) module = window.module;</script>
     <script>
         $(document).ready(function(){
-
+            const main = require('electron').remote.require('./main.js');
+            $('button').click((e) => {
+                main.createGame();
+            })
         })
     </script>
 </body>

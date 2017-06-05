@@ -6,11 +6,7 @@ const url = require('url');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
-let canClose = true;
-let promptCloseUrls = [
-    'file://' + path.join(__dirname, 'app/html/lobby.html'),
-    'file://' + path.join(__dirname, 'app/html/game.html'),
-];
+let gameWin;
 
 function createWindow () {
     // Create the browser window.
@@ -18,6 +14,7 @@ function createWindow () {
         width: 800,
         height: 600,
         resizable: false,
+        show: false
     });
 
     // and load the index.html of the app.
@@ -38,39 +35,12 @@ function createWindow () {
     });
 
     win.on('load-page', (e, url) => {
-        process.stderr.write(url);
-        if(!canClose){
-            let choice = dialog.showMessageBox(this,
-                {
-                    type: 'question',
-                    buttons: ['Yes', 'No'],
-                    title: 'Confirm',
-                    message: 'Are you sure you want to quit?'
-                });
-            if(choice === 1){
-                e.preventDefault();
-            }
-        }
-        else {
-            canClose = !(url in promptCloseUrls);
-            win.loadURL(url);
-        }
+        win.loadURL(url);
     });
 
-    win.on('close', (e) => {
-        if(!canClose){
-            let choice = dialog.showMessageBox(this,
-                {
-                    type: 'question',
-                    buttons: ['Yes', 'No'],
-                    title: 'Confirm',
-                    message: 'Are you sure you want to quit?'
-                });
-            if(choice === 1){
-                e.preventDefault();
-            }
-        }
-    });
+    win.once('ready-to-show', () => {
+        win.show();
+    })
 }
 
 // This method will be called when Electron has finished
@@ -97,3 +67,30 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+exports.createGame = (username, password) => {
+    // Spawn the server
+
+    // Create the window for the game
+    gameWin = new BrowserWindow({
+        width: 650,
+        height: 650,
+        resizable: false,
+        // show: false
+    });
+    // The window will attempt to connect to the server and show or close itself as needed
+    gameWin.loadURL(`file://${__dirname}/app/html/lobby.html?ip=192.168.1.16`);
+};
+
+exports.gameWinSuccess = () => {
+    // Close old window and show new one
+    win.close();
+    win = null;
+    gameWin.show();
+};
+
+exports.gameWinFailure = () => {
+    // Close this window and display an error on the main window
+    gameWin.close();
+    gameWin = null;
+    // display error
+};
