@@ -1,4 +1,4 @@
-
+const obstacles = require(`${__dirname}/obstacles`);
 
 class Arena {
     constructor(canvas){
