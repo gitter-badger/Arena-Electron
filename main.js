@@ -1,5 +1,4 @@
 const {app, BrowserWindow} = require('electron');
-const dialog = require('electron').dialog;
 const path = require('path');
 const url = require('url');
 
@@ -7,6 +6,12 @@ const url = require('url');
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 let gameWin;
+
+// Game globals
+let server = null;
+let socket = null;
+// Set ip to be this machine by default
+let serverIp = require('ip').address();
 
 function createWindow () {
     // Create the browser window.
@@ -67,30 +72,55 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-exports.createGame = (username, password) => {
+let createGame = (username, password) => {
     // Spawn the server
+    // server = new Server(password);
 
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
         height: 650,
         resizable: false,
-        // show: false
+        show: false
     });
+
+    // socket = new WebSocket(`ws://${serverIp}:44444`);
+    // socket.send("JOIN", username);
+
     // The window will attempt to connect to the server and show or close itself as needed
-    gameWin.loadURL(`file://${__dirname}/app/html/lobby.html?ip=192.168.1.16`);
+    gameWin.loadURL(url.format({
+        pathname: path.join(__dirname, 'app/html/lobby.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
 };
 
-exports.gameWinSuccess = () => {
+let gameWinSuccess = () => {
     // Close old window and show new one
-    win.close();
-    win = null;
     gameWin.show();
 };
 
-exports.gameWinFailure = () => {
+let gameWinFailure = () => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
     // display error
 };
+
+let leaveServer = () => {
+    // if (server !== null) { close the server } else { socket.send("QUIT") }
+    console.log("close");
+    gameWin.close();
+    gameWin = null;
+};
+
+// Exports
+// Functions
+exports.gameWinSuccess = gameWinSuccess;
+exports.gameWinFailure = gameWinFailure;
+exports.createGame = createGame;
+exports.leaveServer = leaveServer;
+
+// Variables
+exports.socket = socket;
+exports.serverIp = serverIp;

@@ -13,7 +13,7 @@
     <!-- Custom -->
     <link rel="stylesheet" href="../css/style.css" />
     <style>
-        a.btn {
+        .btn {
             color: white!important;
         }
     </style>
@@ -77,9 +77,9 @@
             grid.majorStrokeStyle = '#f00bac';
             grid.dimetric(ctx, 0, 0, c.width, c.height, 50);
 
-            $('#music-control').click(function(e){
-                $(e.target).toggleClass("btn-glow");
-                $(e.target).find("i").toggleClass("fa-volume-up fa-volume-off text-danger");
+            $('#music-control').click(function(){
+                $('#music-control').toggleClass("btn-glow");
+                $('#music-control i').toggleClass("fa-volume-up fa-volume-off text-danger");
             });
 
             $('#version').html(require('../../package.json').version);

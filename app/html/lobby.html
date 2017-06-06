@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arena: Lobby @ 192.168.1.16</title>
+    <title>Arena: Lobby</title>
     <!-- Stylesheets -->
     <!-- Bootstrap minified -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
@@ -25,7 +25,7 @@
 <body class="elegant-color">
     <nav class="navbar navbar-dark elegant-color-dark">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Lobby IP: 192.168.1.16</li>
+            <li class="breadcrumb-item active">Lobby IP: <span id="ip"></span></li>
         </ol>
     </nav>
     <div class="container">
@@ -66,7 +66,7 @@
                             </tbody>
                         </table>
 
-                        <button class="btn btn-danger pull-left" id="leave"><i class="fa fa-ban left"></i> Leave</button>
+                        <a href="#" class="btn btn-danger pull-left" id="leave"><i class="fa fa-ban left"></i> Leave</a>
                         <a href="game.html" class="btn btn-success pull-right" id="start"><i class="fa fa-reply left"></i> Start Game</a>
                     </div>
                 </div>
@@ -94,21 +94,13 @@
     <script>
         $(document).ready(() => {
             const main = require('electron').remote.require('./main.js');
-            // First, attempt to connect to ws server
-            let qs = (function(a) {
-                if (a === "") return {};
-                let b = {};
-                for (let i = 0; i < a.length; ++i)
-                {
-                    let p=a[i].split('=', 2);
-                    if (p.length === 1)
-                        b[p[0]] = "";
-                    else
-                        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-                }
-                return b;
-            })(window.location.search.substr(1).split('&'));
-            console.log(qs);
+            const sock = main.socket;
+            // Set up display and link
+            $('#ip').html(main.serverIp);
+            $('#leave').click(() => {
+                main.leaveServer();
+            });
+            // Reveal window
             main.gameWinSuccess();
         })
     </script>
