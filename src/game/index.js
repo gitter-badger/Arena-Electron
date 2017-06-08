@@ -9,29 +9,17 @@ class Arena {
         context.lineWidth = 2;
         // Draw 4 lines in blue, green, orange, and red
         // Blue obstacle; players pass, bullets bounce
-        context.strokeStyle = '#3ECAE8';
-        context.beginPath();
-        context.moveTo(width/8, height/2);
-        context.lineTo(width/2, height/2);
-        context.stroke();
+        let ob1 = new obstacles.BulletBlock(width/8, height/2, width/2, height/2);
+        ob1.draw(context);
         // Green obstacle; bullets pass, players stop against it
-        context.strokeStyle = '#00FF00';
-        context.beginPath();
-        context.moveTo(width/2, height/2);
-        context.lineTo((7 * width)/8, height/2);
-        context.stroke();
+        let ob2 = new obstacles.PlayerBlock(width/2, height/2, (7 * width)/8, height/2);
+        ob2.draw(context);
         // Orange obstacle; bullets bounce, players stop
-        context.strokeStyle = '#FF8300';
-        context.beginPath();
-        context.moveTo(width/2, 0);
-        context.lineTo(width/2, (3 * height)/8);
-        context.stroke();
+        let ob3 = new obstacles.AllBlock(width/2, 0, width/2, (3 * height)/8);
+        ob3.draw(context);
         // Red obstacle; players take damage, bullets get destroyed
-        context.strokeStyle = '#FF003F';
-        context.beginPath();
-        context.moveTo(width/2, (5 * height)/8);
-        context.lineTo(width/2, height);
-        context.stroke();
+        let ob4 = new obstacles.DamageBlock(width/2, (5 * height)/8, width/2, height);
+        ob4.draw(context);
 
         // Draw a player in the top left corner, we're gonna experiment with adding text
         context.fillStyle = 'white';

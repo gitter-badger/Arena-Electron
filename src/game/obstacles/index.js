@@ -1,9 +1,9 @@
-import {BulletBlock} from './bulletBlock';
-import {PlayerBlock} from './playerBlock';
-import {AllBlock} from './allBlock';
-import {DamageBlock} from './damageBlock';
+const BulletBlock = require('./bulletBlock').BulletBlock;
+const PlayerBlock = require('./playerBlock').PlayerBlock;
+const AllBlock = require('./allBlock').AllBlock;
+const DamageBlock = require('./damageBlock').DamageBlock;
 
-exports.Bullet = BulletBlock;
-exports.Player = PlayerBlock;
-exports.All = AllBlock;
-exports.Damage = DamageBlock;
+exports.BulletBlock = BulletBlock;
+exports.PlayerBlock = PlayerBlock;
+exports.AllBlock = AllBlock;
+exports.DamageBlock = DamageBlock;
