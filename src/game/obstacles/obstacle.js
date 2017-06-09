@@ -11,7 +11,8 @@ class Obstacle {
 
     draw(context) {
         context.strokeStyle = this.color;
-        context.beginPath(this.x1, this.y1);
+        context.beginPath();
+        context.moveTo(this.x1, this.y1);
         context.lineTo(this.x2, this.y2);
         context.stroke();
     }
@@ -24,3 +25,5 @@ class Obstacle {
         throw TypeError("Abstract class does not handle collisions");
     }
 }
+
+exports.Obstacle = Obstacle;

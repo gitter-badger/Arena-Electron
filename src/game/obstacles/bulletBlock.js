@@ -1,4 +1,4 @@
-import {Obstacle} from './obstacle.js'
+const Obstacle = require('./obstacle').Obstacle;
 
 class BulletBlock extends Obstacle {
     constructor(x1, y1, x2, y2){
@@ -13,3 +13,5 @@ class BulletBlock extends Obstacle {
         // Players pass through
     }
 }
+
+exports.BulletBlock = BulletBlock;
