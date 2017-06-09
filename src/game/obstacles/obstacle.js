@@ -17,13 +17,18 @@ class Obstacle {
         context.stroke();
     }
 
-    checkBulletCollision(bullet) {
-        throw TypeError("Abstract class does not handle collisions");
+    onBulletCollision(bullet) {
+        throw TypeError("Abstract class cannot collide");
     }
 
-    checkPlayerCollision(player) {
-        throw TypeError("Abstract class does not handle collisions");
+    onPlayerCollision(player) {
+        throw TypeError("Abstract class cannot collide");
     }
+
+    // The maths will be the same no matter what type of obstacle
+    checkBulletCollision(bullet) { }
+
+    checkPlayerCollision(player) { }
 }
 
 exports.Obstacle = Obstacle;
