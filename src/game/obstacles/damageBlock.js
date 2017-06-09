@@ -1,6 +1,6 @@
 const Obstacle = require('./obstacle').Obstacle;
 
-class AllBlock extends Obstacle {
+class DamageBlock extends Obstacle {
     constructor(x1, y1, x2, y2){
         super(x1, y1, x2, y2, '#FF003F');
     }
@@ -14,4 +14,4 @@ class AllBlock extends Obstacle {
     }
 }
 
-exports.AllBlock = AllBlock;
+exports.DamageBlock = DamageBlock;
