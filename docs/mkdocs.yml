@@ -1,0 +1,15 @@
+site_name: Arena: Electron
+site_url: https://docs.exceptionalvoid.com/Arena-Electron
+pages:
+  - Home: "index.md"
+  - Game:
+    - Index: "game/game.md"
+    - Obstacle: "game/obstacle.md"
+    - Player: "game/player.md"
+  - About:
+    - Changelog: "about/changes.md"
+    - Contribution Guide: "about/contrib.md"
+    - License: "about/license.md"
+theme: null
+markdown_extensions:
+  - codehilite
