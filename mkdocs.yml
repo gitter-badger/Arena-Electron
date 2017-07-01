@@ -10,6 +10,6 @@ pages:
     - Changelog: "about/changes.md"
     - Contribution Guide: "about/contrib.md"
     - License: "about/license.md"
-theme: null
+theme: 'material'
 markdown_extensions:
   - codehilite
