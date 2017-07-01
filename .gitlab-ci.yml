@@ -21,5 +21,6 @@ document:
     # Copy the coverage report to html/coverage/Arena-Electron
     - rsync -a coverage/lcov-report "/home/administrator/html/cov/$CI_PROJECT_NAME"
     # Now create the docs site
-    - cd docs; mkdir $CI_PROJECT_NAME; mkdocs build -e /home/administrator/ExDocs -d "/home/administrator/html/$CI_PROJECT_NAME"
+    - mkdir "/home/administrator/html/$CI_PROJECT_NAME"
+    - cd docs; mkdocs build -e /home/administrator/ExDocs -d "/home/administrator/html/$CI_PROJECT_NAME"
     - generate_html_index
