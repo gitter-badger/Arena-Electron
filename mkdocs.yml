@@ -13,3 +13,9 @@ pages:
 theme: 'material'
 markdown_extensions:
   - codehilite
+extra:
+  font:
+    code: Ubuntu Mono
+  palette:
+    primary: 'blue grey'
+    accent: 'light blue'
