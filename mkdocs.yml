@@ -10,12 +10,7 @@ pages:
     - Changelog: "about/changes.md"
     - Contribution Guide: "about/contrib.md"
     - License: "about/license.md"
-theme: 'material'
+theme: null
 markdown_extensions:
   - codehilite
-extra:
-  font:
-    code: Ubuntu Mono
-  palette:
-    primary: 'blue grey'
-    accent: 'light blue'
+

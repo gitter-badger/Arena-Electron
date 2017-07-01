@@ -22,5 +22,5 @@ document:
     - rsync -a coverage/lcov-report "/home/administrator/html/cov/$CI_PROJECT_NAME"
     # Now create the docs site
     - '[ -d "/home/administrator/html/$CI_PROJECT_NAME" ] || mkdir "/home/administrator/html/$CI_PROJECT_NAME"'
-    - mkdocs build -e /home/administrator/mkdocs-material -d "/home/administrator/html/$CI_PROJECT_NAME"
+    - mkdocs build -e /home/administrator/ExDocs -d "/home/administrator/html/$CI_PROJECT_NAME"
     - generate_html_index
