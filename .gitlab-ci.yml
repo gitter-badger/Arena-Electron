@@ -5,7 +5,8 @@ stages:
 test:
   stage: test
   image: node:latest
-  before_script: npm install
+  before_script:
+    - npm install
   script: npm test
   artifacts:
     paths:
