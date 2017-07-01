@@ -1,4 +1,4 @@
-site_name: "Arena: Electron"
+site_name: "Arena-Electron"
 site_url: https://docs.exceptionalvoid.com/Arena-Electron
 pages:
   - Home: "index.md"
