@@ -71,7 +71,7 @@ class Obstacle {
         this._colour = colour;
     }
 
-    draw(context) {
+    draw /* istanbul ignore next */ (context) {
         context.strokeStyle = this.colour;
         context.beginPath();
         context.moveTo(this.x1, this.y1);
@@ -104,7 +104,7 @@ class Obstacle {
 
             temp = this.y2;
             this.y2 = this.y1;
-            this.y2 = temp;
+            this.y1 = temp;
         }
     }
 

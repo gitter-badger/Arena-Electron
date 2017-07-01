@@ -39,6 +39,23 @@ To run unit tests, simply run
 npm test
 ```
 
+### Adding New Unit Tests
+
+We use [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/) to run our unit tests, and [Istanbul](https://github.com/gotwarlost/istanbul) to generate code coverage reports.
+
+If you add a new class, add a file to the `tests` directory named `test_class`, where 'class' is replaced with the name of the class you wrote.
+
+If you are instead editing an existing file, then add some new test cases to the test file for that class.
+
+We use the `describe` method very heavily to group our tests by the value or set of functions being tested
+
+If there are any methods that cannot be tested, i.e methods that handle drawing on the canvas, then we add `/* istanbul ignore next */` like so:
+```
+draw /* istanbul ignore next */ (context)
+```
+
+> The spaces between the function name, the comment, and the argument list are all necessary
+
 ## Contributing
 
 Please read [Contribution Guide](CONTRIBUTION.md) for details on our code of conduct, and the process for submitting pull requests to us.

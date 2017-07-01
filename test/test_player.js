@@ -1,6 +1,3 @@
-/**
- * Created by ciaran on 30/06/17.
- */
 let chai = require('chai');
 let path = require('path');
 
@@ -16,7 +13,7 @@ describe("Player", () => {
         player = new Player(200, 200, "Testy McTestface");
     });
 
-    describe("x value", () => {
+    describe("x", () => {
         it("returns the value", () => {
             // Ensures the x value is correct
             player.x.should.equal(200);
@@ -34,7 +31,7 @@ describe("Player", () => {
         });
     });
 
-    describe("y value", () => {
+    describe("y", () => {
         it("returns the value", () => {
             // Ensures the x value is correct
             player.y.should.equal(200);
@@ -52,7 +49,7 @@ describe("Player", () => {
         });
     });
 
-    describe("username value", () => {
+    describe("username", () => {
         it("returns the value", () => {
             // Ensures the x value is correct
             player.username.should.equal("Testy McTestface");
@@ -71,7 +68,7 @@ describe("Player", () => {
         });
     });
 
-    describe("health value", () => {
+    describe("health", () => {
         it("returns the value", () => {
             // Ensures the x value is correct
             player.currentHealth.should.equal(100);
@@ -95,7 +92,7 @@ describe("Player", () => {
         });
     });
 
-    describe("bullets value", () => {
+    describe("bullets", () => {
         it("returns the value", () => {
             // Ensures the x value is correct
             player.currentBullets.should.equal(3);

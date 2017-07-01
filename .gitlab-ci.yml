@@ -1,0 +1,24 @@
+stages:
+  - test
+  - document
+
+test:
+  stage: test
+  image: node:latest
+  before_script: npm install
+  script: npm test
+  artifacts:
+    paths:
+      - coverage/lcov-report
+    expire_in: 1 day
+
+document:
+  stage: document
+  tags:
+    - docs
+  script:
+    # Copy the coverage report to html/coverage/Arena-Electron
+    - mv lcov-report "/home/administrator/html/cov/$CI_PROJECT_NAME"
+    # Now create the docs site
+    - cd docs; mkdocs build -e /home/administrator/ExDocs -d "/home/administrator/html/$CI_PROJECT_NAME"
+    - generate_html_index
