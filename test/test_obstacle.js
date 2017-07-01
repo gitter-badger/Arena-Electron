@@ -80,6 +80,13 @@ describe('Obstacle', () => {
             });
         });
 
+        describe('angle', () => {
+            it('returns the value', () => {
+                // As it's a straight line up, it should be PI / 2
+                obstacle.angle.should.equal(Math.PI / 2);
+            })
+        })
+
         describe('point distance', () => {
             it('calculates distance correctly', () => {
                 // Create an obstacle of length 10 and ensure length is 10

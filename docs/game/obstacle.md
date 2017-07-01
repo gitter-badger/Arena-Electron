@@ -63,6 +63,8 @@ get angle()
 
 Calculates the angle made by the Obstacle and a horizontal line passing through one of the points
 
+The angle is in radians
+
 > Because of the `get` keyword, this method is run using obstacle.angle
 
 #### Returns
