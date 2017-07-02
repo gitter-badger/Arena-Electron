@@ -24,3 +24,5 @@ document:
     - '[ -d "/home/administrator/html/$CI_PROJECT_NAME" ] || mkdir "/home/administrator/html/$CI_PROJECT_NAME"'
     - mkdocs build -e /home/administrator/ExDocs -d "/home/administrator/html/$CI_PROJECT_NAME"
     - generate_html_index
+  only:
+    - master
