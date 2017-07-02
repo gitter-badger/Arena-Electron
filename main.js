@@ -51,7 +51,7 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-// app.on('ready', createGame); // TODO - Switch back to createWindow
+app.on('ready', createWindow);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
@@ -90,7 +90,7 @@ let createGame = (username, password) => {
 
     // The window will attempt to connect to the server and show or close itself as needed
     gameWin.loadURL(url.format({
-        pathname: path.join(__dirname, 'app/html/game.html'), // TODO - Switch back to lobby
+        pathname: path.join(__dirname, 'app/html/lobby.html'),
         protocol: 'file:',
         slashes: true
     }));
@@ -126,4 +126,3 @@ exports.leaveServer = leaveServer;
 exports.socket = socket;
 exports.serverIp = serverIp;
 
-app.on('ready', () => {createGame(); gameWinSuccess();}); // TODO - Switch back to createWindow

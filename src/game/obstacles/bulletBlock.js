@@ -5,13 +5,9 @@ class BulletBlock extends Obstacle {
         super(x1, y1, x2, y2, '#3ECAE8');
     }
 
-    checkBulletCollision(bullet) {
-        // Need to re-do my maths to calculate whether the bullet will pass through or not
-    }
+    onBulletCollision(bullet) { }
 
-    checkPlayerCollision(player) {
-        // Players pass through
-    }
+    onPlayerCollision(player) { }
 }
 
 exports.BulletBlock = BulletBlock;
