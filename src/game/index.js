@@ -26,7 +26,7 @@ class Arena {
         // Set up Listeners
         this.setupListeners();
 
-        setInterval(() => { this.update(); }, UPDATE_TIME);
+        requestAnimationFrame(() => {this.update()});
     }
 
     // Setup methods
@@ -62,6 +62,9 @@ class Arena {
     update() {
         // Function run every tick
         this.draw();
+
+        // Recall this function
+        requestAnimationFrame(() => {this.update()});
     }
 
     draw() {
