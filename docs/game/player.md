@@ -26,7 +26,7 @@ this.isMoving = {
 
 A Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction
 
-These booleans will be used during the draw method to determine the position of the player for the next frame
+These booleans will be used by the `updatePositon` method to determine the position of the player for the next frame
 
 ### username
 
@@ -94,3 +94,10 @@ function stop(
 Handles the stopping of movement of the local Player object
 
 Called from a `keyup` event
+
+### updatePosition
+```js
+function updatePosition() {}
+```
+
+Reads the booleans in `isMoving` and updates the Player instance's x and y values according to the button(s) being pressed
