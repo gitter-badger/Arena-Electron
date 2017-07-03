@@ -1,4 +1,5 @@
 const playerSize = 20;
+const playerSpeed = 4;
 const maxBullets = 3;
 const maxHealth = 100;
 
@@ -7,10 +8,18 @@ class Player {
         // (x, y) is top left corner of player
         this.x = x;
         this.y = y;
+        this.isMoving = {
+            up: false,
+            down: false,
+            left: false,
+            right: false
+        };
         this.username = username;
         this.currentHealth = maxHealth;
         this.currentBullets = maxBullets;
     }
+
+    // Getters and Setters
 
     get x() {
         return this._x;
@@ -73,6 +82,8 @@ class Player {
         this._bullets = bullets;
     }
 
+    // Logic
+
     // marking this function to not be covered as it's a rendering method
     // I know it's an ugly syntax but sure look
     draw /* istanbul ignore next */ (context) {
@@ -82,6 +93,62 @@ class Player {
         context.fillText(displayHealth, this.x - 10, this.y + 20);
         context.fillText(`${this.currentBullets}/${maxBullets}`, this.x + 10, this.y + 20);
         context.fillText(this.username, this.x, this.y - 13);
+
+        // Update position based on movement
+        if (this.isMoving.up) {
+            this.y -= playerSpeed;
+        }
+        if (this.isMoving.down) {
+            this.y += playerSpeed;
+        }
+        if (this.isMoving.left) {
+            this.x -= playerSpeed;
+        }
+        if (this.isMoving.right) {
+            this.x += playerSpeed;
+        }
+    }
+
+    move(e) {
+        switch(e.keyCode){
+            case 87: // w
+            case 38: // up arrow
+                this.isMoving.up = true;
+                break;
+            case 83: // s
+            case 40: // down arrow
+                this.isMoving.down = true;
+                break;
+            case 65: // a
+            case 37: // left arrow
+                this.isMoving.left = true;
+                break;
+            case 68: // d
+            case 39: // right arrow
+                this.isMoving.right = true;
+                break;
+        }
+    }
+
+    stop(e) {
+        switch(e.keyCode){
+            case 87: // w
+            case 38: // up arrow
+                this.isMoving.up = false;
+                break;
+            case 83: // s
+            case 40: // down arrow
+                this.isMoving.down = false;
+                break;
+            case 65: // a
+            case 37: // left arrow
+                this.isMoving.left = false;
+                break;
+            case 68: // d
+            case 39: // right arrow
+                this.isMoving.right = false;
+                break;
+        }
     }
 }
 
