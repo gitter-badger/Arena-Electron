@@ -14,7 +14,21 @@ The co-ordinates of the top left corner of the Player.
 !!! tip
 	When drawing, half the size is subtracted in both directions to draw the center of the Player at the point (x, y)
 
-### Username
+### isMoving
+```js
+this.isMoving = {
+	up: false,
+	down: false,
+	left: false,
+	right: false
+}
+```
+
+A Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction
+
+These booleans will be used during the draw method to determine the position of the player for the next frame
+
+### username
 
 The username of the person controlling this Player instance
 
@@ -58,3 +72,25 @@ function draw(
 ```
 
 Handles the drawing of this Player instance onto the canvas using its context
+
+### move
+```js
+function move(
+	e // Type: KeyboardEvent
+)
+```
+
+Handles the movement of the local Player object on the screen
+
+Called from a `keydown` event
+
+### stop
+```js
+function stop(
+	e // Type: KeyboardEvent
+)
+```
+
+Handles the stopping of movement of the local Player object
+
+Called from a `keyup` event

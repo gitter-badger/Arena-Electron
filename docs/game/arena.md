@@ -11,6 +11,10 @@ Also handles all communication with the Server for updating remote players
 
 ## Instance Variables
 
+### Canvas
+
+The canvas object that the game will be drawn onto
+
 ### Context
 
 The context object used to render onto the game's canvas
@@ -30,6 +34,12 @@ An array of Player objects representing the Player in the current game
 ### Obstacles
 
 An array of Obstacle objects that are in the current map
+
+### Local
+
+An integer pointing to the object in the Players array representing the person playing.
+
+Used to determine the object that is controlled by player input
 
 ***
 
@@ -70,6 +80,17 @@ Currently creates 4 Player objects, places them in the original spawn positions 
 
 !!! note
 	Will be updated later to load Player spawn points from a json file
+
+### setupListeners
+```js
+function setupListeners() {}
+```
+
+Creates any necessary event listeners and adds the required functionality
+
+!!! note "Current Listeners"
+	- `keydown`: For moving a player
+	- `keyup`: For stopping movement
 
 ### update
 ```js
