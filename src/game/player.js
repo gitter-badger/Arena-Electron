@@ -95,7 +95,7 @@ class Player {
         context.fillText(this.username, this.x, this.y - 13);
 
         // Update position based on movement
-        this.updatePostion();
+        this.updatePosition();
     }
 
     move(e) {
