@@ -1,6 +1,6 @@
 # Player
-```
-class Player
+```js
+class Player {}
 ```
 
 Class for the Player object, that represents someone's character in the game
@@ -11,7 +11,8 @@ Class for the Player object, that represents someone's character in the game
 
 The co-ordinates of the top left corner of the Player.
 
-> When drawing, half the size is subtracted in both directions to draw the center of the Player at the point (x, y)
+!!! tip
+	When drawing, half the size is subtracted in both directions to draw the center of the Player at the point (x, y)
 
 ### Username
 
@@ -28,12 +29,12 @@ The number of bullets this Player instance can currently fire
 ***
 
 ## Constructor
-```
-constructor(
-    Number x,
-    Number y,
-    String username
-)
+```js
+function constructor(
+    x,       // Type: Number
+    y,       // Type: Number
+    username // Type: String
+) {}
 ```
 
 Creates a new Player instance at the point (x, y) with the name username
@@ -50,10 +51,10 @@ Creates a new Player instance at the point (x, y) with the name username
 ## Methods
 
 ### draw
-```
-draw(
-    CanvasRenderingContext2d context
-)
+```js
+function draw(
+    context // Type: CanvasRenderingContext2d
+) {}
 ```
 
 Handles the drawing of this Player instance onto the canvas using its context

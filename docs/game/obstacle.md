@@ -1,11 +1,11 @@
 # Obstacle
-```
-class Obstacle
+```js
+class Obstacle {}
 ```
 
 Abstract base class used for all obstacle types in the Arena.
 
-Handles collisions with both [Players](/game/player) and [Bullets](/game/bullet).
+Handles collisions with both [Players][1] and [Bullets][2].
 
 Also handles the rendering of the obstacle on the canvas.
 
@@ -23,24 +23,28 @@ The co-ordinates of the end of the Obstacle further from (0, 0)
 
 The Colour the Obstacle will be drawn in on the canvas.
 
-> This value will be set by the subclasses (see [Obstacle Types](#obstacle-types))
+This value will be set by the subclasses
+
+!!! seealso
+    [Obstacle Types](#obstacle-types)
 
 ***
 
 ## Constructor
-```
-constructor(
-    Number x1,
-    Number y1,
-    Number x2,
-    Number y2,
-    String colour
+```js
+function constructor(
+    x1,    // Type: Number
+    y1,    // Type: Number
+    x2,    // Type: Number
+    y2,    // Type: Number
+    colour // Type: Number
 )
 ```
 
 Creates a new Obstacle as a line between the two points (x1, y1) and (x2, y2).
 
-For now, (x1, y1) should be close to (0, 0) than (x2, y2)
+!!! important
+    For now, (x1, y1) should be close to (0, 0) than (x2, y2)
 
 ### Parameters
 | Parameter |                           Description                            |
@@ -57,15 +61,16 @@ For now, (x1, y1) should be close to (0, 0) than (x2, y2)
 ## Methods
 
 ### angle
-```
-get angle()
+```js
+get angle() {}
 ```
 
 Calculates the angle made by the Obstacle and a horizontal line passing through one of the points
 
 The angle is in radians
 
-> Because of the `get` keyword, this method is run using obstacle.angle
+!!! tip
+    Because of the `get` keyword, this method is run using `obstacle.angle`
 
 #### Returns
 | Parameter |                                              Description                                              |
@@ -73,10 +78,10 @@ The angle is in radians
 |   angle   | The angle made between this Obstacle instance and a horizontal line passing through one of the points |
 
 ### draw
-```
-draw(
-    CanvasRenderingContext2d context
-)
+```js
+function draw(
+    context // Type: CanvasRenderingContext2d
+) {}
 ```
 
 Handles the drawing of this Obstacle instance onto the canvas using its context
@@ -91,84 +96,88 @@ Handles the drawing of this Obstacle instance onto the canvas using its context
 ## Collision Checking
 
 ### checkBulletCollision
-```
-checkBulletCollision(
-    Bullet bullet
-)
+```js
+function checkBulletCollision(
+    bullet // Type: [Bullet][2]
+) {}
 ```
 
-Checks if a Bullet has collided with this Obstacle instance
+Checks if a [Bullet][2] has collided with this Obstacle instance
 
-> Will call [onBulletCollision](#onbulletcollision) if a collision occurs
+!!! note
+    Will call [onBulletCollision](#onbulletcollision) if a collision occurs
 
 #### Parameters
 | Parameter |                   Description                   |
 | --------- | ----------------------------------------------- |
-|  bullet   | The bullet which is being checked for collision |
+|  bullet   | The Bullet which is being checked for collision |
 
 ### checkPlayerCollision
-```
-checkPlayerCollision(
-    Player player
-)
+```js
+function checkPlayerCollision(
+    player // Type: [Player][1]
+) {}
 ```
 
-Checks if a Player has collided with this Obstacle instance
+Checks if a [Player][1] has collided with this Obstacle instance
 
-> Will call [onPlayerCollision](#onplayercollision) if a collision occurs
+!!! note
+    Will call [onPlayerCollision](#onplayercollision) if a collision occurs
 
 #### Parameters
 | Parameter |                   Description                   |
 | --------- | ----------------------------------------------- |
-|  player   | The player which is being checked for collision |
+|  player   | The Player which is being checked for collision |
 
 ***
 
 ## Collision Handling
 
 ### onBulletCollision
-```
-onBulletCollision(
-    Bullet bullet
-)
+```js
+function onBulletCollision(
+    bullet // Type: [Bullet][2]
+) {}
 ```
 
-Makes changes to a Bullet instance that has collided with this Obstacle
+Makes changes to a [Bullet][2] instance that has collided with this Obstacle
 
 This method makes changes directly to the Bullet instance
 
-> Throws a TypeError if ran from the Obstacle Base Class
+!!! note
+    Throws a TypeError if ran from the Obstacle Base Class
 
 #### Parameters
 | Parameter |                 Description                 |
 | --------- | ------------------------------------------- |
-|  bullet   | The bullet that collided with this Obstacle |
+|  bullet   | The Bullet that collided with this Obstacle |
 
 ### onPlayerCollision
-```
-onPlayerCollision(
-    Player player
-)
+```js
+function onPlayerCollision(
+    player // Type: [Player][1]
+) {}
 ```
 
-Makes changes to a Player instance that has collided with this Obstacle
+Makes changes to a [Player][1] instance that has collided with this Obstacle
 
 This method makes changes directly to the Player instance
 
-> Throws a TypeError if ran from the Obstacle Base Class
+!!! note
+    Throws a TypeError if ran from the Obstacle Base Class
 
 #### Parameters
 | Parameter |                 Description                 |
 | --------- | ------------------------------------------- |
-|  player   | The player that collided with this Obstacle |
+|  player   | The Player that collided with this Obstacle |
 
 ***
 
 ## Helper Methods
 
 ### validateCoordinates
-```
-validateCoordinates()
+```js
+function validateCoordinates() {}
 ```
 
 Ensures the (x1, y1) is closer to (0, 0) than (x2, y2).
@@ -176,13 +185,13 @@ Ensures the (x1, y1) is closer to (0, 0) than (x2, y2).
 If not, it will swap them
 
 ### pointDistance
-```
-pointDistance(
-    Number x1,
-    Number y1,
-    Number x2,
-    Number y2
-)
+```js
+function pointDistance(
+    x1, // Type: Number
+    y1, // Type: Number
+    x2, // Type: Number
+    y2  // Type: Number
+) {}
 ```
 
 Calculates the straight line distance between points (x1, y1) and (x2, y2)
@@ -212,3 +221,6 @@ The current Obstacle types and their colours are as follows:
 | `#00FF00` |   Pass Through  |       Stop      | Player Block |
 | `#FF8300` |     Bounce      |       Stop      |    All Block |
 | `#FF003F` |     Destroy     |      Damage     | Damage Block |
+
+[1]: "Player" /game/player
+[2]: "Bullet" /game/bullet

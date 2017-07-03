@@ -1,6 +1,6 @@
 # Game
-```
-class Arena
+```js
+class Arena {}
 ```
 
 Class that manages the running of the game on screen.
@@ -34,13 +34,13 @@ An array of Obstacle objects that are in the current map
 ***
 
 ## Constructor
-```
-constructor(
-    Canvas canvas
-)
+```js
+function constructor(
+    canvas // Type: Canvas
+) {}
 ```
 
-Given a canvas, sets up all necessary objects to start the game
+Given a canvas object, sets up all necessary objects to start the game
 
 ### Parameters
 | Parameters |                   Description                    |
@@ -52,33 +52,35 @@ Given a canvas, sets up all necessary objects to start the game
 ## Methods
 
 ### setupObstacles
-```
-setupObstacles()
+```js
+function setupObstacles() {}
 ```
 
 Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.
 
-> Will be updated later to load obstacles from a json file
+!!! note
+	Will be updated later to load obstacles from a json file
 
 ### setupPlayers
-```
-setupPlayers()
+```js
+function setupPlayers() {}
 ```
 
 Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.
 
-> Will be updated later to load Player spawn points from a json file
+!!! note
+	Will be updated later to load Player spawn points from a json file
 
 ### update
-```
-update()
+```js
+function update() {}
 ```
 
 The heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering
 
 ### draw
-```
-draw()
+```js
+function draw() {}
 ```
 
 Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen

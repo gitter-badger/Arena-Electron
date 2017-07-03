@@ -1,9 +1,11 @@
 site_name: "Arena-Electron"
 site_url: https://docs.exceptionalvoid.com/Arena-Electron
+repo_name: 'ExceptionalVoid/Arena-Electron'
+repo_url: 'https://github.com/ExceptionalVoid/Arena-Electron/'
 pages:
   - Home: "index.md"
   - Game:
-    - Index: "game/game.md"
+    - Arena: "game/arena.md"
     - Obstacle: "game/obstacle.md"
     - Player: "game/player.md"
   - About:
@@ -12,5 +14,17 @@ pages:
     - License: "about/license.md"
 theme: null
 markdown_extensions:
+  - admonition
   - codehilite
+  - toc(permalink=true)
+extra:
+  palette:
+    primary: 'blue grey'
+    accent: 'red'
+  font:
+    code: 'Ubuntu Mono'
+  social:
+    - type: 'twitter'
+      link: 'https://twitter.com/ExceptionalVoid'
+  coverage: '/cov/Arena-Electron'
 
