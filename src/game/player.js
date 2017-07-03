@@ -95,18 +95,7 @@ class Player {
         context.fillText(this.username, this.x, this.y - 13);
 
         // Update position based on movement
-        if (this.isMoving.up) {
-            this.y -= playerSpeed;
-        }
-        if (this.isMoving.down) {
-            this.y += playerSpeed;
-        }
-        if (this.isMoving.left) {
-            this.x -= playerSpeed;
-        }
-        if (this.isMoving.right) {
-            this.x += playerSpeed;
-        }
+        this.updatePostion();
     }
 
     move(e) {
@@ -148,6 +137,22 @@ class Player {
             case 39: // right arrow
                 this.isMoving.right = false;
                 break;
+        }
+    }
+
+    updatePosition() {
+        // Update position of the player between frames
+        if (this.isMoving.up) {
+            this.y -= playerSpeed;
+        }
+        if (this.isMoving.down) {
+            this.y += playerSpeed;
+        }
+        if (this.isMoving.left) {
+            this.x -= playerSpeed;
+        }
+        if (this.isMoving.right) {
+            this.x += playerSpeed;
         }
     }
 }
