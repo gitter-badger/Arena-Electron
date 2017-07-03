@@ -115,4 +115,214 @@ describe("Player", () => {
             }).should.throw(Error);
         });
     });
+
+    describe("movement", () => {
+        let playerSpeed = 4;
+        describe("can move", () => {
+            it("north with the w key", () => {
+                let o = {keyCode: 87};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 - playerSpeed);
+            });
+
+            it("north with the up arrow", () => {
+                let o = {keyCode: 38};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 - playerSpeed);
+            });
+
+            it("south with the s key", () => {
+                let o = {keyCode: 83};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 + playerSpeed);
+            });
+
+            it("south with the down arrow", () => {
+                let o = {keyCode: 40};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 + playerSpeed);
+            });
+
+            it("west with the a key", () => {
+                let o = {keyCode: 65};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+            });
+
+            it("west with the left arrow", () => {
+                let o = {keyCode: 37};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+            });
+
+            it("east with the d key", () => {
+                let o = {keyCode: 68};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+            });
+
+            it("east with the right arrow", () => {
+                let o = {keyCode: 39};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+            });
+        });
+
+        describe("will stop when moving", () => {
+            it("north with the w key", () => {
+                let o = {keyCode: 87};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 - playerSpeed);
+                player.updatePosition();
+                player.y.should.equal(200 - (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.y.should.equal(200 - (2 * playerSpeed));
+            });
+
+            it("north with the up arrow", () => {
+                let o = {keyCode: 38};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 - playerSpeed);
+                player.updatePosition();
+                player.y.should.equal(200 - (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.y.should.equal(200 - (2 * playerSpeed));
+            });
+
+            it("south with the s key", () => {
+                let o = {keyCode: 83};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 + playerSpeed);
+                player.updatePosition();
+                player.y.should.equal(200 + (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.y.should.equal(200 + (2 * playerSpeed));
+            });
+
+            it("south with the down arrow", () => {
+                let o = {keyCode: 40};
+                player.move(o);
+                player.updatePosition();
+                player.y.should.equal(200 + playerSpeed);
+                player.updatePosition();
+                player.y.should.equal(200 + (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.y.should.equal(200 + (2 * playerSpeed));
+            });
+
+            it("west with the a key", () => {
+                let o = {keyCode: 65};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+                player.updatePosition();
+                player.x.should.equal(200 - (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.x.should.equal(200 - (2 * playerSpeed));
+            });
+
+            it("west with the left arrow", () => {
+                let o = {keyCode: 37};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+                player.updatePosition();
+                player.x.should.equal(200 - (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.x.should.equal(200 - (2 * playerSpeed));
+            });
+
+            it("east with the d key", () => {
+                let o = {keyCode: 68};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+                player.updatePosition();
+                player.x.should.equal(200 + (2 * playerSpeed));
+                player.stop(o);
+                // Doesn't move any further
+                player.x.should.equal(200 + (2 * playerSpeed));
+            });
+
+            it("east with the d key", () => {
+                let o = {keyCode: 39};
+                player.move(o);
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+                player.updatePosition();
+                player.x.should.equal(200 + (2 * playerSpeed));
+                player.stop(o);
+                player.x.should.equal(200 + (2 * playerSpeed));
+            });
+        });
+
+        describe("can move diagonally", () => {
+            it("north-east", () => {
+                // -y + x - 87, 68
+                player.move({keyCode: 87});
+                player.move({keyCode: 68});
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+                player.y.should.equal(200 - playerSpeed);
+            });
+
+            it("north-west", () => {
+                // -y -x - 87, 65
+                player.move({keyCode: 87});
+                player.move({keyCode: 65});
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+                player.y.should.equal(200 - playerSpeed);
+            });
+
+            it("south-east", () => {
+                // +y +x - 83, 68
+                player.move({keyCode: 83});
+                player.move({keyCode: 68});
+                player.updatePosition();
+                player.x.should.equal(200 + playerSpeed);
+                player.y.should.equal(200 + playerSpeed);
+            });
+
+            it("south-west", () => {
+                // +y -x - 83, 65
+                player.move({keyCode: 83});
+                player.move({keyCode: 65});
+                player.updatePosition();
+                player.x.should.equal(200 - playerSpeed);
+                player.y.should.equal(200 + playerSpeed);
+            });
+        });
+
+        it("cannot move in both horizontal directions at once", () => {
+            player.move({keyCode: 65});
+            player.move({keyCode: 68});
+            player.updatePosition();
+            player.x.should.equal(200);
+        });
+
+        it("cannot move in both vertical directions at once", () => {
+            player.move({keyCode: 87});
+            player.move({keyCode: 83});
+            player.updatePosition();
+            player.y.should.equal(200);
+        });
+    });
 });
