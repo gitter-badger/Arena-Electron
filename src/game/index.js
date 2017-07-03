@@ -6,6 +6,7 @@ const MAX_PLAYERS = 4;
 
 class Arena {
     constructor(canvas){
+        this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.width = canvas.width;
         this.height = canvas.height;
@@ -22,9 +23,13 @@ class Arena {
         this.setupObstacles();
         // Set up Players
         this.setupPlayers();
+        // Set up Listeners
+        this.setupListeners();
 
         setInterval(() => { this.update(); }, UPDATE_TIME);
     }
+
+    // Setup methods
 
     setupObstacles() {
         // Change this to load data from the server first
@@ -45,6 +50,14 @@ class Arena {
         this.players.push(new Player((3 * this.width) / 4, this.height / 4, "MurkyFelix"));
         this.players.push(new Player(this.width / 4, (3 * this.height) / 4, "The Twig"));
     }
+
+    setupListeners() {
+        // Create a click listener on the canvas, and keydown/up listeners on window
+        window.addEventListener('keydown', (e) => this.players[this.local].move(e), false);
+        window.addEventListener('keyup', (e) => this.players[this.local].stop(e), false);
+    }
+
+    // Game Logic Methods
 
     update() {
         // Function run every tick
