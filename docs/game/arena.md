@@ -1,4 +1,4 @@
-# Game
+# Arena
 ```js
 class Arena {}
 ```

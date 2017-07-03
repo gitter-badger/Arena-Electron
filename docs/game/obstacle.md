@@ -222,5 +222,5 @@ The current Obstacle types and their colours are as follows:
 | `#FF8300` |     Bounce      |       Stop      |    All Block |
 | `#FF003F` |     Destroy     |      Damage     | Damage Block |
 
-[1]: "Player" /game/player
-[2]: "Bullet" /game/bullet
+[1]: /game/player "Player"
+[2]: /game/bullet "Bullet"
