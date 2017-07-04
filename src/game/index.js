@@ -52,6 +52,7 @@ class Arena {
 
     setupListeners() {
         // Create a click listener on the canvas, and keydown/up listeners on window
+        this.canvas.addEventListener('click', (e) => {this.players[this.local].shoot(e)}, false);
         window.addEventListener('keydown', (e) => this.players[this.local].move(e), false);
         window.addEventListener('keyup', (e) => this.players[this.local].stop(e), false);
     }
