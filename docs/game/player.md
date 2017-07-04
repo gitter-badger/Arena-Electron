@@ -5,6 +5,36 @@ class Player {}
 
 Class for the Player object, that represents someone's character in the game
 
+## Constants
+
+### playerSize
+```js
+const playerSize = 20;
+```
+
+The size of each Player object
+
+### playerSpeed
+```js
+const playerSpeed = 4;
+```
+
+The number of pixels a Player will move per frame
+
+### maxBullets
+```js
+const maxBullets = 3;
+```
+
+The maximum number of [Bullets][1] that a Player can have on screen at any one time
+
+### maxHealth
+```js
+const maxHealth = 100;
+```
+
+The maximum value for a Player's health
+
 ## Instance Variables
 
 ### (x, y)
@@ -38,7 +68,7 @@ The health that this Player instance currently has remaining
 
 ### currentBullets
 
-The number of bullets this Player instance can currently fire
+The number of [Bullets][1] this Player instance can currently fire
 
 ***
 
@@ -101,3 +131,5 @@ function updatePosition() {}
 ```
 
 Reads the booleans in `isMoving` and updates the Player instance's x and y values according to the button(s) being pressed
+
+[1]: /game/bullet "Bullet"
