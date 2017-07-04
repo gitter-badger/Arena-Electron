@@ -37,7 +37,7 @@ function constructor(
     y1,    // Type: Number
     x2,    // Type: Number
     y2,    // Type: Number
-    colour // Type: Number
+    colour // Type: String
 )
 ```
 
