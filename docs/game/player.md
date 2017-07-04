@@ -19,7 +19,7 @@ The size of each Player object
 const playerSpeed = 4;
 ```
 
-The number of pixels a Player will move per frame
+The number of pixels a Player will move per frame in each direction
 
 ### maxBullets
 ```js
@@ -62,6 +62,10 @@ These booleans will be used by the `updatePositon` method to determine the posit
 
 The username of the person controlling this Player instance
 
+### colour
+
+A hex string representing the colour of this Player instance
+
 ### currentHealth
 
 The health that this Player instance currently has remaining
@@ -75,9 +79,10 @@ The number of [Bullets][1] this Player instance can currently fire
 ## Constructor
 ```js
 function constructor(
-    x,       // Type: Number
-    y,       // Type: Number
-    username // Type: String
+    x,        // Type: Number
+    y,        // Type: Number
+    username, // Type: String
+    colour    // Type: String
 ) {}
 ```
 
@@ -89,6 +94,7 @@ Creates a new Player instance at the point (x, y) with the name username
 |     x     |  The x co-ordinate of the top left corner of the Player   |
 |     y     |  The y co-ordinate of the top left corner of the Player   |
 |  username |     The username of the person controlling the Player     |
+|   colour  |      The colour that this Player will be rendered in      |
 
 ***
 

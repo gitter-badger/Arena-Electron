@@ -4,7 +4,7 @@ const maxBullets = 3;
 const maxHealth = 100;
 
 class Player {
-    constructor(x, y, username) {
+    constructor(x, y, username, colour) {
         // (x, y) is top left corner of player
         this.x = x;
         this.y = y;
@@ -17,6 +17,7 @@ class Player {
         this.username = username;
         this.currentHealth = maxHealth;
         this.currentBullets = maxBullets;
+        this.colour = colour;
     }
 
     // Getters and Setters
@@ -82,12 +83,27 @@ class Player {
         this._bullets = bullets;
     }
 
+    get colour() {
+        return this._colour;
+    }
+
+    set colour(colour) {
+        if (typeof colour !== 'string') {
+            throw new Error('"colour" must be a string');
+        }
+        else if (!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colour)) {
+            throw new Error('"colour" must be a valid hex colour string');
+        }
+        this._colour = colour;
+    }
+
     // Logic
 
     // marking this function to not be covered as it's a rendering method
     // I know it's an ugly syntax but sure look
     draw /* istanbul ignore next */ (context) {
         let displayHealth = "" + parseInt(this.currentHealth);
+        context.fillStyle = this.colour;
         // Have to subtract half the size to draw the center of the player at the position (x, y)
         context.fillRect(this.x - (playerSize / 2), this.y - (playerSize / 2), playerSize, playerSize);
         context.fillText(displayHealth, this.x - 10, this.y + 20);

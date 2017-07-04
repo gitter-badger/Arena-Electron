@@ -10,7 +10,7 @@ describe("Player", () => {
     let player;
 
     beforeEach(() => {
-        player = new Player(200, 200, "Testy McTestface");
+        player = new Player(200, 200, "Testy McTestface", "#3E75E8");
     });
 
     describe("x", () => {
@@ -112,6 +112,24 @@ describe("Player", () => {
         it("only accepts numeric values", () => {
             (() => {
                 player.currentBullets = "Reloading";
+            }).should.throw(Error);
+        });
+    });
+
+    describe('colour', () => {
+        it('returns the value', () => {
+            player.colour.should.equal('#3E75E8');
+        });
+
+        it('must be a string', () => {
+            (() => {
+                player.colour = 500;
+            }).should.throw(Error);
+        });
+
+        it('must be a valid colour hex string', () => {
+            (() => {
+                player.colour = 'red';
             }).should.throw(Error);
         });
     });
