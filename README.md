@@ -1,7 +1,6 @@
 # Arena: Electron
 
 [![build status](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/build.svg)](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master)
-
 [![coverage report](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/coverage.svg)](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master)
 
 A port of [Arena: A Game of Tanks](https://github.com/ExceptionalVoid/Arena), written in ES6 and built using GitHub's [Electron](https://electron.atom.io/)
