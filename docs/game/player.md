@@ -142,4 +142,43 @@ function updatePosition() {}
 
 Reads the booleans in `isMoving` and updates the Player instance's x and y values according to the button(s) being pressed
 
+### shoot
+```js
+function shoot(
+	e // Type: MouseEvent
+)
+```
+
+#### Parameters
+| Parameter |              Description              |
+| --------- | ------------------------------------- |
+|     e     | The event object sent via mouse click |
+
+Makes this Player instance fire a [Bullet][1]
+
+### getAngle
+```js
+function getAngle(
+	sourceX,      // Type: Number
+	sourceY,      // Type: Number
+	destinationX, // Type: Number
+	destinationY  // Type: Number
+)
+```
+
+Calculates the angle in radians between the points (sourceX, sourceY) and (destinationX, destinationY)
+
+#### Parameters
+|    Parameter   |                 Description                |
+| -------------- | ------------------------------------------ |
+|    sourceX     |      The x co-ordinate of the source       |
+|    sourceY     |      The y co-ordinate of the source       |
+|  destinationX  |    The x co-ordinate of the destination    |
+|  destinationY  |    The y co-ordinate of the destination    |
+
+#### Returns
+| Parameter |                              Description                              |
+| --------- | --------------------------------------------------------------------- |
+|   angle   | The angle between (sourceX, sourceY) and (destinationX, destinationY) |
+
 [1]: /game/bullet "Bullet"
