@@ -15,7 +15,6 @@ class Arena {
         this.local = 0;
 
         // Set up context
-        this.context.fillStyle = 'white';
         this.context.textAlign = 'center';
         this.context.font = "10px Arial";
         this.context.lineWidth = 2;
@@ -45,14 +44,15 @@ class Arena {
 
     setupPlayers() {
         // Draw players
-        this.players.push(new Player(this.width / 4, this.height / 4, "crnbrdrck"));
-        this.players.push(new Player((3 * this.width) / 4, (3 * this.height) / 4, "Gelo147"));
-        this.players.push(new Player((3 * this.width) / 4, this.height / 4, "MurkyFelix"));
-        this.players.push(new Player(this.width / 4, (3 * this.height) / 4, "The Twig"));
+        this.players.push(new Player(this.width / 4, this.height / 4, "crnbrdrck", "#3E75E8"));
+        this.players.push(new Player((3 * this.width) / 4, (3 * this.height) / 4, "Gelo147", "#00FF80"));
+        this.players.push(new Player((3 * this.width) / 4, this.height / 4, "MurkyFelix", "#FCFF00"));
+        this.players.push(new Player(this.width / 4, (3 * this.height) / 4, "The Twig", "#FF4100"));
     }
 
     setupListeners() {
         // Create a click listener on the canvas, and keydown/up listeners on window
+        this.canvas.addEventListener('click', (e) => {this.players[this.local].shoot(e)}, false);
         window.addEventListener('keydown', (e) => this.players[this.local].move(e), false);
         window.addEventListener('keyup', (e) => this.players[this.local].stop(e), false);
     }

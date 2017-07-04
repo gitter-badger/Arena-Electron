@@ -10,7 +10,7 @@ describe("Player", () => {
     let player;
 
     beforeEach(() => {
-        player = new Player(200, 200, "Testy McTestface");
+        player = new Player(200, 200, "Testy McTestface", "#3E75E8");
     });
 
     describe("x", () => {
@@ -113,6 +113,76 @@ describe("Player", () => {
             (() => {
                 player.currentBullets = "Reloading";
             }).should.throw(Error);
+        });
+    });
+
+    describe('colour', () => {
+        it('returns the value', () => {
+            player.colour.should.equal('#3E75E8');
+        });
+
+        it('must be a string', () => {
+            (() => {
+                player.colour = 500;
+            }).should.throw(Error);
+        });
+
+        it('must be a valid colour hex string', () => {
+            (() => {
+                player.colour = 'red';
+            }).should.throw(Error);
+        });
+    });
+
+    describe('shooting', () => {
+        it('will shoot a bullet', () => {
+            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
+            player.bullets[0].should.not.equal(null);
+            player.currentBullets.should.equal(2);
+        });
+
+        it('will not shoot more than 3 bullets', () => {
+            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
+            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
+            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
+            player.shoot({pageX: 245, pageY: 155}).should.equal(false);
+            player.bullets.forEach((b) => {
+                b.should.not.equal(null);
+            });
+        });
+    });
+
+    describe('getAngle', () => {
+        let angle;
+
+        beforeEach(() => {
+            // Testing a 45 degree angle
+            angle = Math.PI / 4;
+        });
+
+        describe('returns the value', () => {
+            it('+x -y', () => {
+                // +x -y adds 0 to the angle
+                player.getAngle(0, 0, 45, -45).should.equal(angle);
+            });
+
+            it('+x +y', () => {
+                // +x +y adds 3PI / 2 to the angle
+                angle += (3 * Math.PI) / 2;
+                player.getAngle(0, 0, 45, 45).should.equal(angle);
+            });
+
+            it('-x -y', () => {
+                // -x -y adds PI / 2 to the angle
+                angle += Math.PI / 2;
+                player.getAngle(0, 0, -45, -45).should.equal(angle);
+            });
+
+            it('-x +y', () => {
+                // -x +y adds 3I to the angle
+                angle += Math.PI;
+                player.getAngle(0, 0, -45, 45).should.equal(angle);
+            });
         });
     });
 

@@ -215,12 +215,12 @@ Calculates the straight line distance between points (x1, y1) and (x2, y2)
 
 The current Obstacle types and their colours are as follows:
 
-|  Colour   | Bullet Reaction | Player Reaction |     Name     |
-| --------- | --------------- | --------------- | ------------ |
-| `#3ECAE8` |     Bounce      |   Pass Through  | Bullet Block |
-| `#00FF00` |   Pass Through  |       Stop      | Player Block |
-| `#FF8300` |     Bounce      |       Stop      |    All Block |
-| `#FF003F` |     Destroy     |      Damage     | Damage Block |
+| Colour  | Bullet Reaction | Player Reaction |     Name     |
+| ------- | --------------- | --------------- | ------------ |
+| #3ECAE8 |     Bounce      |   Pass Through  | Bullet Block |
+| #00FF00 |   Pass Through  |       Stop      | Player Block |
+| #FF8300 |     Bounce      |       Stop      |    All Block |
+| #FF003F |     Destroy     |      Damage     | Damage Block |
 
 [1]: /game/player "Player"
 [2]: /game/bullet "Bullet"
