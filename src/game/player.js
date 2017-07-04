@@ -191,14 +191,17 @@ class Player {
             let y = this.y;// + (playerSize / 2);
             let mouseX = e.pageX;
             let mouseY = e.pageY;
-            console.log(mouseX);
-            let angle = Player.getAngle(x, y, mouseX, mouseY);
+            let angle = this.getAngle(x, y, mouseX, mouseY);
             this.bullets[i] = new Bullet(x, y, angle, this, i);
             this.currentBullets -= 1;
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
-    static getAngle(sourceX, sourceY, destinationX, destinationY) {
+    getAngle(sourceX, sourceY, destinationX, destinationY) {
         let opposite;
         let adjacent;
         let angle;
