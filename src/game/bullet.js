@@ -99,7 +99,7 @@ class Bullet {
         if (typeof bulletNum !== 'number') {
             throw new Error('"bulletNum" must be a number');
         }
-        else if (bulletNum < 0 || bulletNum > 3) {
+        else if (bulletNum < 0 || bulletNum > this.owner.bullets.length) {
             throw new Error('"bulletNum" is not a valid index');
         }
         else if (typeof this._bulletNum !== 'undefined') {
