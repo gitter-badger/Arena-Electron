@@ -69,7 +69,7 @@ function setupObstacles() {}
 Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.
 
 !!! note
-	Will be updated later to load obstacles from a json file
+    Will be updated later to load obstacles from a json file
 
 ### setupPlayers
 ```js
@@ -79,7 +79,7 @@ function setupPlayers() {}
 Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.
 
 !!! note
-	Will be updated later to load Player spawn points from a json file
+    Will be updated later to load Player spawn points from a json file
 
 ### setupListeners
 ```js
@@ -89,8 +89,9 @@ function setupListeners() {}
 Creates any necessary event listeners and adds the required functionality
 
 !!! note "Current Listeners"
-	- `keydown`: For moving a player
-	- `keyup`: For stopping movement
+    - `keydown`: For moving a player
+    - `keyup`: For stopping movement
+    - `click`: For firing bullets
 
 ### update
 ```js
