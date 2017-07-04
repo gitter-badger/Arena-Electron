@@ -74,6 +74,10 @@ The health that this Player instance currently has remaining
 
 The number of [Bullets][1] this Player instance can currently fire
 
+### bullets
+
+An array of [Bullet][1] objects that the Player instance owns
+
 ***
 
 ## Constructor

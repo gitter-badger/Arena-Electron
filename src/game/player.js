@@ -1,3 +1,5 @@
+const Bullet = require('./bullet').Bullet;
+
 const playerSize = 20;
 const playerSpeed = 4;
 const maxBullets = 3;
@@ -5,7 +7,7 @@ const maxHealth = 100;
 
 class Player {
     constructor(x, y, username, colour) {
-        // (x, y) is top left corner of player
+        // (x, y) is center of the player
         this.x = x;
         this.y = y;
         this.isMoving = {
@@ -17,6 +19,7 @@ class Player {
         this.username = username;
         this.currentHealth = maxHealth;
         this.currentBullets = maxBullets;
+        this.bullets = [null, null, null];
         this.colour = colour;
     }
 
@@ -110,6 +113,11 @@ class Player {
         context.fillText(`${this.currentBullets}/${maxBullets}`, this.x + 10, this.y + 20);
         context.fillText(this.username, this.x, this.y - 13);
 
+        // Draw bullets
+        this.bullets.forEach((e) => {
+            if (e !== null) e.draw(context);
+        });
+
         // Update position based on movement
         this.updatePosition();
     }
@@ -170,6 +178,56 @@ class Player {
         if (this.isMoving.right) {
             this.x += playerSpeed;
         }
+    }
+
+    shoot(e) {
+        // Creates a new bullet instance
+        if (this.currentBullets > 0) {
+            let i = 0;
+            for (i; i < maxBullets; i ++) {
+                if (this.bullets[i] === null) break;
+            }
+            let x = this.x;// + (playerSize / 2);
+            let y = this.y;// + (playerSize / 2);
+            let mouseX = e.pageX;
+            let mouseY = e.pageY;
+            console.log(mouseX);
+            let angle = Player.getAngle(x, y, mouseX, mouseY);
+            this.bullets[i] = new Bullet(x, y, angle, this, i);
+            this.currentBullets -= 1;
+        }
+    }
+
+    static getAngle(sourceX, sourceY, destinationX, destinationY) {
+        let opposite;
+        let adjacent;
+        let angle;
+        if(destinationX > sourceX){
+            if(destinationY <= sourceY){
+                opposite = Math.abs(destinationY - sourceY);
+                adjacent = Math.abs(destinationX - sourceX);
+                angle = 0;
+            }
+            else{
+                opposite = Math.abs(destinationX - sourceX);
+                adjacent = Math.abs(destinationY - sourceY);
+                angle = (3 * Math.PI) / 2;
+            }
+        }
+        else{
+            if(destinationY <= sourceY){
+                opposite = Math.abs(sourceX - destinationX);
+                adjacent = Math.abs(sourceY - destinationY);
+                angle = Math.PI / 2;
+            }
+            else{
+                opposite = Math.abs(sourceY - destinationY);
+                adjacent = Math.abs(sourceX - destinationX);
+                angle = Math.PI;
+            }
+        }
+        angle += Math.atan2(opposite, adjacent);
+        return angle;
     }
 }
 
