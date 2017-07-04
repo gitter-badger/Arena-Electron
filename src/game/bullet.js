@@ -16,7 +16,6 @@ class Bullet {
 	}
 
 	draw /* istanbul ignore next */ (context) {
-		context.fillStyle = 'white';
 		context.fillRect(this.x, this.y, bulletSize, bulletSize);
 		this.updatePosition();
 	}
