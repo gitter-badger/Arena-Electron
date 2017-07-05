@@ -132,8 +132,22 @@ class Player {
             if (e !== null) e.draw(context);
         });
 
+        // Draw collision path
+        this.drawCollisionPath(context);
+
         // Update position based on movement
         this.updatePosition();
+    }
+
+    drawCollisionPath(context) {
+        if (this.xChange !== 0 || this.yChange !== 0) {
+            // Draw a white square indicating the collision detection area
+            console.log(this.isMoving);
+            console.log(`${this.xChange}, ${this.yChange}`);
+            let x = (this.x - (playerSize / 2)) + this.xChange, y = (this.y - (playerSize / 2)) + this.yChange;
+            context.fillStyle = 'white';
+            context.fillRect(x, y, playerSize, playerSize);
+        }
     }
 
     move(e) {
