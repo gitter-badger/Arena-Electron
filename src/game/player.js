@@ -100,6 +100,20 @@ class Player {
         this._colour = colour;
     }
 
+    get xChange() {
+        let xChange = 0;
+        if (this.isMoving.left) xChange -= playerSpeed;
+        if (this.isMoving.right) xChange += playerSpeed;
+        return xChange;
+    }
+
+    get yChange() {
+        let yChange = 0;
+        if (this.isMoving.up) yChange -= playerSpeed;
+        if (this.isMoving.down) yChange += playerSpeed;
+        return yChange;
+    }
+
     // Logic
 
     // marking this function to not be covered as it's a rendering method
@@ -166,18 +180,8 @@ class Player {
 
     updatePosition() {
         // Update position of the player between frames
-        if (this.isMoving.up) {
-            this.y -= playerSpeed;
-        }
-        if (this.isMoving.down) {
-            this.y += playerSpeed;
-        }
-        if (this.isMoving.left) {
-            this.x -= playerSpeed;
-        }
-        if (this.isMoving.right) {
-            this.x += playerSpeed;
-        }
+        this.x += this.xChange;
+        this.y += this.yChange;
     }
 
     shoot(e) {
