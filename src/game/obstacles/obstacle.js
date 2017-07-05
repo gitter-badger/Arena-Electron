@@ -114,6 +114,17 @@ class Obstacle {
             Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)
         );
     }
+
+    ccw(a, b, c) {
+        // Determines if points are listed in counterclockwise order
+        let ccw = ((c.y - a.y) * (b.x - a.x)) - ((b.y - a.y) * (c.x - a.x));
+        return ccw > 0.0 ? 1 : ccw < 0.0 ? -1 : 0;
+    }
+
+    intersection(a, b, c, d) {
+        // Determines if line segments a -> b and c -> d intersect eachother
+        return this.ccw(a, c, d) !== this.ccw(b, c, d) && this.ccw(a, b, c) !== this.ccw(a, b, d);
+    }
 }
 
 exports.Obstacle = Obstacle;

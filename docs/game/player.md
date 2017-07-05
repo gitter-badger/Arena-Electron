@@ -104,6 +104,17 @@ Creates a new Player instance at the point (x, y) with the name username
 
 ## Methods
 
+### xChange, yChange
+```js
+function get xChange() {}
+function get yChange() {}
+```
+
+Using the values contained in `isMoving`, calculates the number of pixels this Player instance will move this frame in the x and y directions respectively
+
+!!! note
+	As they have the `get` keyword, these methods are run as if they were instance variables
+
 ### draw
 ```js
 function draw(

@@ -129,6 +129,34 @@ Checks if a [Player][1] has collided with this Obstacle instance
 | --------- | ----------------------------------------------- |
 |  player   | The Player which is being checked for collision |
 
+!!! seealso "For the next two methods"
+    The following two methods are taken from [here](http://bryceboe.com/2006/10/23/line-segment-intersection-algorithm/)
+
+### ccw
+```js
+function ccw(
+    a, // Type: Object {x, y}
+    b, // Type: Object {x, y}
+    c  // Type: Object {x, y}
+)
+```
+
+Determines whether or not the 3 points a, b, and c are listed in counter-clockwise order
+
+a, b, and c are all objects representing (x, y) co-ordinates
+
+### intersect
+```js
+function intersect(
+    a, // Type: Object {x, y}
+    b, // Type: Object {x, y}
+    c, // Type: Object {x, y}
+    d  // Type: Object {x, y}
+)
+```
+
+Uses the `ccw` method to determine if the line segments `a -> b` and `c -> d` intersect
+
 ***
 
 ## Collision Handling
