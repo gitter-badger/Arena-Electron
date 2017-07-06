@@ -46,6 +46,10 @@ The co-ordinates of the top left corner of the Bullet.
 !!! tip
     When drawing, half the size is subtracted in both directions to draw the center of the Bullet at the point (x, y)
 
+### size
+
+An instance based storage of the bullet size. Purely for use in collision testing
+
 ### (xChange, yChange)
 
 The number of pixels this Bullet instance will move in the x and y directions respectively
@@ -113,5 +117,19 @@ Updates the Bullet's position by increasing or decreasing the x and y values by 
 | --------- | --------------------------------------------- |
 |  context  | The context from the canvas used for the game |
 
+### bounce
+```js
+function bounce() {}
+```
+
+Checks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.
+
+Reports back whether the Bullet has been destroyed
+
+#### Returns
+| Parameter |                          Description                          |
+| --------- | ------------------------------------------------------------- |
+| destroyed | True if the Bullet was destroyed by bouncing, false otherwise |
+
 [1]: /game/obstacle "Obstacle"
-[2]: /game/player "Player"
+[2]: /game/player "Player"[2]: /game/player "Player"
