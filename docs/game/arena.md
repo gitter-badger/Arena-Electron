@@ -106,3 +106,10 @@ function draw() {}
 ```
 
 Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen
+
+### checkCollisions
+```js
+function checkCollisions() {}
+```
+
+Checks for collisions between Player, Bullet and Obstacle instances
