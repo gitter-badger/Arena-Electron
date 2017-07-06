@@ -131,5 +131,24 @@ Reports back whether the Bullet has been destroyed
 | --------- | ------------------------------------------------------------- |
 | destroyed | True if the Bullet was destroyed by bouncing, false otherwise |
 
+### checkPlayerCollision
+```js
+function checkPlayerCollision(
+	players // Type: Player[]
+)
+```
+
+Checks if a Player has been hit by this Bullet instance and deals damage to that instance
+
+Ignores the Bullet's owner and Players who have died
+
+!!! warning "Todo"
+	Once the server is up and running, this method needs to be changed as a game client should only ever update its `local` player
+
+#### Parameters
+| Parameter |                    Description                    |
+| --------- | ------------------------------------------------- |
+|  players  | Array containing the Player instances in the game |
+
 [1]: /game/obstacle "Obstacle"
-[2]: /game/player "Player"[2]: /game/player "Player"
+[2]: /game/player "Player"

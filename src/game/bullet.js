@@ -130,6 +130,18 @@ class Bullet {
             return true;
         }
     }
+
+    checkPlayerCollision(players) {
+        players.forEach((p) => {
+            if(p !== this.owner && p.alive){
+                if((this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
+                else {
+                    p.takeDamage(maxDamage - ((maxBounces - this.bouncesRemaining) * 2));
+                    this.owner.bulletDestroyed(this.bulletNum);
+                }
+            }
+        })
+    }
 }
 
 exports.Bullet = Bullet;
