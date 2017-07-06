@@ -5,7 +5,9 @@ class BulletBlock extends Obstacle {
         super(x1, y1, x2, y2, '#3ECAE8');
     }
 
-    onBulletCollision(bullet) { }
+    onBulletCollision(bullet) {
+    	if (!bullet.bounce()) this.reflect(bullet);
+    }
 
     onPlayerCollision(player) { }
 }

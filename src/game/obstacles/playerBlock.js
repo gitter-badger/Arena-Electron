@@ -7,7 +7,13 @@ class PlayerBlock extends Obstacle {
 
     onBulletCollision(bullet) { }
 
-    onPlayerCollision(player) { }
+    onPlayerCollision(player) {
+    	player.x -= 2 * player.xChange;
+        player.y -= 2 * player.yChange;
+        [37, 38, 39, 40].forEach((key) => {
+            player.stop({keyCode: key});
+        });
+    }
 }
 
 exports.PlayerBlock = PlayerBlock;
