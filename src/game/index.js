@@ -29,6 +29,15 @@ class Arena {
     // Setup methods
 
     setupObstacles() {
+        // Place obstacles as the walls as well to avoid special handling
+        this.obstacles.push(new Obstacles.AllBlock(
+            -1, -1, this.width + 1, -1)); // Top
+        this.obstacles.push(new Obstacles.AllBlock(
+            -1, this.height + 1, this.width + 1, this.height + 1)); // Bottom
+        this.obstacles.push(new Obstacles.AllBlock(
+            -1, -1, -1, this.height + 1)); // Left
+        this.obstacles.push(new Obstacles.AllBlock(
+            this.width + 1, -1, this.width + 1, this.height + 1)); // Right
         // Change this to load data from the server first
         this.obstacles.push(new Obstacles.BulletBlock(
             this.width / 8, this.height / 2, this.width / 2, this.height / 2));
