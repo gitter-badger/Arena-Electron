@@ -1,7 +1,5 @@
 const Obstacles = require('./obstacles');
 const Player = require('./player').Player;
-const FPS = 60;
-const UPDATE_TIME = 1000 / FPS;
 const MAX_PLAYERS = 4;
 
 class Arena {
