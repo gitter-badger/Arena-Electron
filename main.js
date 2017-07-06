@@ -80,7 +80,7 @@ let createGame = (username, password) => {
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
-        height: 650,
+        height: 672,
         resizable: false,
         show: false
     });
