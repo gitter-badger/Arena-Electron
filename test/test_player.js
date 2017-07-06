@@ -398,4 +398,12 @@ describe("Player", () => {
             player.y.should.equal(200);
         });
     });
+
+    describe('player - player collisions', () => {
+        it('damage dealt on contact with another player', () => {
+            let player2 = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8");
+            player.checkPlayerCollision(player2);
+            player.currentHealth.should.not.equal(100);
+        });
+    });
 });
