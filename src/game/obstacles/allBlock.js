@@ -6,6 +6,7 @@ class AllBlock extends Obstacle {
     }
 
     onBulletCollision(bullet) {
+        /* istanbul ignore else */
         if (!bullet.bounce()) this.reflect(bullet);
     }
 
