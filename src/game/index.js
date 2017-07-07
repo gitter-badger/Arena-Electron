@@ -47,6 +47,15 @@ class Arena {
             this.width / 2, 0, this.width / 2, (3 * this.height) / 8));
         this.obstacles.push(new Obstacles.DamageBlock(
             this.width / 2, (5 * this.height) / 8, this.width / 2, this.height));
+        // Add some angled obstacles for completeness sake
+        this.obstacles.push(new Obstacles.BulletBlock(
+            this.width / 8, 0, 0, this.height / 8));
+        this.obstacles.push(new Obstacles.BulletBlock(
+            (7 * this.width) / 8, 0, this.width, this.height / 4));
+        this.obstacles.push(new Obstacles.BulletBlock(
+            0, (7 * this.height) / 8, this.width / 4, this.height));
+        this.obstacles.push(new Obstacles.BulletBlock(
+            (7 * this.width) / 8, this.height, this.width, (7 * this.height) / 8));
     }
 
     setupPlayers() {
