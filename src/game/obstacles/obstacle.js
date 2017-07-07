@@ -13,7 +13,7 @@ class Obstacle {
     get angle() {
         // Angle made with the x axis if one of the points was on the x axis
         // In radians
-        return Math.atan((Math.abs(this.x1 - this.x2) / Math.abs(this.y1 - this.y2)));
+        return Math.atan2(Math.abs(this.y2 - this.y1), Math.abs(this.x2 - this.x1));
     }
 
     get x1() {
