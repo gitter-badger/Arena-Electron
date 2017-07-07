@@ -167,15 +167,15 @@ class Obstacle {
         // If angle < PI / 4, check N/S, else E/W
         let normal;
         if(this.angle >= Math.PI / 4) {
-            // Check the N/S position of the object
-            // It is below the obstacle if the y of the object is less than y1 of the obstacle
-            if(o.y < this.x2) normal =  this.leftNormal;
+            // Check the E/W of the object
+            if(o.x < this.x2) normal =  this.leftNormal;
             // I think it's safe to leave this as an else
             else normal = this.rightNormal;
         }
         else {
-            // Check the E/W of the object
-            if(o.x < this.y1) normal = this.leftNormal;
+            // Check the N/S position of the object
+            // It is below the obstacle if the y of the object is less than y1 of the obstacle
+            if(o.y < this.y1) normal = this.leftNormal;
             else normal = this.rightNormal;
         }
         return normal;
