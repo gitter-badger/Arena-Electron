@@ -11,7 +11,7 @@ describe("Player", () => {
     let player;
 
     beforeEach(() => {
-        player = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8");
+        player = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8", true);
     });
 
     describe("x", () => {

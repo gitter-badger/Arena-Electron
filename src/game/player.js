@@ -256,7 +256,7 @@ class Player {
     checkPlayerCollision(p) {
         // The local check is done in index.js
         /* istanbul ignore if */
-        if(!p.isAlive || (this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
+        if(!p.alive || (this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
         else {
             this.takeDamage(2/60);
         }
