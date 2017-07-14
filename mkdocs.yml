@@ -6,6 +6,7 @@ pages:
   - Home: "index.md"
   - Game:
     - Arena: "game/arena.md"
+    - Bullet: "game/bullet.md"
     - Obstacle: "game/obstacle.md"
     - Player: "game/player.md"
   - About:
