@@ -19,7 +19,8 @@ function createWindow () {
         width: 800,
         height: 600,
         resizable: false,
-        show: false
+        show: false,
+        title: "Arena Electron"
     });
 
     // and load the index.html of the app.
@@ -80,9 +81,11 @@ let createGame = (username, password) => {
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
-        height: 672,
+        height: 650,
         resizable: false,
-        show: false
+        show: false,
+        useContentSize: true,
+        title: "Arena Electron"
     });
 
     // socket = new WebSocket(`ws://${serverIp}:44444`);
