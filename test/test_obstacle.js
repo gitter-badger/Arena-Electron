@@ -87,7 +87,7 @@ describe('Obstacle', () => {
                 // As it's a straight line horizontally, it should be 0
                 obstacle.angle.should.equal(0);
             })
-        })
+        });
 
         describe('point distance', () => {
             it('calculates distance correctly', () => {
@@ -187,7 +187,8 @@ describe('Obstacle', () => {
                     player = new Player(210, 210, 'Test', '#123456');
                     o = new Bullet(210, 210, Math.PI, player, 0);
                     obstacle = new Obstacle.BulletBlock(199, 0, 199, 400);
-                })
+                });
+
                 it('calls the correct method on collision', () => {
                     obstacle.checkBulletCollision(o);
                 });
@@ -254,6 +255,10 @@ describe('Obstacle', () => {
             let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
             obstacle.onBulletCollision(bullet);
             bullet.bouncesRemaining.should.be.below(3);
+            // Test for bullets moving down
+            bullet = new Bullet(20, 40, (3 * Math.PI) / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
         });
 
         it('does nothing to players', () => {
@@ -301,8 +306,12 @@ describe('Obstacle', () => {
             player.y.should.equal(player.y - (2 * player.yChange));
         });
 
-        it('does nothing to bullets', () => {
+        it('reflects bullets', () => {
             let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
+            // Test for bullets moving down
+            bullet = new Bullet(20, 40, (3 * Math.PI) / 2, player, 0);
             obstacle.onBulletCollision(bullet);
             bullet.bouncesRemaining.should.be.below(3);
         });
@@ -322,7 +331,7 @@ describe('Obstacle', () => {
             player.currentHealth.should.be.below(100);
         });
 
-        it('will not damage local player', () => {
+        it('will only damage local player', () => {
             player.local = false;
             obstacle.onPlayerCollision(player);
             player.currentHealth.should.equal(100);
