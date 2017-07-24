@@ -9,6 +9,7 @@ class Bullet {
         // x and y will come in as the center point
         this.x = x - (bulletSize / 2);
         this.y = y - (bulletSize / 2);
+        this.size = bulletSize;
         this.xChange = bulletSpeed * Math.cos(angle);
         this.yChange = -bulletSpeed * Math.sin(angle);
         this.bouncesRemaining = maxBounces;
@@ -116,6 +117,30 @@ class Bullet {
     updatePosition() {
         this.x += this.xChange;
         this.y += this.yChange;
+    }
+
+    bounce() {
+        // Make the bullet bounce
+        if(this.bouncesRemaining > 0) {
+            this.bouncesRemaining -= 1;
+            return false;
+        }
+        else {
+            this.owner.bulletDestroyed(this.bulletNum);
+            return true;
+        }
+    }
+
+    checkPlayerCollision(players) {
+        players.forEach((p) => {
+            if(p !== this.owner && p.alive){
+                if((this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
+                else {
+                    p.takeDamage(maxDamage - ((maxBounces - this.bouncesRemaining) * 2));
+                    this.owner.bulletDestroyed(this.bulletNum);
+                }
+            }
+        })
     }
 }
 

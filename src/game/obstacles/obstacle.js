@@ -6,12 +6,14 @@ class Obstacle {
         this.y2 = y2;
         this.colour = colour;
         this.validateCoordinates();
+        this.leftNormal = this.normalise({x: this.y2 - this.y1, y: -(this.x2 - this.x1)});
+        this.rightNormal = this.normalise({x: -(this.y2 - this.y1), y: this.x2 - this.x1});
     }
 
     get angle() {
         // Angle made with the x axis if one of the points was on the x axis
         // In radians
-        return Math.atan((Math.abs(this.x1 - this.x2) / Math.abs(this.y1 - this.y2)));
+        return Math.atan2(Math.abs(this.y2 - this.y1), Math.abs(this.x2 - this.x1));
     }
 
     get x1() {
@@ -81,16 +83,41 @@ class Obstacle {
     }
 
     // The maths will be the same no matter what type of obstacle
-    checkBulletCollision(bullet) { }
+    checkCollision(o) {
+        // `o` can be Players or Bullets, it doesn't matter
+        // First check that they're not already intersecting
+        // Use the intersection function with both of the diagonals inside the object
+        // Top left - Bottom right diagonal
+        let a = {x: o.x, y: o.y},
+            b = {x: o.x + o.size, y: o.y + o.size},
+            c = {x: this.x1, y: this.y1},
+            d = {x: this.x2, y: this.y2};
+        if (this.intersection(a, b, c, d)) return true;
+        // Top Right - Bottom left diagonal
+        a = {x: o.x + o.size, y: o.y};
+        b = {x: o.x, y: o.y + o.size};
+        if (this.intersection(a, b, c, d)) return true;
+        // Now check the next frame
+        a = {x: o.x, y: o.y};
+        b = {x: o.x + o.xChange, y: o.y + o.yChange};
+        return this.intersection(a, b, c, d);
+    }
 
-    checkPlayerCollision(player) { }
+    checkBulletCollision(bullet) {
+        if(this.checkCollision(bullet)) this.onBulletCollision(bullet);
+    }
+
+    checkPlayerCollision(player) {
+        if(this.checkCollision(player)) this.onPlayerCollision(player);
+    }
 
     // These methods will be used by the subclass to handle what happens if a bullet or player collides
-    onBulletCollision(bullet) {
+    // Since the tests cannot access this class, we can just ignore these methods
+    onBulletCollision /* istanbul ignore next */ (bullet) {
         throw TypeError("Abstract class cannot collide");
     }
 
-    onPlayerCollision(player) {
+    onPlayerCollision /* istanbul ignore next */ (player) {
         throw TypeError("Abstract class cannot collide");
     }
 
@@ -113,6 +140,56 @@ class Obstacle {
         return Math.sqrt(
             Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)
         );
+    }
+
+    ccw(a, b, c) {
+        // Determines if points are listed in counterclockwise order
+        let ccw = ((c.y - a.y) * (b.x - a.x)) - ((b.y - a.y) * (c.x - a.x));
+        return ccw > 0.0 ? 1 : ccw < 0.0 ? -1 : 0;
+    }
+
+    intersection(a, b, c, d) {
+        // Determines if line segments a -> b and c -> d intersect eachother
+        return this.ccw(a, c, d) !== this.ccw(b, c, d) && this.ccw(a, b, c) !== this.ccw(a, b, d);
+    }
+
+    normalise(v) {
+        // Normalizes the vector v to a unit vector
+        let len = Math.sqrt(
+            Math.pow(v.x, 2) + Math.pow(v.y, 2)
+        );
+        return {x: v.x / len, y: v.y / len};
+    }
+
+    reflectionNormal(o) {
+        // Based on the position of the Player | Bullet o and the angle of this obstacle,
+        // determine which normal to use for the reflection
+        // If angle < PI / 4, check N/S, else E/W
+        let normal;
+        if(this.angle >= Math.PI / 4) {
+            // Check the E/W of the object
+            if(o.x < this.x2) normal =  this.leftNormal;
+            // I think it's safe to leave this as an else
+            else normal = this.rightNormal;
+        }
+        else {
+            // Check the N/S position of the object
+            // It is below the obstacle if the y of the object is less than y1 of the obstacle
+            if(o.y < this.y1) normal = this.leftNormal;
+            else normal = this.rightNormal;
+        }
+        return normal;
+    }
+
+    reflect(bullet) {
+        // Reflect the Bullet object off this obstacle
+        let normal = this.reflectionNormal(bullet);
+        let incidence = {x: bullet.xChange, y: bullet.yChange};
+        // perp = 2.0 * dot(incidence, normal)
+        let perp = 2 * ((incidence.x * normal.x) + (incidence.y * normal.y));
+        let reflection = {x: normal.x * perp, y: normal.y * perp};
+        bullet.xChange = (incidence.x - reflection.x);
+        bullet.yChange = (incidence.y - reflection.y);
     }
 }
 

@@ -6,10 +6,12 @@ const maxBullets = 3;
 const maxHealth = 100;
 
 class Player {
-    constructor(x, y, username, colour) {
+    constructor(x, y, username, colour, local=false) {
         // (x, y) is center of the player
-        this.x = x;
-        this.y = y;
+        this.x = x - (playerSize / 2);
+        this.y = y - (playerSize / 2);
+        this.size = playerSize;
+        this.local = local;
         this.isMoving = {
             up: false,
             down: false,
@@ -100,6 +102,24 @@ class Player {
         this._colour = colour;
     }
 
+    get xChange() {
+        let xChange = 0;
+        if (this.isMoving.left) xChange -= playerSpeed;
+        if (this.isMoving.right) xChange += playerSpeed;
+        return xChange;
+    }
+
+    get yChange() {
+        let yChange = 0;
+        if (this.isMoving.up) yChange -= playerSpeed;
+        if (this.isMoving.down) yChange += playerSpeed;
+        return yChange;
+    }
+
+    get alive() {
+        return this.currentHealth > 0;
+    }
+
     // Logic
 
     // marking this function to not be covered as it's a rendering method
@@ -107,11 +127,10 @@ class Player {
     draw /* istanbul ignore next */ (context) {
         let displayHealth = "" + parseInt(this.currentHealth);
         context.fillStyle = this.colour;
-        // Have to subtract half the size to draw the center of the player at the position (x, y)
-        context.fillRect(this.x - (playerSize / 2), this.y - (playerSize / 2), playerSize, playerSize);
-        context.fillText(displayHealth, this.x - 10, this.y + 20);
-        context.fillText(`${this.currentBullets}/${maxBullets}`, this.x + 10, this.y + 20);
-        context.fillText(this.username, this.x, this.y - 13);
+        context.fillRect(this.x, this.y, playerSize, playerSize);
+        context.fillText(displayHealth, this.x - 3, this.y + playerSize + 10);
+        context.fillText(`${this.currentBullets}/${maxBullets}`, this.x + playerSize + 3, this.y + playerSize + 10);
+        context.fillText(this.username, this.x + (playerSize / 2), this.y - 3);
 
         // Draw bullets
         this.bullets.forEach((e) => {
@@ -166,31 +185,21 @@ class Player {
 
     updatePosition() {
         // Update position of the player between frames
-        if (this.isMoving.up) {
-            this.y -= playerSpeed;
-        }
-        if (this.isMoving.down) {
-            this.y += playerSpeed;
-        }
-        if (this.isMoving.left) {
-            this.x -= playerSpeed;
-        }
-        if (this.isMoving.right) {
-            this.x += playerSpeed;
-        }
+        this.x += this.xChange;
+        this.y += this.yChange;
     }
 
-    shoot(e) {
+    shoot(e, canvas) {
         // Creates a new bullet instance
         if (this.currentBullets > 0) {
             let i = 0;
             for (i; i < maxBullets; i ++) {
                 if (this.bullets[i] === null) break;
             }
-            let x = this.x;// + (playerSize / 2);
-            let y = this.y;// + (playerSize / 2);
-            let mouseX = e.pageX;
-            let mouseY = e.pageY;
+            let x = this.x + (playerSize / 2);
+            let y = this.y + (playerSize / 2);
+            let mouseX = e.x - canvas.offsetLeft;
+            let mouseY = e.y - canvas.offsetTop;
             let angle = this.getAngle(x, y, mouseX, mouseY);
             this.bullets[i] = new Bullet(x, y, angle, this, i);
             this.currentBullets -= 1;
@@ -199,6 +208,12 @@ class Player {
         else {
             return false;
         }
+    }
+
+    bulletDestroyed(num) {
+        this.bullets[num] = null;
+        // There seems to be a weird corner case where this is called twice by a single Bullet
+        if (this.currentBullets < maxBullets) this.currentBullets += 1;
     }
 
     getAngle(sourceX, sourceY, destinationX, destinationY) {
@@ -231,6 +246,20 @@ class Player {
         }
         angle += Math.atan2(opposite, adjacent);
         return angle;
+    }
+
+    takeDamage(dmg) {
+        // This must be replaced when the server is working as the client should only update its own Player
+        this.currentHealth -= dmg;
+    }
+
+    checkPlayerCollision(p) {
+        // The local check is done in index.js
+        /* istanbul ignore if */
+        if(!p.alive || (this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
+        else {
+            this.takeDamage(2/60);
+        }
     }
 }
 

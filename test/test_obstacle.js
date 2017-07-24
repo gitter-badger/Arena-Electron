@@ -1,16 +1,18 @@
 let chai = require('chai');
 let path = require('path');
 
-chai.should();
+let should = chai.should();
 
 let Obstacle = require(path.join(__dirname, '..', 'src', 'game', 'obstacles'));
+let Bullet = require(path.join(__dirname, '..', 'src', 'game', 'bullet')).Bullet;
+let Player = require(path.join(__dirname, '..', 'src', 'game', 'player')).Player;
 
 describe('Obstacle', () => {
     let obstacle;
 
     describe('Base Class Testing', () => {
         beforeEach(() => {
-            // Straight vertical line
+            // Straight horizontal line
             obstacle = new Obstacle.BulletBlock(0, 50, 50, 50);
         });
 
@@ -82,10 +84,10 @@ describe('Obstacle', () => {
 
         describe('angle', () => {
             it('returns the value', () => {
-                // As it's a straight line up, it should be PI / 2
-                obstacle.angle.should.equal(Math.PI / 2);
+                // As it's a straight line horizontally, it should be 0
+                obstacle.angle.should.equal(0);
             })
-        })
+        });
 
         describe('point distance', () => {
             it('calculates distance correctly', () => {
@@ -119,6 +121,226 @@ describe('Obstacle', () => {
             });
         });
 
-        // TODO - Collision testing when the Bullet class is implemented
+        describe('collision', () => {
+            it('correctly determines that three points are listed in counter clockwise order', () => {
+                let a = {x: 0, y: 0}, b = {x: 5, y: 0}, c = {x: 0, y: 5};
+                obstacle.ccw(a, b, c).should.not.equal(0); // > 0
+                b.x = 0;
+                b.y = 5;
+                c.x = 5;
+                c.y = 0;
+                obstacle.ccw(a, b, c).should.not.equal(0); // < 0
+                b.y = 0;
+                c.x = 0;
+                obstacle.ccw(a, b, c).should.equal(0); // < 0
+            });
+
+            it('correctly checks when lines are intersecting', () => {
+                let a = {x: 0, y: 0}, b = {x: 20, y: 20}, c = {x: 20, y: 0}, d = {x: 0, y: 20};
+                obstacle.intersection(a, b, c, d).should.equal(true);
+            });
+
+            describe('correctly checks for collisions with an object', () => {
+                describe('already collidiing', () => {
+                    it('top left - bottom right diagonal', () => {
+                        let o = new Player(200, 200, 'Test', '#123456');
+                        let obstacle = new Obstacle.BulletBlock(210, 190, 190, 210);
+                        obstacle.checkCollision(o).should.equal(true);
+                    });
+
+                    it('top right - bottom left diagonal', () => {
+                        let o = new Player(200, 200, 'Test', '#123456');
+                        let obstacle = new Obstacle.BulletBlock(210, 190, 230, 210);
+                        obstacle.checkCollision(o).should.equal(true);
+                    });
+                });
+
+                it('will collide in its next frame', () => {
+                    let o = new Player(210, 210, 'Test', '#123456');
+                    let obstacle = new Obstacle.BulletBlock(199, 0, 199, 400);
+                    o.move({keyCode: 37});
+                    obstacle.checkCollision(o).should.equal(true);
+                });
+            });
+
+            describe('correctly handles player collisions', () => {
+                let o, obstacle;
+
+                beforeEach(() => {
+                    o = new Player(210, 210, 'Test', '#123456');
+                    obstacle = new Obstacle.BulletBlock(199, 0, 199, 400);
+                })
+                it('calls the correct method on collision', () => {
+                    o.move({keyCode: 37});
+                    obstacle.checkPlayerCollision(o);
+                });
+
+                it('does nothing if no collision occurs', () => {
+                    obstacle.checkPlayerCollision(o);
+                });
+            });
+
+            describe('correctly handles bullet collisions', () => {
+                let o, player, obstacle;
+
+                beforeEach(() => {
+                    player = new Player(210, 210, 'Test', '#123456');
+                    o = new Bullet(210, 210, Math.PI, player, 0);
+                    obstacle = new Obstacle.BulletBlock(199, 0, 199, 400);
+                });
+
+                it('calls the correct method on collision', () => {
+                    obstacle.checkBulletCollision(o);
+                });
+
+                it('does nothing if no collision occurs', () => {
+                    o.xChange *= -1;
+                    obstacle.checkBulletCollision(o);
+                });
+            });
+        });
+
+        describe('reflection normal', () => {
+            let obstacle, player;
+
+            describe('> 45 degree angle should check E/W positioning', () => {
+                beforeEach(() => {
+                    player = new Player(200, 200, 'Test', '#123456');
+                    obstacle = new Obstacle.BulletBlock(300, 0, 200, 400);
+                });
+
+                it('bullet east of obstacle', () => {
+                    obstacle.angle.should.be.above(Math.PI / 4);
+                    let bullet = new Bullet(100, 100, 0, player, 0);
+                    obstacle.reflectionNormal(bullet).toString().should.equal(obstacle.rightNormal.toString());
+                });
+
+                it('bullet west of the obstacle', () => {
+                    obstacle.angle.should.be.above(Math.PI / 4);
+                    let bullet = new Bullet(400, 100, Math.PI, player, 0);
+                    obstacle.reflectionNormal(bullet).toString().should.equal(obstacle.leftNormal.toString());
+                });
+            });
+
+            describe('< 45 degree angle should check N/S positioning', () => {
+                beforeEach(() => {
+                    player = new Player(200, 200, 'Test', '#123456');
+                    obstacle = new Obstacle.BulletBlock(0, 200, 400, 200);
+                });
+
+                it('bullet south of obstacle', () => {
+                    obstacle.angle.should.be.below(Math.PI / 4);
+                    let bullet = new Bullet(100, 300, 0, player, 0);
+                    obstacle.reflectionNormal(bullet).toString().should.equal({x: 0, y: -1}.toString());
+                });
+
+                it('bullet north of the obstacle', () => {
+                    obstacle.angle.should.be.below(Math.PI / 4);
+                    let bullet = new Bullet(100, 100, Math.PI, player, 0);
+                    obstacle.reflectionNormal(bullet).toString().should.equal({x: -0, y: 1}.toString());
+                });
+            });
+        });
     });
-})
+
+    describe('Bullet Block', () => {
+        let obstacle, player;
+
+        beforeEach(() => {
+            obstacle = new Obstacle.BulletBlock(0, 50, 50, 50);
+            player = new Player(200, 200, 'Test', '#123456');
+        });
+
+        it('handles bullet collisions', () => {
+            let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
+            // Test for bullets moving down
+            bullet = new Bullet(20, 40, (3 * Math.PI) / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
+        });
+
+        it('does nothing to players', () => {
+            player.x = 20;
+            player.y = 62;
+            player.move({keyCode: 38});
+            obstacle.onPlayerCollision(player);
+            // Never calls updatePosition so the instance has not moved
+            player.y.should.equal(62);
+        });
+    });
+
+    describe('Player Block', () => {
+        let obstacle, player;
+
+        beforeEach(() => {
+            obstacle = new Obstacle.PlayerBlock(0, 50, 50, 50);
+            player = new Player(20, 62, 'Test', '#123456');
+            player.move({keyCode: 38});
+        });
+
+        it('handles player collisions', () => {
+            obstacle.onPlayerCollision(player);
+            player.y.should.equal(player.y - (2 * player.yChange));
+        });
+
+        it('does nothing to bullets', () => {
+            let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.equal(3);
+        });
+    });
+
+    describe('All Block', () => {
+        let obstacle, player;
+
+        beforeEach(() => {
+            obstacle = new Obstacle.AllBlock(0, 50, 50, 50);
+            player = new Player(20, 62, 'Test', '#123456');
+            player.move({keyCode: 38});
+        });
+
+        it('handles player collisions', () => {
+            obstacle.onPlayerCollision(player);
+            player.y.should.equal(player.y - (2 * player.yChange));
+        });
+
+        it('reflects bullets', () => {
+            let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
+            // Test for bullets moving down
+            bullet = new Bullet(20, 40, (3 * Math.PI) / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            bullet.bouncesRemaining.should.be.below(3);
+        });
+    });
+
+    describe('Damage Block', () => {
+        let obstacle, player;
+
+        beforeEach(() => {
+            obstacle = new Obstacle.DamageBlock(0, 50, 50, 50);
+            player = new Player(20, 62, 'Test', '#123456', true);
+            player.move({keyCode: 38});
+        });
+
+        it('damages player on collisions', () => {
+            obstacle.onPlayerCollision(player);
+            player.currentHealth.should.be.below(100);
+        });
+
+        it('will only damage local player', () => {
+            player.local = false;
+            obstacle.onPlayerCollision(player);
+            player.currentHealth.should.equal(100);
+        });
+
+        it('destroys bullets', () => {
+            let bullet = new Bullet(20, 60, Math.PI / 2, player, 0);
+            obstacle.onBulletCollision(bullet);
+            should.not.exist(player.bullets[0]);
+        });
+    });
+});

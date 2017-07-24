@@ -2,7 +2,7 @@ let chai = require('chai');
 let path = require('path');
 
 // We will be using `should` notation - options: should, expect, assert
-chai.should();
+const should = chai.should();
 
 let Bullet = require(path.join(__dirname, '..', 'src', 'game', 'bullet')).Bullet;
 let Player = require(path.join(__dirname, '..', 'src', 'game', 'player')).Player;
@@ -18,6 +18,7 @@ describe('Bullet', () => {
     beforeEach(() => {
         bullet = new Bullet(200, 200, angle, player, 0);
         player.bullets[0] = bullet;
+        player.currentBullets = 2;
     });
 
     describe('x', () => {
@@ -176,5 +177,74 @@ describe('Bullet', () => {
             bullet.x.should.equal(oldX + bullet.xChange);
             bullet.y.should.equal(oldY + bullet.yChange);
         });
+    });
+
+    describe('bouncing', () => {
+        it('will bounce while it has bounces remaining', () => {
+            bullet.bouncesRemaining.should.equal(3);
+            bullet.bounce().should.equal(false);
+            bullet.bouncesRemaining.should.equal(2);
+            bullet.bounce().should.equal(false);
+            bullet.bouncesRemaining.should.equal(1);
+            bullet.bounce().should.equal(false);
+            bullet.bouncesRemaining.should.equal(0);
+            bullet.bounce().should.equal(true);
+        });
+    });
+
+    describe('damaging players', () => {
+        let players;
+
+        beforeEach(() => {
+            players = [player, new Player(400, 400, "Testy McTestface", "#3E75E8")];
+        });
+
+        it('will not damage its owner', () => {
+            bullet.x = player.x;
+            bullet.y = player.y;
+            bullet.checkPlayerCollision(players);
+            player.currentHealth.should.equal(100);
+        });
+
+        it('will damage other players', () => {
+            bullet.x = players[1].x;
+            bullet.y = players[1].y;
+            bullet.checkPlayerCollision(players);
+            players[1].currentHealth.should.not.equal(100);
+            should.not.exist(player.bullets[0]);
+        });
+
+        describe('deals less damage with each bounce', () => {
+            beforeEach(() => {
+                bullet.x = players[1].x;
+                bullet.y = players[1].y;
+            });
+
+            it('10 damage after 0 bounces', () => {
+                bullet.checkPlayerCollision(players);
+                players[1].currentHealth.should.equal(90);
+            });
+
+            it('8 damage after 1 bounce', () => {
+                bullet.bounce();
+                bullet.checkPlayerCollision(players);
+                players[1].currentHealth.should.equal(92);
+            });
+
+            it('6 damage after 2 bounces', () => {
+                bullet.bounce();
+                bullet.bounce();
+                bullet.checkPlayerCollision(players);
+                players[1].currentHealth.should.equal(94);
+            });
+
+            it('4 damage after 3 bounces', () => {
+                bullet.bounce();
+                bullet.bounce();
+                bullet.bounce();
+                bullet.checkPlayerCollision(players);
+                players[1].currentHealth.should.equal(96);
+            });
+        })
     });
 });

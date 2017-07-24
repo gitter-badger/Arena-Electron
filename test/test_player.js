@@ -5,12 +5,13 @@ let path = require('path');
 chai.should();
 
 let Player = require(path.join(__dirname, '..', 'src', 'game', 'player')).Player;
+let playerSize = 20;
 
 describe("Player", () => {
     let player;
 
     beforeEach(() => {
-        player = new Player(200, 200, "Testy McTestface", "#3E75E8");
+        player = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8", true);
     });
 
     describe("x", () => {
@@ -135,17 +136,19 @@ describe("Player", () => {
     });
 
     describe('shooting', () => {
+        let mouse = {pageX: 245, pageY: 155};
+        let canvas = {offsetLeft: 0, offsetTop: 0};
         it('will shoot a bullet', () => {
-            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
+            player.shoot(mouse, canvas).should.equal(true);
             player.bullets[0].should.not.equal(null);
             player.currentBullets.should.equal(2);
         });
 
         it('will not shoot more than 3 bullets', () => {
-            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
-            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
-            player.shoot({pageX: 245, pageY: 155}).should.equal(true);
-            player.shoot({pageX: 245, pageY: 155}).should.equal(false);
+            player.shoot(mouse, canvas).should.equal(true);
+            player.shoot(mouse, canvas).should.equal(true);
+            player.shoot(mouse, canvas).should.equal(true);
+            player.shoot(mouse, canvas).should.equal(false);
             player.bullets.forEach((b) => {
                 b.should.not.equal(null);
             });
@@ -393,6 +396,14 @@ describe("Player", () => {
             player.move({keyCode: 83});
             player.updatePosition();
             player.y.should.equal(200);
+        });
+    });
+
+    describe('player - player collisions', () => {
+        it('damage dealt on contact with another player', () => {
+            let player2 = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8");
+            player.checkPlayerCollision(player2);
+            player.currentHealth.should.not.equal(100);
         });
     });
 });

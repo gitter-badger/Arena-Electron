@@ -28,6 +28,12 @@ This value will be set by the subclasses
 !!! seealso
     [Obstacle Types](#obstacle-types)
 
+### leftNormal, rightNormal
+
+The unit vectors of the perpendicular lines to this Obstacle when this Obstacle is treated like a vector.
+
+These values are used to calculate the reflection angle for a Bullet reflection
+
 ***
 
 ## Constructor
@@ -95,6 +101,25 @@ Handles the drawing of this Obstacle instance onto the canvas using its context
 
 ## Collision Checking
 
+### checkCollision
+```js
+function checkCollision(
+    o // Type: Player || Bullet
+)
+```
+
+Determines whether or not the object o has will collide with this Obstacle during its next frame
+
+#### Parameters
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+|     o     |  The Player or Bullet instance to be checked  |
+
+#### Returns
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+| collision |   True if the instance collided, else false   |
+
 ### checkBulletCollision
 ```js
 function checkBulletCollision(
@@ -128,6 +153,99 @@ Checks if a [Player][1] has collided with this Obstacle instance
 | Parameter |                   Description                   |
 | --------- | ----------------------------------------------- |
 |  player   | The Player which is being checked for collision |
+
+### ccw
+```js
+function ccw(
+    a, // Type: Object {x, y}
+    b, // Type: Object {x, y}
+    c  // Type: Object {x, y}
+)
+```
+
+!!! seealso ""
+    This is taken from [here](http://bryceboe.com/2006/10/23/line-segment-intersection-algorithm/)
+
+Determines whether or not the 3 points a, b, and c are listed in counter-clockwise order
+
+a, b, and c are all objects representing (x, y) co-ordinates
+
+### intersect
+```js
+function intersect(
+    a, // Type: Object {x, y}
+    b, // Type: Object {x, y}
+    c, // Type: Object {x, y}
+    d  // Type: Object {x, y}
+)
+```
+
+!!! seealso ""
+    This is taken from [here](http://bryceboe.com/2006/10/23/line-segment-intersection-algorithm/)
+
+Uses the `ccw` method to determine if the line segments `a -> b` and `c -> d` intersect
+
+### normalise
+```js
+function normalise(
+    v // Type: Vector
+)
+```
+
+Converts a vector into its unit vector form. A unit vector is a vector whose magnitude is 1.
+
+The normals must be normalised to use them to find the angle of reflection
+
+#### Parameters
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+|     v     |          The vector to be normalised          |
+
+#### Returns
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+|     v     |    The unit vector form of input vector v     |
+
+### reflectionNormal
+```js
+function reflectionNormal(
+    o // Type: Player || Bullet
+)
+```
+
+Given a Player || Bullet instance o, which has been confirmed to be colliding with this Obstacle, determine which of the two normal vectors (`this.leftVector` || `this.rightVector`) to be used in the calculation for reflection
+
+The vector is calculated using a combination of the Obstacles angle with the x-axis, and the (x, y) position of the object before collision
+
+#### Parameters
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+|     o     |  The Player or Bullet instance to be checked  |
+
+#### Returns
+| Parameter |                                      Description                                      |
+| --------- | ------------------------------------------------------------------------------------- |
+|     v     | The unit vector normal to be used to calculate the angle of reflection for the object |
+
+### reflect
+```js
+function reflect(
+    bullet // Type: Bullet
+)
+```
+
+Given a Bullet that has been confirmed to be colliding with this Obstacle, reflect the Bullet off of the Obstacle according to the following algorithm
+
+```js
+let newDirection = oldDirection - ( ( 2 * ( dotProduct( oldDirection, reflectionNormal ) ) ) * reflectionNormal );
+```
+
+This method directly modifies the Bullet instance, and does not return anything
+
+#### Parameters
+| Parameter |                  Description                  |
+| --------- | --------------------------------------------- |
+|   bullet  |      The Bullet instance to be reflected      |
 
 ***
 
