@@ -1,4 +1,4 @@
-const Bullet = require('./bullet').Bullet;
+const Bullet = require("./bullet").Bullet;
 
 const playerSize = 20;
 const playerSpeed = 4;
@@ -6,7 +6,7 @@ const maxBullets = 3;
 const maxHealth = 100;
 
 class Player {
-    constructor(x, y, username, colour, local=false) {
+    constructor(x, y, username, colour, local = false) {
         // (x, y) is center of the player
         this.x = x - (playerSize / 2);
         this.y = y - (playerSize / 2);
@@ -32,8 +32,8 @@ class Player {
     }
 
     set x(x) {
-        if (typeof x !== 'number') {
-            throw new Error('"x" must be a number');
+        if (typeof x !== "number") {
+            throw new Error("\"x\" must be a number");
         }
         this._x = x;
     }
@@ -43,8 +43,8 @@ class Player {
     }
 
     set y(y) {
-        if (typeof y !== 'number') {
-            throw new Error('"y" must be a number');
+        if (typeof y !== "number") {
+            throw new Error("\"y\" must be a number");
         }
         this._y = y;
     }
@@ -54,8 +54,8 @@ class Player {
     }
 
     set username(username) {
-        if (typeof username !== 'string') {
-            throw new Error('"username" must be a string');
+        if (typeof username !== "string") {
+            throw new Error("\"username\" must be a string");
         }
         this._username = username;
     }
@@ -65,11 +65,11 @@ class Player {
     }
 
     set currentHealth(health) {
-        if (typeof health !== 'number') {
-            throw new Error('"health" must be a number');
+        if (typeof health !== "number") {
+            throw new Error("\"health\" must be a number");
         }
-        else if (health > maxHealth){
-            throw new Error('"health" cannot exceed ' + maxHealth);
+        else if (health > maxHealth) {
+            throw new Error("\"health\" cannot exceed " + maxHealth);
         }
         this._health = health;
     }
@@ -79,11 +79,11 @@ class Player {
     }
 
     set currentBullets(bullets) {
-        if (typeof bullets !== 'number') {
-            throw new Error('"bullets" must be a number');
+        if (typeof bullets !== "number") {
+            throw new Error("\"bullets\" must be a number");
         }
-        else if (bullets > maxBullets){
-            throw new Error('"bullets" cannot exceed ' + maxBullets);
+        else if (bullets > maxBullets) {
+            throw new Error("\"bullets\" cannot exceed " + maxBullets);
         }
         this._bullets = bullets;
     }
@@ -93,11 +93,11 @@ class Player {
     }
 
     set colour(colour) {
-        if (typeof colour !== 'string') {
-            throw new Error('"colour" must be a string');
+        if (typeof colour !== "string") {
+            throw new Error("\"colour\" must be a string");
         }
         else if (!/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(colour)) {
-            throw new Error('"colour" must be a valid hex colour string');
+            throw new Error("\"colour\" must be a valid hex colour string");
         }
         this._colour = colour;
     }
@@ -124,7 +124,7 @@ class Player {
 
     // marking this function to not be covered as it's a rendering method
     // I know it's an ugly syntax but sure look
-    draw /* istanbul ignore next */ (context) {
+    draw /* istanbul ignore next */(context) {
         let displayHealth = "" + parseInt(this.currentHealth);
         context.fillStyle = this.colour;
         context.fillRect(this.x, this.y, playerSize, playerSize);
@@ -142,7 +142,7 @@ class Player {
     }
 
     move(e) {
-        switch(e.keyCode){
+        switch (e.keyCode) {
             case 87: // w
             case 38: // up arrow
                 this.isMoving.up = true;
@@ -163,7 +163,7 @@ class Player {
     }
 
     stop(e) {
-        switch(e.keyCode){
+        switch (e.keyCode) {
             case 87: // w
             case 38: // up arrow
                 this.isMoving.up = false;
@@ -193,7 +193,7 @@ class Player {
         // Creates a new bullet instance
         if (this.currentBullets > 0) {
             let i = 0;
-            for (i; i < maxBullets; i ++) {
+            for (i; i < maxBullets; i++) {
                 if (this.bullets[i] === null) break;
             }
             let x = this.x + (playerSize / 2);
@@ -220,25 +220,25 @@ class Player {
         let opposite;
         let adjacent;
         let angle;
-        if(destinationX > sourceX){
-            if(destinationY <= sourceY){
+        if (destinationX > sourceX) {
+            if (destinationY <= sourceY) {
                 opposite = Math.abs(destinationY - sourceY);
                 adjacent = Math.abs(destinationX - sourceX);
                 angle = 0;
             }
-            else{
+            else {
                 opposite = Math.abs(destinationX - sourceX);
                 adjacent = Math.abs(destinationY - sourceY);
                 angle = (3 * Math.PI) / 2;
             }
         }
-        else{
-            if(destinationY <= sourceY){
+        else {
+            if (destinationY <= sourceY) {
                 opposite = Math.abs(sourceX - destinationX);
                 adjacent = Math.abs(sourceY - destinationY);
                 angle = Math.PI / 2;
             }
-            else{
+            else {
                 opposite = Math.abs(sourceY - destinationY);
                 adjacent = Math.abs(sourceX - destinationX);
                 angle = Math.PI;
@@ -256,9 +256,9 @@ class Player {
     checkPlayerCollision(p) {
         // The local check is done in index.js
         /* istanbul ignore if */
-        if(!p.alive || (this.x + this.size) < p.x || (this.x > p.x + p.size) || (this.y + this.size) < p.y || this.y > (p.y + p.size)) {}
-        else {
-            this.takeDamage(2/60);
+        if (!(!p.alive || (this.x + this.size) < p.x || (this.x > p.x + p.size) ||
+                (this.y + this.size) < p.y || this.y > (p.y + p.size))) {
+            this.takeDamage(2 / 60);
         }
     }
 }

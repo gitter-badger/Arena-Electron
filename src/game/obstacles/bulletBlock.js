@@ -1,15 +1,15 @@
-const Obstacle = require('./obstacle').Obstacle;
-const intersect = require('mathjs').intersect;
+const Obstacle = require("./obstacle").Obstacle;
+const intersect = require("mathjs").intersect;
 
 class BulletBlock extends Obstacle {
-    constructor(x1, y1, x2, y2){
-        super(x1, y1, x2, y2, '#3ECAE8');
+    constructor(x1, y1, x2, y2) {
+        super(x1, y1, x2, y2, "#3ECAE8");
     }
 
     onBulletCollision(bullet) {
-    	// We don't really care about the else
-    	/* istanbul ignore else */
-    	if (!bullet.bounce()) {
+        // We don't really care about the else
+        /* istanbul ignore else */
+        if (!bullet.bounce()) {
             let pt = intersect(
                 [bullet.x, bullet.y],
                 [bullet.x + bullet.xChange, bullet.y + bullet.yChange],
@@ -21,18 +21,18 @@ class BulletBlock extends Obstacle {
             bullet.x = pt[0];
             bullet.y = pt[1];
             /* istanbul ignore else */
-            if(bullet.xChange > 0) {
+            if (bullet.xChange > 0) {
                 bullet.x -= bullet.size;
             }
             /* istanbul ignore else */
-            if(bullet.yChange > 0) {
+            if (bullet.yChange > 0) {
                 bullet.y -= bullet.size;
             }
-    	    this.reflect(bullet);
+            this.reflect(bullet);
         }
     }
 
-    onPlayerCollision(player) { }
+    onPlayerCollision() {}
 }
 
 exports.BulletBlock = BulletBlock;

@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
+// const client = require('websocket').client;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -8,7 +9,7 @@ let win;
 let gameWin;
 
 // Game globals
-let server = null;
+// let server = null;
 let socket = null;
 // Set ip to be this machine by default
 let serverIp = require('ip').address();
@@ -46,7 +47,7 @@ function createWindow () {
 
     win.once('ready-to-show', () => {
         win.show();
-    })
+    });
 }
 
 // This method will be called when Electron has finished
@@ -59,7 +60,7 @@ app.on('window-all-closed', () => {
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
-        app.quit()
+        app.quit();
     }
 });
 
@@ -67,7 +68,7 @@ app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (win === null) {
-        createWindow()
+        createWindow();
     }
 });
 
@@ -108,12 +109,12 @@ let gameWinFailure = () => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
+    // server = null;
     // display error
 };
 
 let leaveServer = () => {
     // if (server !== null) { close the server } else { socket.send("QUIT") }
-    console.log("close");
     gameWin.close();
     gameWin = null;
 };

@@ -245,6 +245,6 @@ describe('Bullet', () => {
                 bullet.checkPlayerCollision(players);
                 players[1].currentHealth.should.equal(96);
             });
-        })
+        });
     });
 });

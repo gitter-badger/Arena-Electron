@@ -86,7 +86,7 @@ describe('Obstacle', () => {
             it('returns the value', () => {
                 // As it's a straight line horizontally, it should be 0
                 obstacle.angle.should.equal(0);
-            })
+            });
         });
 
         describe('point distance', () => {
@@ -169,7 +169,7 @@ describe('Obstacle', () => {
                 beforeEach(() => {
                     o = new Player(210, 210, 'Test', '#123456');
                     obstacle = new Obstacle.BulletBlock(199, 0, 199, 400);
-                })
+                });
                 it('calls the correct method on collision', () => {
                     o.move({keyCode: 37});
                     obstacle.checkPlayerCollision(o);

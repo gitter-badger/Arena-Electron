@@ -1,6 +1,5 @@
 const Obstacles = require('./obstacles');
 const Player = require('./player').Player;
-const MAX_PLAYERS = 4;
 
 class Arena {
     constructor(canvas){
@@ -23,7 +22,7 @@ class Arena {
         // Set up Listeners
         this.setupListeners();
 
-        requestAnimationFrame(() => {this.update()});
+        requestAnimationFrame(() => {this.update();});
     }
 
     // Setup methods
@@ -81,7 +80,7 @@ class Arena {
         this.checkCollisions();
 
         // Recall this function
-        requestAnimationFrame(() => {this.update()});
+        requestAnimationFrame(() => {this.update();});
     }
 
     draw() {
