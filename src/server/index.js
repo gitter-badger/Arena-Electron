@@ -50,7 +50,7 @@ class Server {
                         if(sock !== null) {
                             sock.sendUTF(data);
                         }
-                    })
+                    });
                     // TODO - Set the connection's message listener to the proper listener
                 }
             });
@@ -61,5 +61,5 @@ class Server {
 exports.Server = Server;
 
 if(require.main === module) {
-    let server = new Server('', () => {});
+    new Server('', () => {});
 }

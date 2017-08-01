@@ -137,7 +137,12 @@ let gameWinFailure = () => {
 };
 
 let leaveServer = () => {
-    // if (server !== null) { close the server } else { socket.send("QUIT") }
+    if (server !== null) {
+        // Close the server
+    }
+    else {
+        socket.send("QUIT");
+    }
     gameWin.close();
     gameWin = null;
 };
