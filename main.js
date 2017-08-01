@@ -1,7 +1,10 @@
 const {app, BrowserWindow} = require('electron');
+const Client = require('websocket').client;
 const path = require('path');
+const Server = require('./src/server/').Server;
+const threads = require('threads');
+
 const url = require('url');
-// const client = require('websocket').client;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -9,7 +12,8 @@ let win;
 let gameWin;
 
 // Game globals
-// let server = null;
+let server = null;
+let serverThread = threads.spawn(() => {});
 let socket = null;
 // Set ip to be this machine by default
 let serverIp = require('ip').address();
@@ -75,22 +79,16 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 let createGame = (username, password) => {
-    serverIp = require('ip').address();
-    // Spawn the server
-    // server = new Server(password);
-
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
         height: 650,
         resizable: false,
-        show: false,
+        // show: false,
         useContentSize: true,
         title: "Arena Electron"
     });
-
-    // socket = new WebSocket(`ws://${serverIp}:44444`);
-    // socket.send("JOIN", username, password);
+    // gameWin.webContents.openDevTools();
 
     // The window will attempt to connect to the server and show or close itself as needed
     gameWin.loadURL(url.format({
@@ -98,6 +96,31 @@ let createGame = (username, password) => {
         protocol: 'file:',
         slashes: true
     }));
+
+    serverIp = require('ip').address();
+    // Spawn the server
+    serverThread.run((done) => {
+        server = new Server(password, done);
+    });
+
+    let data = {
+        command: "JOIN",
+        username: username,
+        password: password
+    };
+    data = JSON.stringify(data);
+    let client = new Client();
+    client.on('connect', (conn) => {
+        socket = conn;
+        socket.sendUTF(data);
+        socket.on('message', (message) => {
+            gameWin.webContents.send('server-message', message);
+        });
+    });
+
+    gameWin.webContents.once('did-finish-load', () => {
+        client.connect(`ws://${serverIp}:44444`, 'arena-electron');
+    });
 };
 
 let gameWinSuccess = () => {

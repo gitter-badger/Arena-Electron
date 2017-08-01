@@ -71,7 +71,10 @@
         $(document).ready(function(){
             const main = require('electron').remote.require('./main.js');
             $('button').click((e) => {
-                main.createGame();
+                main.createGame(
+                    $('#username').val(),
+                    $('#password').val()
+                );
             })
         })
     </script>
