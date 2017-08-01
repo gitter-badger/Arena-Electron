@@ -16,3 +16,5 @@ rules:
     - error
     - always
   no-undef: off
+  no-warning-comments:
+    - warn
