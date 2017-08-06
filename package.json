@@ -31,7 +31,6 @@
     "istanbul": "^0.4.5",
     "mathjs": "^3.14.2",
     "mocha": "^3.4.2",
-    "threads": "^0.8.1",
     "websocket": "^1.0.24"
   },
   "dependencies": {}
