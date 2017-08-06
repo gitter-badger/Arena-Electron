@@ -12,7 +12,7 @@ class Server {
             process.send(message);
             message = JSON.parse(message);
             switch (message.command) {
-                case 'CLOSE':
+                case 'CLOSE': {
                     // Call for server to close
                     let data = {
                         command: 'CLOSE'
@@ -22,6 +22,8 @@ class Server {
                         if (i !== 0 && sock !== null) sock.sendUTF(data);
                     });
                     process.exit(0);
+                    break;
+                }
             }
         });
         // Save the function allowing for the Server to close
@@ -76,7 +78,7 @@ class Server {
                     });
                     connection.on('message', (message) => {
                         this.handler.handle(message, connection);
-                    })
+                    });
                 }
             });
         });

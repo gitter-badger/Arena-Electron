@@ -42,7 +42,7 @@ class Lobby {
             if (sock !== null) {
                 sock.sendUTF(data);
             }
-        })
+        });
     }
 }
 

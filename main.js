@@ -103,7 +103,7 @@ let createGame = (username, password) => {
     // Spawn the server
     serverProc = fork(path.join(__dirname, 'src/server/index.js'))
         .on('uncaughtException', (e) => {
-            console.log("Catch exception from main proc", e);
+            console.log('Catch exception from main proc', e);
             leaveServer();
             gameWinFailure();
         })
