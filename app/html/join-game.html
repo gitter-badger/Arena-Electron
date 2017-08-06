@@ -32,7 +32,7 @@
 
                     <div class="md-form">
                         <i class="fa fa-server prefix"></i>
-                        <input type="password" id="address" class="form-control">
+                        <input type="text" id="address" class="form-control">
                         <label for="address">Server IP</label>
                     </div>
 
@@ -75,7 +75,14 @@
 <script>if (window.module) module = window.module;</script>
 <script>
     $(document).ready(function(){
-
+        const main = require('electron').remote.require('./main.js');
+        $('button').click((e) => {
+            main.joinGame(
+                $('#address').val(),
+                $('#username').val(),
+                $('#password').val()
+            );
+        })
     })
 </script>
 </body>
