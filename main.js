@@ -1,9 +1,8 @@
 const {app, BrowserWindow} = require('electron');
 const Client = require('websocket').client;
+const { fork } = require('child_process');
 const path = require('path');
 const Server = require('./src/server/').Server;
-const threads = require('threads');
-
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -12,8 +11,8 @@ let win;
 let gameWin;
 
 // Game globals
-let server = null;
-let serverThread = threads.spawn(() => {});
+let host = false;
+let serverProc = null;
 let socket = null;
 // Set ip to be this machine by default
 let serverIp = require('ip').address();
@@ -25,7 +24,7 @@ function createWindow () {
         height: 600,
         resizable: false,
         show: false,
-        title: "Arena Electron"
+        title: 'Arena Electron'
     });
 
     // and load the index.html of the app.
@@ -76,9 +75,7 @@ app.on('activate', () => {
     }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-let createGame = (username, password) => {
+function createGameWindow() {
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
@@ -86,7 +83,7 @@ let createGame = (username, password) => {
         resizable: false,
         // show: false,
         useContentSize: true,
-        title: "Arena Electron"
+        title: 'Arena Electron'
     });
     // gameWin.webContents.openDevTools();
 
@@ -96,15 +93,36 @@ let createGame = (username, password) => {
         protocol: 'file:',
         slashes: true
     }));
+}
 
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
+let createGame = (username, password) => {
+    host = true;
     serverIp = require('ip').address();
+
     // Spawn the server
-    serverThread.run((done) => {
-        server = new Server(password, done);
-    });
+    serverProc = fork(path.join(__dirname, 'src/server/index.js'))
+        .on('uncaughtException', (e) => {
+            console.log("Catch exception from main proc", e);
+            leaveServer();
+            gameWinFailure();
+        })
+        .on('message', (message) => {
+            console.log(message);
+        });
+
+    // After setting up the server, we want to join it
+    joinGame(serverIp, username, password);
+};
+
+let joinGame = (address, username, password) => {
+    // Join the Game hosted at the given address
+    serverIp = address;
+    createGameWindow();
 
     let data = {
-        command: "JOIN",
+        command: 'JOIN',
         username: username,
         password: password
     };
@@ -126,25 +144,29 @@ let createGame = (username, password) => {
 let gameWinSuccess = () => {
     // Close old window and show new one
     gameWin.show();
+    win.hide();
 };
 
 let gameWinFailure = () => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
-    // server = null;
+    host = false;
     // display error
 };
 
 let leaveServer = () => {
-    if (server !== null) {
-        // Close the server
+    if (host) {
+        serverProc.send({command: 'CLOSE'});
     }
     else {
-        socket.send("QUIT");
+        let message = {command: 'QUIT'};
+        socket.sendUTF(JSON.stringify(message));
     }
+    socket.close();
     gameWin.close();
     gameWin = null;
+    win.show();
 };
 
 // Exports
@@ -152,6 +174,7 @@ let leaveServer = () => {
 exports.gameWinSuccess = gameWinSuccess;
 exports.gameWinFailure = gameWinFailure;
 exports.createGame = createGame;
+exports.joinGame = joinGame;
 exports.leaveServer = leaveServer;
 
 // Variables
