@@ -4,7 +4,7 @@ const Player = require('./player').Player;
 class Arena {
     constructor(canvas){
         this.canvas = canvas;
-        this.context = canvas.getContext("2d");
+        this.context = canvas.getContext('2d');
         this.width = canvas.width;
         this.height = canvas.height;
         this.players = [];
@@ -13,7 +13,7 @@ class Arena {
 
         // Set up context
         this.context.textAlign = 'center';
-        this.context.font = "10px Arial";
+        this.context.font = '10px Arial';
         this.context.lineWidth = 2;
         // Set up obstacles
         this.setupObstacles();
@@ -59,10 +59,10 @@ class Arena {
 
     setupPlayers() {
         // Draw players
-        this.players.push(new Player(this.width / 4, this.height / 4, "crnbrdrck", "#3E75E8", true));
-        this.players.push(new Player((3 * this.width) / 4, (3 * this.height) / 4, "Gelo147", "#00FF80"));
-        this.players.push(new Player((3 * this.width) / 4, this.height / 4, "MurkyFelix", "#FCFF00"));
-        this.players.push(new Player(this.width / 4, (3 * this.height) / 4, "The Twig", "#FF4100"));
+        this.players.push(new Player(this.width / 4, this.height / 4, 'crnbrdrck', '#3E75E8', true));
+        this.players.push(new Player((3 * this.width) / 4, (3 * this.height) / 4, 'Gelo147', '#00FF80'));
+        this.players.push(new Player((3 * this.width) / 4, this.height / 4, 'MurkyFelix', '#FCFF00'));
+        this.players.push(new Player(this.width / 4, (3 * this.height) / 4, 'The Twig', '#FF4100'));
     }
 
     setupListeners() {

@@ -114,11 +114,11 @@ class Obstacle {
     // These methods will be used by the subclass to handle what happens if a bullet or player collides
     // Since the tests cannot access this class, we can just ignore these methods
     onBulletCollision /* istanbul ignore next */ () {
-        throw TypeError("Abstract class cannot collide");
+        throw TypeError('Abstract class cannot collide');
     }
 
     onPlayerCollision /* istanbul ignore next */ () {
-        throw TypeError("Abstract class cannot collide");
+        throw TypeError('Abstract class cannot collide');
     }
 
     // Helper methods

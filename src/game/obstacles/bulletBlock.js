@@ -1,9 +1,9 @@
-const Obstacle = require("./obstacle").Obstacle;
-const intersect = require("mathjs").intersect;
+const Obstacle = require('./obstacle').Obstacle;
+const intersect = require('mathjs').intersect;
 
 class BulletBlock extends Obstacle {
     constructor(x1, y1, x2, y2) {
-        super(x1, y1, x2, y2, "#3ECAE8");
+        super(x1, y1, x2, y2, '#3ECAE8');
     }
 
     onBulletCollision(bullet) {
