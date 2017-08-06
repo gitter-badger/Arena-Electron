@@ -21,3 +21,5 @@ rules:
   no-undef: off
   no-warning-comments:
     - warn
+  no-console:
+    - warn
