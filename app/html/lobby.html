@@ -74,9 +74,16 @@
     <script>if (window.module) module = window.module;</script>
     <script>
         $(document).ready(() => {
+            const main = require('electron').remote.require('./main.js');
+            // Set up display and link
+            $('#ip').html(main.serverIp);
+            $('#leave').click(() => {
+                main.leaveServer();
+            });
             require('electron').ipcRenderer.on('server-message', (event, message) => {
                 message = message.utf8Data;
                 message = JSON.parse(message);
+                console.log(message);
                 // Assume first player is host due to how server works now
                 switch (message.command) {
                     case 'LOBBY':
@@ -96,13 +103,9 @@
                             host = false;
                         }
                         break;
+                    case 'CLOSE':
+                        main.leaveServer();
                 }
-            });
-            const main = require('electron').remote.require('./main.js');
-            // Set up display and link
-            $('#ip').html(main.serverIp);
-            $('#leave').click(() => {
-                main.leaveServer();
             });
             // Reveal window
             main.gameWinSuccess();
