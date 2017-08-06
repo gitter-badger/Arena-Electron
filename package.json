@@ -4,7 +4,7 @@
   "description": "An electron port of the widely famous Arena: A Game of Tanks",
   "main": "main.js",
   "scripts": {
-    "pretest": "./node_modules/eslint/bin/eslint.js .",
+    "pretest": "./node_modules/eslint/bin/eslint.js --fix .",
     "start": "./node_modules/electron/cli.js .",
     "test": "./node_modules/babel-cli/bin/babel-node.js node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --"
   },

@@ -2,7 +2,6 @@ const {app, BrowserWindow} = require('electron');
 const Client = require('websocket').client;
 const { fork } = require('child_process');
 const path = require('path');
-const Server = require('./src/server/').Server;
 const url = require('url');
 
 // Keep a global reference of the window object, if you don't, the window will
