@@ -156,11 +156,10 @@ let gameWinFailure = () => {
 
 let leaveServer = () => {
     if (host) {
-        serverProc.send({command: 'CLOSE'});
+        serverProc.send(JSON.stringify({command: 'CLOSE'}));
     }
     else {
-        let message = {command: 'QUIT'};
-        socket.sendUTF(JSON.stringify(message));
+        socket.sendUTF(JSON.stringify({command: 'QUIT'}));
     }
     socket.close();
     gameWin.close();
