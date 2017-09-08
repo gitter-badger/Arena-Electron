@@ -63,3 +63,6 @@ typings/
 *.zip
 
 .DS_Store
+
+# mkdocs build
+site/*
