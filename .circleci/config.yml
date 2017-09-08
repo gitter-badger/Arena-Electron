@@ -47,9 +47,6 @@ jobs:
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
 
   document:
-    branches:
-      only:
-        - master
     docker:
       - image: squidfunk/mkdocs-material:latest
 
@@ -64,4 +61,8 @@ workflows:
   test_and_document:
     jobs:
       - test
-      - document
+      - document:
+        filters:
+          branch:
+            only:
+              - master
