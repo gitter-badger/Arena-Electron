@@ -48,7 +48,7 @@ jobs:
 
   document:
     docker:
-      - image: python3:latest
+      - image: python:latest
 
     working_directory: ~/repo
 
