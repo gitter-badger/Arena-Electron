@@ -60,11 +60,7 @@ workflows:
   version: 2
   test_and_document:
     jobs:
-      - test:
-        filters:
-          branches:
-            only:
-              - /.*/
+      - test
       - document:
         filters:
           branches:
