@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://docs.exceptionalvoid.com/Arena-Electron/game/bullet/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Bullet - Arena-Electron</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../..">Arena-Electron</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Game <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../arena/">Arena</a>
+</li>
+                            
+<li class="active">
+    <a href="./">Bullet</a>
+</li>
+                            
+<li >
+    <a href="../obstacle/">Obstacle</a>
+</li>
+                            
+<li >
+    <a href="../player/">Player</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="../../about/changes/">Changelog</a>
+</li>
+                            
+<li >
+    <a href="../../about/contrib/">Contribution Guide</a>
+</li>
+                            
+<li >
+    <a href="../../about/license/">License</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li >
+                        <a rel="next" href="../arena/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../obstacle/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ExceptionalVoid/Arena-Electron/">ExceptionalVoid/Arena-Electron
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#bullet">Bullet</a></li>
+            <li><a href="#constants">Constants</a></li>
+            <li><a href="#instance-variables">Instance Variables</a></li>
+            <li><a href="#constructor">Constructor</a></li>
+            <li><a href="#instance-variables_1">Instance Variables</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="bullet">Bullet<a class="headerlink" href="#bullet" title="Permanent link">&para;</a></h1>
+<pre class="codehilite"><code class="language-js">class Bullet {}</code></pre>
+
+
+<p>Class for a Bullet object, which represents the bullets that Players will be shooting at each other</p>
+<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">&para;</a></h2>
+<h3 id="bulletsize">bulletSize<a class="headerlink" href="#bulletsize" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">const bulletSize = 5;</code></pre>
+
+
+<p>The size of each Bullet object</p>
+<h3 id="bulletspeed">bulletSpeed<a class="headerlink" href="#bulletspeed" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">const bulletSpeed = 25;</code></pre>
+
+
+<p>The number of straight line pixels that this Bullet will move in a frame</p>
+<h3 id="maxbounces">maxBounces<a class="headerlink" href="#maxbounces" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">const maxBounces = 3;</code></pre>
+
+
+<p>The maximum number of bounces that a Bullet can survive before being destroyed by a collision with a wall or <a href="../../game/obstacle" title="Obstacle">Obstacle</a></p>
+<h3 id="maxdamage">maxDamage<a class="headerlink" href="#maxdamage" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">const maxDamage = 10;</code></pre>
+
+
+<p>The maximum amount of damage a Bullet can do upon hitting a <a href="../../game/player" title="Player">Player</a></p>
+<p>The actual damage dealt is lowered by each bounce</p>
+<h2 id="instance-variables">Instance Variables<a class="headerlink" href="#instance-variables" title="Permanent link">&para;</a></h2>
+<h3 id="x-y">(x, y)<a class="headerlink" href="#x-y" title="Permanent link">&para;</a></h3>
+<p>The co-ordinates of the top left corner of the Bullet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When drawing, half the size is subtracted in both directions to draw the center of the Bullet at the point (x, y)</p>
+</div>
+<h3 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h3>
+<p>An instance based storage of the bullet size. Purely for use in collision testing</p>
+<h3 id="xchange-ychange">(xChange, yChange)<a class="headerlink" href="#xchange-ychange" title="Permanent link">&para;</a></h3>
+<p>The number of pixels this Bullet instance will move in the x and y directions respectively</p>
+<p>This value will be calculated when the Bullet is fired</p>
+<h3 id="bouncesremaining">bouncesRemaining<a class="headerlink" href="#bouncesremaining" title="Permanent link">&para;</a></h3>
+<p>The number of bounces the Bullet can still survive before being destroyed</p>
+<h3 id="owner">owner<a class="headerlink" href="#owner" title="Permanent link">&para;</a></h3>
+<p>The <a href="../../game/player" title="Player">Player</a> instance that fired this Bullet instance</p>
+<h3 id="bulletnum">bulletNum<a class="headerlink" href="#bulletnum" title="Permanent link">&para;</a></h3>
+<p>The index of this Bullet in its owner's Bullet array</p>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-js">function constructor(
+    x,
+    y,
+    angle,
+    owner,
+    bulletNum
+)</code></pre>
+
+
+<p>Creates a new Bullet instance from the center of it's owner travelling in the given angle</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>owner</code> and <code>bulletNum</code> values are used to reference this object in the <a href="../../game/obstacle" title="Obstacle">Player</a> class that fired it.</p>
+</div>
+<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>The x co-ordinate of the top left corner of the Bullet</td>
+</tr>
+<tr>
+<td>y</td>
+<td>The y co-ordinate of the top left corner of the Bullet</td>
+</tr>
+<tr>
+<td>angle</td>
+<td>The angle in which the Bullet was fired in radians</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>The Player instance which fired the Bullet</td>
+</tr>
+<tr>
+<td>bulletNum</td>
+<td>The index of this Bullet in its owner's bullets array</td>
+</tr>
+</tbody>
+</table>
+<h2 id="instance-variables_1">Instance Variables<a class="headerlink" href="#instance-variables_1" title="Permanent link">&para;</a></h2>
+<h3 id="draw">draw<a class="headerlink" href="#draw" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">function draw(
+    context // Type: CanvasRenderingContext2d
+) {}</code></pre>
+
+
+<p>Handles the drawing of this Bullet instance onto the canvas using its context and its owner's colour</p>
+<h3 id="updateposition">updatePosition<a class="headerlink" href="#updateposition" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">function updatePosition() {}</code></pre>
+
+
+<p>Updates the Bullet's position by increasing or decreasing the x and y values by the xChange and yChange values</p>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context</td>
+<td>The context from the canvas used for the game</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bounce">bounce<a class="headerlink" href="#bounce" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">function bounce() {}</code></pre>
+
+
+<p>Checks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.</p>
+<p>Reports back whether the Bullet has been destroyed</p>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destroyed</td>
+<td>True if the Bullet was destroyed by bouncing, false otherwise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="checkplayercollision">checkPlayerCollision<a class="headerlink" href="#checkplayercollision" title="Permanent link">&para;</a></h3>
+<pre class="codehilite"><code class="language-js">function checkPlayerCollision(
+    players // Type: Player[]
+)</code></pre>
+
+
+<p>Checks if a Player has been hit by this Bullet instance and deals damage to that instance</p>
+<p>Ignores the Bullet's owner and Players who have died</p>
+<div class="admonition warning">
+<p class="admonition-title">Todo</p>
+<p>Once the server is up and running, this method needs to be changed as a game client should only ever update its <code>local</code> player</p>
+</div>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>players</td>
+<td>Array containing the Player instances in the game</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

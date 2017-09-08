@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        <link rel="canonical" href="https://docs.exceptionalvoid.com/Arena-Electron/">
+        <link rel="shortcut icon" href="./img/favicon.ico">
+        <title>Arena-Electron</title>
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/highlight.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+	
+	<script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=".">Arena-Electron</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href=".">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Game <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="game/arena/">Arena</a>
+</li>
+                            
+<li >
+    <a href="game/bullet/">Bullet</a>
+</li>
+                            
+<li >
+    <a href="game/obstacle/">Obstacle</a>
+</li>
+                            
+<li >
+    <a href="game/player/">Player</a>
+</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="about/changes/">Changelog</a>
+</li>
+                            
+<li >
+    <a href="about/contrib/">Contribution Guide</a>
+</li>
+                            
+<li >
+    <a href="about/license/">License</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="game/arena/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ExceptionalVoid/Arena-Electron/">ExceptionalVoid/Arena-Electron
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#arena-electron">Arena: Electron</a></li>
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#running-the-tests">Running the tests</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+            <li><a href="#versioning">Versioning</a></li>
+            <li><a href="#authors">Authors</a></li>
+            <li><a href="#license">License</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="arena-electron">Arena: Electron<a class="headerlink" href="#arena-electron" title="Permanent link">&para;</a></h1>
+<p><a href="https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master"><img alt="build status" src="https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/build.svg" /></a>
+<a href="https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master"><img alt="coverage report" src="https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/coverage.svg" /></a></p>
+<p>A port of <a href="https://github.com/ExceptionalVoid/Arena">Arena: A Game of Tanks</a>, written in ES6 and built using GitHub's <a href="https://electron.atom.io/">Electron</a></p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>To download a development version of the project, simply checkout this repo or download the zipfile.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>All that is required is <a href="https://nodejs.org/en/download/">Node.js</a></p>
+<p>Development is currently done using <code>v8.1.3</code></p>
+<p>For Debian based Linux distros:</p>
+<pre class="codehilite"><code class="language-bash">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs</code></pre>
+
+
+<h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">&para;</a></h3>
+<p>Access the repo folder in a terminal and install the development packages</p>
+<pre class="codehilite"><code class="language-bash">git clone https://github.com/ExceptionalVoid/Arena-Electron.git
+cd Arena-Electron
+npm install</code></pre>
+
+
+<p>If there are any errors, open an issue following the Issue section of the <a href="CONTRIBUTING.md">Contribution Guide</a></p>
+<h2 id="running-the-tests">Running the tests<a class="headerlink" href="#running-the-tests" title="Permanent link">&para;</a></h2>
+<p>To run unit tests, simply run</p>
+<pre class="codehilite"><code class="language-bash">npm test</code></pre>
+
+
+<h3 id="adding-new-unit-tests">Adding New Unit Tests<a class="headerlink" href="#adding-new-unit-tests" title="Permanent link">&para;</a></h3>
+<p>We use <a href="https://mochajs.org/">Mocha</a> and <a href="http://chaijs.com/">Chai</a> to run our unit tests, and <a href="https://github.com/gotwarlost/istanbul">Istanbul</a> to generate code coverage reports.</p>
+<p>If you add a new class, add a file to the <code>tests</code> directory named <code>test_class</code>, where 'class' is replaced with the name of the class you wrote.</p>
+<p>If you are instead editing an existing file, then add some new test cases to the test file for that class.</p>
+<p>We use the <code>describe</code> method very heavily to group our tests by the value or set of functions being tested</p>
+<p>If there are any methods that cannot be tested, i.e methods that handle drawing on the canvas, then we add <code>/* istanbul ignore next */</code> like so:</p>
+<pre class="codehilite"><code>draw /* istanbul ignore next */ (context)</code></pre>
+
+
+<blockquote>
+<p>The spaces between the function name, the comment, and the argument list are all necessary</p>
+</blockquote>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>Please read <a href="CONTRIBUTING.md">Contribution Guide</a> for details on our code of conduct, and the process for submitting pull requests to us.</p>
+<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
+<p>We use <a href="http://semver.org/">SemVer</a> for versioning. For the versions available, see our <a href="https://github.com/crnlPanic/Arena-Electron/tags">tags</a>.</p>
+<h2 id="authors">Authors<a class="headerlink" href="#authors" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Ciaran Broderick</strong> - <em>Creator of Arena: A Game of Tanks</em></li>
+</ul>
+<p>See also the list of <a href="https://github.com/crnlPanic/Arena-Electron/contributors">contributors</a> who participated in this project.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE.md">LICENSE.md</a> file for details</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="./js/base.js"></script><div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 0.16.3
+Build Date UTC : 2017-09-08 00:44:55
+-->
