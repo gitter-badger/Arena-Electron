@@ -63,6 +63,6 @@ workflows:
       - test
       - document:
         filters:
-          branch:
+          branches:
             only:
               - master
