@@ -1,0 +1,61 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  test:
+    environment:
+      CC_TEST_REPORTER_ID: 4e26686723db0c7ad9d12b13f02acd78af0aaddc776cbbea8745df5d02f1c0e7
+    docker:
+      # specify the version you desire here
+      - image: node:latest
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      # Set up code climate
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - run: chmod +x ./cc-test-reporter
+      - run: sudo mkdir -p $CIRCLE_TEST_REPORTS/lcov
+      - run: ./cc-test-reporter before-build
+      # Run the tests
+      - run: npm test
+      # Send up the report
+      - run: ./cc-test-reporter after-build -t lcov --exit-code $?
+
+  documentation:
+    branches:
+      only:
+        - master
+    docker:
+      - image: squidfunk/mkdocs-material:latest
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run: mkdocs gh-deploy
