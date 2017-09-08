@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     environment:
       CC_TEST_REPORTER_ID: 4e26686723db0c7ad9d12b13f02acd78af0aaddc776cbbea8745df5d02f1c0e7
     docker:
@@ -46,7 +46,7 @@ jobs:
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
 
-  documentation:
+  document:
     branches:
       only:
         - master
@@ -59,3 +59,9 @@ jobs:
       - checkout
 
       - run: mkdocs gh-deploy
+workflows:
+  version: 2
+  test_and_document:
+    jobs:
+      - test
+      - document
