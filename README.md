@@ -32,7 +32,7 @@ cd Arena-Electron
 npm install
 ```
 
-If there are any errors, open an issue following the Issue section of the [Contribution Guide](CONTRIBUTION.md)
+If there are any errors, open an issue following the Issue section of the [Contribution Guide](CONTRIBUTING.md)
 
 ## Running the tests
 
@@ -65,14 +65,13 @@ Please read [Contribution Guide](CONTRIBUTION.md) for details on our code of con
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see our [tags](https://github.com/ExceptionalVoid/Arena-Electron/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see our [tags](https://github.com/crnlPanic/Arena-Electron/tags).
 
 ## Authors
 
 * **Ciaran Broderick** - *Creator of Arena: A Game of Tanks*
-* **Grzegorz Ikwanty** - *ExceptionalVoid Developer*
 
-See also the list of [contributors](https://github.com/ExceptionalVoid/Arena-Electron/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/crnlPanic/Arena-Electron/contributors) who participated in this project.
 
 ## License
 

@@ -19,7 +19,7 @@ document:
     - docs
   script:
     # Copy the coverage report to html/coverage/Arena-Electron
-    - rsync -a coverage/lcov-report "/home/administrator/html/cov/$CI_PROJECT_NAME"
+    - cp -TRv coverage/lcov-report "/home/administrator/html/cov/$CI_PROJECT_NAME"
     # Now create the docs site
     - '[ -d "/home/administrator/html/$CI_PROJECT_NAME" ] || mkdir "/home/administrator/html/$CI_PROJECT_NAME"'
     - mkdocs build -e /home/administrator/mkdocs-material/material -d "/home/administrator/html/$CI_PROJECT_NAME"
