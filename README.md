@@ -1,7 +1,9 @@
 # Arena: Electron
 
-[![build status](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/build.svg)](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master)
-[![coverage report](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/badges/master/coverage.svg)](https://git.exceptionalvoid.com/ExceptionalVoid/Arena-Electron/commits/master)
+[![CircleCI](https://img.shields.io/circleci/project/github/crnlPanic/Arena-Electron.svg)](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master)
+[![Test Coverage](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/coverage.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron/coverage)
+[![Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/gpa.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
+[![Issue Count](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/issue_count.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
 
 A port of [Arena: A Game of Tanks](https://github.com/ExceptionalVoid/Arena), written in ES6 and built using GitHub's [Electron](https://electron.atom.io/)
 
@@ -61,7 +63,7 @@ draw /* istanbul ignore next */ (context)
 
 ## Contributing
 
-Please read [Contribution Guide](CONTRIBUTION.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [Contribution Guide](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 

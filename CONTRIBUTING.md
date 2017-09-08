@@ -29,7 +29,6 @@ To add a doc file:
 The current repository masters are:
 
 - crnbrdrck
-- gelo147
 
 Assign one of these to your pull requests to have your code reviewed and hopefully merged
 
