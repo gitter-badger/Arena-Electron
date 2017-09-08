@@ -1,6 +1,6 @@
 # Arena: Electron
 
-[![Build Status](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master.svg?style=svg)](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master)
+[![CircleCI](https://img.shields.io/circleci/project/github/crnlPanic/Arena-Electron.svg)](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master)
 [![Test Coverage](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/coverage.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron/coverage)
 [![Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/gpa.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
 [![Issue Count](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/issue_count.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
