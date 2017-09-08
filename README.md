@@ -61,7 +61,7 @@ draw /* istanbul ignore next */ (context)
 
 ## Contributing
 
-Please read [Contribution Guide](CONTRIBUTION.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [Contribution Guide](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
