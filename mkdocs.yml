@@ -20,8 +20,8 @@ markdown_extensions:
   - toc(permalink=true)
 extra:
   palette:
-    primary: 'blue grey'
-    accent: 'red'
+    primary: 'light blue'
+    accent: 'pink'
   font:
     code: 'Ubuntu Mono'
   social:

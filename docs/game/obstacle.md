@@ -25,7 +25,7 @@ The Colour the Obstacle will be drawn in on the canvas.
 
 This value will be set by the subclasses
 
-!!! seealso
+!!! seealso "See Also"
     [Obstacle Types](#obstacle-types)
 
 ### leftNormal, rightNormal
