@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Arena: Electron\n\u00b6\n\n\n\n\n\n\nA port of \nArena: A Game of Tanks\n, written in ES6 and built using GitHub's \nElectron\n\n\nGetting Started\n\u00b6\n\n\nTo download a development version of the project, simply checkout this repo or download the zipfile.\n\n\nPrerequisites\n\u00b6\n\n\nAll that is required is \nNode.js\n\n\nDevelopment is currently done using \nv8.1.3\n\n\nFor Debian based Linux distros:\n\n\ncurl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -\nsudo apt-get install -y nodejs\n\n\n\n\nInstalling\n\u00b6\n\n\nAccess the repo folder in a terminal and install the development packages\n\n\ngit clone https://github.com/ExceptionalVoid/Arena-Electron.git\ncd Arena-Electron\nnpm install\n\n\n\n\nIf there are any errors, open an issue following the Issue section of the \nContribution Guide\n\n\nRunning the tests\n\u00b6\n\n\nTo run unit tests, simply run\n\n\nnpm test\n\n\n\n\nAdding New Unit Tests\n\u00b6\n\n\nWe use \nMocha\n and \nChai\n to run our unit tests, and \nIstanbul\n to generate code coverage reports.\n\n\nIf you add a new class, add a file to the \ntests\n directory named \ntest_class\n, where 'class' is replaced with the name of the class you wrote.\n\n\nIf you are instead editing an existing file, then add some new test cases to the test file for that class.\n\n\nWe use the \ndescribe\n method very heavily to group our tests by the value or set of functions being tested\n\n\nIf there are any methods that cannot be tested, i.e methods that handle drawing on the canvas, then we add \n/* istanbul ignore next */\n like so:\n\n\ndraw /* istanbul ignore next */ (context)\n\n\n\n\n\n\nThe spaces between the function name, the comment, and the argument list are all necessary\n\n\n\n\nContributing\n\u00b6\n\n\nPlease read \nContribution Guide\n for details on our code of conduct, and the process for submitting pull requests to us.\n\n\nVersioning\n\u00b6\n\n\nWe use \nSemVer\n for versioning. For the versions available, see our \ntags\n.\n\n\nAuthors\n\u00b6\n\n\n\n\nCiaran Broderick\n - \nCreator of Arena: A Game of Tanks\n\n\n\n\nSee also the list of \ncontributors\n who participated in this project.\n\n\nLicense\n\u00b6\n\n\nThis project is licensed under the MIT License - see the \nLICENSE.md\n file for details",
+            "text": "Arena: Electron\n\u00b6\n\n\n\n\n\n\nA port of \nArena: A Game of Tanks\n, written in ES6 and built using GitHub's \nElectron\n\n\nGetting Started\n\u00b6\n\n\nTo download a development version of the project, simply checkout this repo or download the zipfile.\n\n\nPrerequisites\n\u00b6\n\n\nAll that is required is \nNode.js\n\n\nDevelopment is currently done using \nv8.1.3\n\n\nFor Debian based Linux distros:\n\n\ncurl -sL https://deb.nodesource.com/setup_8.x \n|\n sudo -E bash -\nsudo apt-get install -y nodejs\n\n\n\n\n\nInstalling\n\u00b6\n\n\nAccess the repo folder in a terminal and install the development packages\n\n\ngit clone https://github.com/ExceptionalVoid/Arena-Electron.git\n\ncd\n Arena-Electron\nnpm install\n\n\n\n\n\nIf there are any errors, open an issue following the Issue section of the \nContribution Guide\n\n\nRunning the tests\n\u00b6\n\n\nTo run unit tests, simply run\n\n\nnpm \ntest\n\n\n\n\n\n\nAdding New Unit Tests\n\u00b6\n\n\nWe use \nMocha\n and \nChai\n to run our unit tests, and \nIstanbul\n to generate code coverage reports.\n\n\nIf you add a new class, add a file to the \ntests\n directory named \ntest_class\n, where 'class' is replaced with the name of the class you wrote.\n\n\nIf you are instead editing an existing file, then add some new test cases to the test file for that class.\n\n\nWe use the \ndescribe\n method very heavily to group our tests by the value or set of functions being tested\n\n\nIf there are any methods that cannot be tested, i.e methods that handle drawing on the canvas, then we add \n/* istanbul ignore next */\n like so:\n\n\ndraw /* istanbul ignore next */ (context)\n\n\n\n\n\n\n\nThe spaces between the function name, the comment, and the argument list are all necessary\n\n\n\n\nContributing\n\u00b6\n\n\nPlease read \nContribution Guide\n for details on our code of conduct, and the process for submitting pull requests to us.\n\n\nVersioning\n\u00b6\n\n\nWe use \nSemVer\n for versioning. For the versions available, see our \ntags\n.\n\n\nAuthors\n\u00b6\n\n\n\n\nCiaran Broderick\n - \nCreator of Arena: A Game of Tanks\n\n\n\n\nSee also the list of \ncontributors\n who participated in this project.\n\n\nLicense\n\u00b6\n\n\nThis project is licensed under the MIT License - see the \nLICENSE.md\n file for details",
             "title": "Home"
         },
         {
@@ -17,17 +17,17 @@
         },
         {
             "location": "/#prerequisites",
-            "text": "All that is required is  Node.js  Development is currently done using  v8.1.3  For Debian based Linux distros:  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -\nsudo apt-get install -y nodejs",
+            "text": "All that is required is  Node.js  Development is currently done using  v8.1.3  For Debian based Linux distros:  curl -sL https://deb.nodesource.com/setup_8.x  |  sudo -E bash -\nsudo apt-get install -y nodejs",
             "title": "Prerequisites"
         },
         {
             "location": "/#installing",
-            "text": "Access the repo folder in a terminal and install the development packages  git clone https://github.com/ExceptionalVoid/Arena-Electron.git\ncd Arena-Electron\nnpm install  If there are any errors, open an issue following the Issue section of the  Contribution Guide",
+            "text": "Access the repo folder in a terminal and install the development packages  git clone https://github.com/ExceptionalVoid/Arena-Electron.git cd  Arena-Electron\nnpm install  If there are any errors, open an issue following the Issue section of the  Contribution Guide",
             "title": "Installing"
         },
         {
             "location": "/#running-the-tests",
-            "text": "To run unit tests, simply run  npm test",
+            "text": "To run unit tests, simply run  npm  test",
             "title": "Running the tests"
         },
         {
@@ -57,12 +57,12 @@
         },
         {
             "location": "/game/arena/",
-            "text": "Arena\n\u00b6\n\n\nclass Arena {}\n\n\n\n\nClass that manages the running of the game on screen.\n\n\nHandles drawing of all Player, Obstacle and Bullet objects on screen.\n\n\nAlso handles all communication with the Server for updating remote players\n\n\nInstance Variables\n\u00b6\n\n\nCanvas\n\u00b6\n\n\nThe canvas object that the game will be drawn onto\n\n\nContext\n\u00b6\n\n\nThe context object used to render onto the game's canvas\n\n\nWidth\n\u00b6\n\n\nThe width in pixels of the game's canvas\n\n\nHeight\n\u00b6\n\n\nThe height in pixels of the game's canvas\n\n\nPlayers\n\u00b6\n\n\nAn array of Player objects representing the Player in the current game\n\n\nObstacles\n\u00b6\n\n\nAn array of Obstacle objects that are in the current map\n\n\nLocal\n\u00b6\n\n\nAn integer pointing to the object in the Players array representing the person playing.\n\n\nUsed to determine the object that is controlled by player input\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction constructor(\n    canvas // Type: Canvas\n) {}\n\n\n\n\nGiven a canvas object, sets up all necessary objects to start the game\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameters\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncanvas\n\n\nThe canvas object that the game will be drawn on\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nsetupObstacles\n\u00b6\n\n\nfunction setupObstacles() {}\n\n\n\n\nCurrently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.\n\n\n\n\nNote\n\n\nWill be updated later to load obstacles from a json file\n\n\n\n\nsetupPlayers\n\u00b6\n\n\nfunction setupPlayers() {}\n\n\n\n\nCurrently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.\n\n\n\n\nNote\n\n\nWill be updated later to load Player spawn points from a json file\n\n\n\n\nsetupListeners\n\u00b6\n\n\nfunction setupListeners() {}\n\n\n\n\nCreates any necessary event listeners and adds the required functionality\n\n\n\n\nCurrent Listeners\n\n\n\n\nkeydown\n: For moving a player\n\n\nkeyup\n: For stopping movement\n\n\nclick\n: For firing bullets\n\n\n\n\n\n\nupdate\n\u00b6\n\n\nfunction update() {}\n\n\n\n\nThe heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering\n\n\ndraw\n\u00b6\n\n\nfunction draw() {}\n\n\n\n\nClears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen\n\n\ncheckCollisions\n\u00b6\n\n\nfunction checkCollisions() {}\n\n\n\n\nChecks for collisions between Player, Bullet and Obstacle instances",
+            "text": "Arena\n\u00b6\n\n\nclass\n \nArena\n \n{}\n\n\n\n\n\n\nClass that manages the running of the game on screen.\n\n\nHandles drawing of all Player, Obstacle and Bullet objects on screen.\n\n\nAlso handles all communication with the Server for updating remote players\n\n\nInstance Variables\n\u00b6\n\n\nCanvas\n\u00b6\n\n\nThe canvas object that the game will be drawn onto\n\n\nContext\n\u00b6\n\n\nThe context object used to render onto the game's canvas\n\n\nWidth\n\u00b6\n\n\nThe width in pixels of the game's canvas\n\n\nHeight\n\u00b6\n\n\nThe height in pixels of the game's canvas\n\n\nPlayers\n\u00b6\n\n\nAn array of Player objects representing the Player in the current game\n\n\nObstacles\n\u00b6\n\n\nAn array of Obstacle objects that are in the current map\n\n\nLocal\n\u00b6\n\n\nAn integer pointing to the object in the Players array representing the person playing.\n\n\nUsed to determine the object that is controlled by player input\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \ncanvas\n \n// Type: Canvas\n\n\n)\n \n{}\n\n\n\n\n\n\nGiven a canvas object, sets up all necessary objects to start the game\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameters\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncanvas\n\n\nThe canvas object that the game will be drawn on\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nsetupObstacles\n\u00b6\n\n\nfunction\n \nsetupObstacles\n()\n \n{}\n\n\n\n\n\n\nCurrently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.\n\n\n\n\nNote\n\n\nWill be updated later to load obstacles from a json file\n\n\n\n\nsetupPlayers\n\u00b6\n\n\nfunction\n \nsetupPlayers\n()\n \n{}\n\n\n\n\n\n\nCurrently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.\n\n\n\n\nNote\n\n\nWill be updated later to load Player spawn points from a json file\n\n\n\n\nsetupListeners\n\u00b6\n\n\nfunction\n \nsetupListeners\n()\n \n{}\n\n\n\n\n\n\nCreates any necessary event listeners and adds the required functionality\n\n\n\n\nCurrent Listeners\n\n\n\n\nkeydown\n: For moving a player\n\n\nkeyup\n: For stopping movement\n\n\nclick\n: For firing bullets\n\n\n\n\n\n\nupdate\n\u00b6\n\n\nfunction\n \nupdate\n()\n \n{}\n\n\n\n\n\n\nThe heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n()\n \n{}\n\n\n\n\n\n\nClears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen\n\n\ncheckCollisions\n\u00b6\n\n\nfunction\n \ncheckCollisions\n()\n \n{}\n\n\n\n\n\n\nChecks for collisions between Player, Bullet and Obstacle instances",
             "title": "Arena"
         },
         {
             "location": "/game/arena/#arena",
-            "text": "class Arena {}  Class that manages the running of the game on screen.  Handles drawing of all Player, Obstacle and Bullet objects on screen.  Also handles all communication with the Server for updating remote players",
+            "text": "class   Arena   {}   Class that manages the running of the game on screen.  Handles drawing of all Player, Obstacle and Bullet objects on screen.  Also handles all communication with the Server for updating remote players",
             "title": "Arena"
         },
         {
@@ -107,7 +107,7 @@
         },
         {
             "location": "/game/arena/#constructor",
-            "text": "function constructor(\n    canvas // Type: Canvas\n) {}  Given a canvas object, sets up all necessary objects to start the game",
+            "text": "function   constructor ( \n     canvas   // Type: Canvas  )   {}   Given a canvas object, sets up all necessary objects to start the game",
             "title": "Constructor"
         },
         {
@@ -122,42 +122,42 @@
         },
         {
             "location": "/game/arena/#setupobstacles",
-            "text": "function setupObstacles() {}  Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.   Note  Will be updated later to load obstacles from a json file",
+            "text": "function   setupObstacles ()   {}   Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.   Note  Will be updated later to load obstacles from a json file",
             "title": "setupObstacles"
         },
         {
             "location": "/game/arena/#setupplayers",
-            "text": "function setupPlayers() {}  Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.   Note  Will be updated later to load Player spawn points from a json file",
+            "text": "function   setupPlayers ()   {}   Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.   Note  Will be updated later to load Player spawn points from a json file",
             "title": "setupPlayers"
         },
         {
             "location": "/game/arena/#setuplisteners",
-            "text": "function setupListeners() {}  Creates any necessary event listeners and adds the required functionality   Current Listeners   keydown : For moving a player  keyup : For stopping movement  click : For firing bullets",
+            "text": "function   setupListeners ()   {}   Creates any necessary event listeners and adds the required functionality   Current Listeners   keydown : For moving a player  keyup : For stopping movement  click : For firing bullets",
             "title": "setupListeners"
         },
         {
             "location": "/game/arena/#update",
-            "text": "function update() {}  The heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering",
+            "text": "function   update ()   {}   The heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering",
             "title": "update"
         },
         {
             "location": "/game/arena/#draw",
-            "text": "function draw() {}  Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen",
+            "text": "function   draw ()   {}   Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen",
             "title": "draw"
         },
         {
             "location": "/game/arena/#checkcollisions",
-            "text": "function checkCollisions() {}  Checks for collisions between Player, Bullet and Obstacle instances",
+            "text": "function   checkCollisions ()   {}   Checks for collisions between Player, Bullet and Obstacle instances",
             "title": "checkCollisions"
         },
         {
             "location": "/game/bullet/",
-            "text": "Bullet\n\u00b6\n\n\nclass Bullet {}\n\n\n\n\nClass for a Bullet object, which represents the bullets that Players will be shooting at each other\n\n\nConstants\n\u00b6\n\n\nbulletSize\n\u00b6\n\n\nconst bulletSize = 5;\n\n\n\n\nThe size of each Bullet object\n\n\nbulletSpeed\n\u00b6\n\n\nconst bulletSpeed = 25;\n\n\n\n\nThe number of straight line pixels that this Bullet will move in a frame\n\n\nmaxBounces\n\u00b6\n\n\nconst maxBounces = 3;\n\n\n\n\nThe maximum number of bounces that a Bullet can survive before being destroyed by a collision with a wall or \nObstacle\n\n\nmaxDamage\n\u00b6\n\n\nconst maxDamage = 10;\n\n\n\n\nThe maximum amount of damage a Bullet can do upon hitting a \nPlayer\n\n\nThe actual damage dealt is lowered by each bounce\n\n\nInstance Variables\n\u00b6\n\n\n(x, y)\n\u00b6\n\n\nThe co-ordinates of the top left corner of the Bullet.\n\n\n\n\nTip\n\n\nWhen drawing, half the size is subtracted in both directions to draw the center of the Bullet at the point (x, y)\n\n\n\n\nsize\n\u00b6\n\n\nAn instance based storage of the bullet size. Purely for use in collision testing\n\n\n(xChange, yChange)\n\u00b6\n\n\nThe number of pixels this Bullet instance will move in the x and y directions respectively\n\n\nThis value will be calculated when the Bullet is fired\n\n\nbouncesRemaining\n\u00b6\n\n\nThe number of bounces the Bullet can still survive before being destroyed\n\n\nowner\n\u00b6\n\n\nThe \nPlayer\n instance that fired this Bullet instance\n\n\nbulletNum\n\u00b6\n\n\nThe index of this Bullet in its owner's Bullet array\n\n\nConstructor\n\u00b6\n\n\nfunction constructor(\n    x,\n    y,\n    angle,\n    owner,\n    bulletNum\n)\n\n\n\n\nCreates a new Bullet instance from the center of it's owner travelling in the given angle\n\n\n\n\nNote\n\n\nThe \nowner\n and \nbulletNum\n values are used to reference this object in the \nPlayer\n class that fired it.\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx\n\n\nThe x co-ordinate of the top left corner of the Bullet\n\n\n\n\n\n\ny\n\n\nThe y co-ordinate of the top left corner of the Bullet\n\n\n\n\n\n\nangle\n\n\nThe angle in which the Bullet was fired in radians\n\n\n\n\n\n\nowner\n\n\nThe Player instance which fired the Bullet\n\n\n\n\n\n\nbulletNum\n\n\nThe index of this Bullet in its owner's bullets array\n\n\n\n\n\n\n\n\nInstance Variables\n\u00b6\n\n\ndraw\n\u00b6\n\n\nfunction draw(\n    context // Type: CanvasRenderingContext2d\n) {}\n\n\n\n\nHandles the drawing of this Bullet instance onto the canvas using its context and its owner's colour\n\n\nupdatePosition\n\u00b6\n\n\nfunction updatePosition() {}\n\n\n\n\nUpdates the Bullet's position by increasing or decreasing the x and y values by the xChange and yChange values\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncontext\n\n\nThe context from the canvas used for the game\n\n\n\n\n\n\n\n\nbounce\n\u00b6\n\n\nfunction bounce() {}\n\n\n\n\nChecks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.\n\n\nReports back whether the Bullet has been destroyed\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndestroyed\n\n\nTrue if the Bullet was destroyed by bouncing, false otherwise\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction checkPlayerCollision(\n    players // Type: Player[]\n)\n\n\n\n\nChecks if a Player has been hit by this Bullet instance and deals damage to that instance\n\n\nIgnores the Bullet's owner and Players who have died\n\n\n\n\nTodo\n\n\nOnce the server is up and running, this method needs to be changed as a game client should only ever update its \nlocal\n player\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayers\n\n\nArray containing the Player instances in the game",
+            "text": "Bullet\n\u00b6\n\n\nclass\n \nBullet\n \n{}\n\n\n\n\n\n\nClass for a Bullet object, which represents the bullets that Players will be shooting at each other\n\n\nConstants\n\u00b6\n\n\nbulletSize\n\u00b6\n\n\nconst\n \nbulletSize\n \n=\n \n5\n;\n\n\n\n\n\n\nThe size of each Bullet object\n\n\nbulletSpeed\n\u00b6\n\n\nconst\n \nbulletSpeed\n \n=\n \n25\n;\n\n\n\n\n\n\nThe number of straight line pixels that this Bullet will move in a frame\n\n\nmaxBounces\n\u00b6\n\n\nconst\n \nmaxBounces\n \n=\n \n3\n;\n\n\n\n\n\n\nThe maximum number of bounces that a Bullet can survive before being destroyed by a collision with a wall or \nObstacle\n\n\nmaxDamage\n\u00b6\n\n\nconst\n \nmaxDamage\n \n=\n \n10\n;\n\n\n\n\n\n\nThe maximum amount of damage a Bullet can do upon hitting a \nPlayer\n\n\nThe actual damage dealt is lowered by each bounce\n\n\nInstance Variables\n\u00b6\n\n\n(x, y)\n\u00b6\n\n\nThe co-ordinates of the top left corner of the Bullet.\n\n\n\n\nTip\n\n\nWhen drawing, half the size is subtracted in both directions to draw the center of the Bullet at the point (x, y)\n\n\n\n\nsize\n\u00b6\n\n\nAn instance based storage of the bullet size. Purely for use in collision testing\n\n\n(xChange, yChange)\n\u00b6\n\n\nThe number of pixels this Bullet instance will move in the x and y directions respectively\n\n\nThis value will be calculated when the Bullet is fired\n\n\nbouncesRemaining\n\u00b6\n\n\nThe number of bounces the Bullet can still survive before being destroyed\n\n\nowner\n\u00b6\n\n\nThe \nPlayer\n instance that fired this Bullet instance\n\n\nbulletNum\n\u00b6\n\n\nThe index of this Bullet in its owner's Bullet array\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \nx\n,\n\n    \ny\n,\n\n    \nangle\n,\n\n    \nowner\n,\n\n    \nbulletNum\n\n\n)\n\n\n\n\n\n\nCreates a new Bullet instance from the center of it's owner travelling in the given angle\n\n\n\n\nNote\n\n\nThe \nowner\n and \nbulletNum\n values are used to reference this object in the \nPlayer\n class that fired it.\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx\n\n\nThe x co-ordinate of the top left corner of the Bullet\n\n\n\n\n\n\ny\n\n\nThe y co-ordinate of the top left corner of the Bullet\n\n\n\n\n\n\nangle\n\n\nThe angle in which the Bullet was fired in radians\n\n\n\n\n\n\nowner\n\n\nThe Player instance which fired the Bullet\n\n\n\n\n\n\nbulletNum\n\n\nThe index of this Bullet in its owner's bullets array\n\n\n\n\n\n\n\n\nInstance Variables\n\u00b6\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n(\n\n    \ncontext\n \n// Type: CanvasRenderingContext2d\n\n\n)\n \n{}\n\n\n\n\n\n\nHandles the drawing of this Bullet instance onto the canvas using its context and its owner's colour\n\n\nupdatePosition\n\u00b6\n\n\nfunction\n \nupdatePosition\n()\n \n{}\n\n\n\n\n\n\nUpdates the Bullet's position by increasing or decreasing the x and y values by the xChange and yChange values\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncontext\n\n\nThe context from the canvas used for the game\n\n\n\n\n\n\n\n\nbounce\n\u00b6\n\n\nfunction\n \nbounce\n()\n \n{}\n\n\n\n\n\n\nChecks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.\n\n\nReports back whether the Bullet has been destroyed\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndestroyed\n\n\nTrue if the Bullet was destroyed by bouncing, false otherwise\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction\n \ncheckPlayerCollision\n(\n\n    \nplayers\n \n// Type: Player[]\n\n\n)\n\n\n\n\n\n\nChecks if a Player has been hit by this Bullet instance and deals damage to that instance\n\n\nIgnores the Bullet's owner and Players who have died\n\n\n\n\nTodo\n\n\nOnce the server is up and running, this method needs to be changed as a game client should only ever update its \nlocal\n player\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayers\n\n\nArray containing the Player instances in the game",
             "title": "Bullet"
         },
         {
             "location": "/game/bullet/#bullet",
-            "text": "class Bullet {}  Class for a Bullet object, which represents the bullets that Players will be shooting at each other",
+            "text": "class   Bullet   {}   Class for a Bullet object, which represents the bullets that Players will be shooting at each other",
             "title": "Bullet"
         },
         {
@@ -167,22 +167,22 @@
         },
         {
             "location": "/game/bullet/#bulletsize",
-            "text": "const bulletSize = 5;  The size of each Bullet object",
+            "text": "const   bulletSize   =   5 ;   The size of each Bullet object",
             "title": "bulletSize"
         },
         {
             "location": "/game/bullet/#bulletspeed",
-            "text": "const bulletSpeed = 25;  The number of straight line pixels that this Bullet will move in a frame",
+            "text": "const   bulletSpeed   =   25 ;   The number of straight line pixels that this Bullet will move in a frame",
             "title": "bulletSpeed"
         },
         {
             "location": "/game/bullet/#maxbounces",
-            "text": "const maxBounces = 3;  The maximum number of bounces that a Bullet can survive before being destroyed by a collision with a wall or  Obstacle",
+            "text": "const   maxBounces   =   3 ;   The maximum number of bounces that a Bullet can survive before being destroyed by a collision with a wall or  Obstacle",
             "title": "maxBounces"
         },
         {
             "location": "/game/bullet/#maxdamage",
-            "text": "const maxDamage = 10;  The maximum amount of damage a Bullet can do upon hitting a  Player  The actual damage dealt is lowered by each bounce",
+            "text": "const   maxDamage   =   10 ;   The maximum amount of damage a Bullet can do upon hitting a  Player  The actual damage dealt is lowered by each bounce",
             "title": "maxDamage"
         },
         {
@@ -222,7 +222,7 @@
         },
         {
             "location": "/game/bullet/#constructor",
-            "text": "function constructor(\n    x,\n    y,\n    angle,\n    owner,\n    bulletNum\n)  Creates a new Bullet instance from the center of it's owner travelling in the given angle   Note  The  owner  and  bulletNum  values are used to reference this object in the  Player  class that fired it.",
+            "text": "function   constructor ( \n     x , \n     y , \n     angle , \n     owner , \n     bulletNum  )   Creates a new Bullet instance from the center of it's owner travelling in the given angle   Note  The  owner  and  bulletNum  values are used to reference this object in the  Player  class that fired it.",
             "title": "Constructor"
         },
         {
@@ -237,12 +237,12 @@
         },
         {
             "location": "/game/bullet/#draw",
-            "text": "function draw(\n    context // Type: CanvasRenderingContext2d\n) {}  Handles the drawing of this Bullet instance onto the canvas using its context and its owner's colour",
+            "text": "function   draw ( \n     context   // Type: CanvasRenderingContext2d  )   {}   Handles the drawing of this Bullet instance onto the canvas using its context and its owner's colour",
             "title": "draw"
         },
         {
             "location": "/game/bullet/#updateposition",
-            "text": "function updatePosition() {}  Updates the Bullet's position by increasing or decreasing the x and y values by the xChange and yChange values",
+            "text": "function   updatePosition ()   {}   Updates the Bullet's position by increasing or decreasing the x and y values by the xChange and yChange values",
             "title": "updatePosition"
         },
         {
@@ -252,7 +252,7 @@
         },
         {
             "location": "/game/bullet/#bounce",
-            "text": "function bounce() {}  Checks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.  Reports back whether the Bullet has been destroyed",
+            "text": "function   bounce ()   {}   Checks if the Bullet has any bounces remaining, and destroys it if it cannot bounce any more.  Reports back whether the Bullet has been destroyed",
             "title": "bounce"
         },
         {
@@ -262,7 +262,7 @@
         },
         {
             "location": "/game/bullet/#checkplayercollision",
-            "text": "function checkPlayerCollision(\n    players // Type: Player[]\n)  Checks if a Player has been hit by this Bullet instance and deals damage to that instance  Ignores the Bullet's owner and Players who have died   Todo  Once the server is up and running, this method needs to be changed as a game client should only ever update its  local  player",
+            "text": "function   checkPlayerCollision ( \n     players   // Type: Player[]  )   Checks if a Player has been hit by this Bullet instance and deals damage to that instance  Ignores the Bullet's owner and Players who have died   Todo  Once the server is up and running, this method needs to be changed as a game client should only ever update its  local  player",
             "title": "checkPlayerCollision"
         },
         {
@@ -272,12 +272,12 @@
         },
         {
             "location": "/game/obstacle/",
-            "text": "Obstacle\n\u00b6\n\n\nclass Obstacle {}\n\n\n\n\nAbstract base class used for all obstacle types in the Arena.\n\n\nHandles collisions with both \nPlayers\n and \nBullets\n.\n\n\nAlso handles the rendering of the obstacle on the canvas.\n\n\nInstance Variables\n\u00b6\n\n\n(x1, y1)\n\u00b6\n\n\nThe co-ordinates of the end of the Obstacle closer to (0, 0)\n\n\n(x2, y2)\n\u00b6\n\n\nThe co-ordinates of the end of the Obstacle further from (0, 0)\n\n\nColour\n\u00b6\n\n\nThe Colour the Obstacle will be drawn in on the canvas.\n\n\nThis value will be set by the subclasses\n\n\n\n\nSeealso\n\n\nObstacle Types\n\n\n\n\nleftNormal, rightNormal\n\u00b6\n\n\nThe unit vectors of the perpendicular lines to this Obstacle when this Obstacle is treated like a vector.\n\n\nThese values are used to calculate the reflection angle for a Bullet reflection\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction constructor(\n    x1,    // Type: Number\n    y1,    // Type: Number\n    x2,    // Type: Number\n    y2,    // Type: Number\n    colour // Type: String\n)\n\n\n\n\nCreates a new Obstacle as a line between the two points (x1, y1) and (x2, y2).\n\n\n\n\nImportant\n\n\nFor now, (x1, y1) should be close to (0, 0) than (x2, y2)\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx1\n\n\nThe x co-ordinate of the end of the Obstacle closer to (0, 0)\n\n\n\n\n\n\ny1\n\n\nThe y co-ordinate of the end of the Obstacle closer to (0, 0)\n\n\n\n\n\n\nx2\n\n\nThe x co-ordinate of the end of the Obstacle further from (0, 0)\n\n\n\n\n\n\ny2\n\n\nThe y co-ordinate of the end of the Obstacle further from (0, 0)\n\n\n\n\n\n\ncolour\n\n\nA string containing the hex value of the color of the Obstacle\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nangle\n\u00b6\n\n\nget angle() {}\n\n\n\n\nCalculates the angle made by the Obstacle and a horizontal line passing through one of the points\n\n\nThe angle is in radians\n\n\n\n\nTip\n\n\nBecause of the \nget\n keyword, this method is run using \nobstacle.angle\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nangle\n\n\nThe angle made between this Obstacle instance and a horizontal line passing through one of the points\n\n\n\n\n\n\n\n\ndraw\n\u00b6\n\n\nfunction draw(\n    context // Type: CanvasRenderingContext2d\n) {}\n\n\n\n\nHandles the drawing of this Obstacle instance onto the canvas using its context\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncontext\n\n\nThe context from the canvas used for the game\n\n\n\n\n\n\n\n\n\n\nCollision Checking\n\u00b6\n\n\ncheckCollision\n\u00b6\n\n\nfunction checkCollision(\n    o // Type: Player || Bullet\n)\n\n\n\n\nDetermines whether or not the object o has will collide with this Obstacle during its next frame\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\no\n\n\nThe Player or Bullet instance to be checked\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncollision\n\n\nTrue if the instance collided, else false\n\n\n\n\n\n\n\n\ncheckBulletCollision\n\u00b6\n\n\nfunction checkBulletCollision(\n    bullet // Type: [Bullet][2]\n) {}\n\n\n\n\nChecks if a \nBullet\n has collided with this Obstacle instance\n\n\n\n\nNote\n\n\nWill call \nonBulletCollision\n if a collision occurs\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet which is being checked for collision\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction checkPlayerCollision(\n    player // Type: [Player][1]\n) {}\n\n\n\n\nChecks if a \nPlayer\n has collided with this Obstacle instance\n\n\n\n\nNote\n\n\nWill call \nonPlayerCollision\n if a collision occurs\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayer\n\n\nThe Player which is being checked for collision\n\n\n\n\n\n\n\n\nccw\n\u00b6\n\n\nfunction ccw(\n    a, // Type: Object {x, y}\n    b, // Type: Object {x, y}\n    c  // Type: Object {x, y}\n)\n\n\n\n\n\n\nThis is taken from \nhere\n\n\n\n\nDetermines whether or not the 3 points a, b, and c are listed in counter-clockwise order\n\n\na, b, and c are all objects representing (x, y) co-ordinates\n\n\nintersect\n\u00b6\n\n\nfunction intersect(\n    a, // Type: Object {x, y}\n    b, // Type: Object {x, y}\n    c, // Type: Object {x, y}\n    d  // Type: Object {x, y}\n)\n\n\n\n\n\n\nThis is taken from \nhere\n\n\n\n\nUses the \nccw\n method to determine if the line segments \na -> b\n and \nc -> d\n intersect\n\n\nnormalise\n\u00b6\n\n\nfunction normalise(\n    v // Type: Vector\n)\n\n\n\n\nConverts a vector into its unit vector form. A unit vector is a vector whose magnitude is 1.\n\n\nThe normals must be normalised to use them to find the angle of reflection\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe vector to be normalised\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe unit vector form of input vector v\n\n\n\n\n\n\n\n\nreflectionNormal\n\u00b6\n\n\nfunction reflectionNormal(\n    o // Type: Player || Bullet\n)\n\n\n\n\nGiven a Player || Bullet instance o, which has been confirmed to be colliding with this Obstacle, determine which of the two normal vectors (\nthis.leftVector\n || \nthis.rightVector\n) to be used in the calculation for reflection\n\n\nThe vector is calculated using a combination of the Obstacles angle with the x-axis, and the (x, y) position of the object before collision\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\no\n\n\nThe Player or Bullet instance to be checked\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe unit vector normal to be used to calculate the angle of reflection for the object\n\n\n\n\n\n\n\n\nreflect\n\u00b6\n\n\nfunction reflect(\n    bullet // Type: Bullet\n)\n\n\n\n\nGiven a Bullet that has been confirmed to be colliding with this Obstacle, reflect the Bullet off of the Obstacle according to the following algorithm\n\n\nlet newDirection = oldDirection - ( ( 2 * ( dotProduct( oldDirection, reflectionNormal ) ) ) * reflectionNormal );\n\n\n\n\nThis method directly modifies the Bullet instance, and does not return anything\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet instance to be reflected\n\n\n\n\n\n\n\n\n\n\nCollision Handling\n\u00b6\n\n\nonBulletCollision\n\u00b6\n\n\nfunction onBulletCollision(\n    bullet // Type: [Bullet][2]\n) {}\n\n\n\n\nMakes changes to a \nBullet\n instance that has collided with this Obstacle\n\n\nThis method makes changes directly to the Bullet instance\n\n\n\n\nNote\n\n\nThrows a TypeError if ran from the Obstacle Base Class\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet that collided with this Obstacle\n\n\n\n\n\n\n\n\nonPlayerCollision\n\u00b6\n\n\nfunction onPlayerCollision(\n    player // Type: [Player][1]\n) {}\n\n\n\n\nMakes changes to a \nPlayer\n instance that has collided with this Obstacle\n\n\nThis method makes changes directly to the Player instance\n\n\n\n\nNote\n\n\nThrows a TypeError if ran from the Obstacle Base Class\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayer\n\n\nThe Player that collided with this Obstacle\n\n\n\n\n\n\n\n\n\n\nHelper Methods\n\u00b6\n\n\nvalidateCoordinates\n\u00b6\n\n\nfunction validateCoordinates() {}\n\n\n\n\nEnsures the (x1, y1) is closer to (0, 0) than (x2, y2).\n\n\nIf not, it will swap them\n\n\npointDistance\n\u00b6\n\n\nfunction pointDistance(\n    x1, // Type: Number\n    y1, // Type: Number\n    x2, // Type: Number\n    y2  // Type: Number\n) {}\n\n\n\n\nCalculates the straight line distance between points (x1, y1) and (x2, y2)\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx1\n\n\nThe x value of the first co-ordinate\n\n\n\n\n\n\ny1\n\n\nThe y value of the first co-ordinate\n\n\n\n\n\n\nx2\n\n\nThe x value of the second co-ordinate\n\n\n\n\n\n\ny2\n\n\nThe x value of the second co-ordinate\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndistance\n\n\nThe distance between the co-ordinate pairs\n\n\n\n\n\n\n\n\n\n\nObstacle Types\n\u00b6\n\n\nThe current Obstacle types and their colours are as follows:\n\n\n\n\n\n\n\n\nColour\n\n\nBullet Reaction\n\n\nPlayer Reaction\n\n\nName\n\n\n\n\n\n\n\n\n\n\n#3ECAE8\n\n\nBounce\n\n\nPass Through\n\n\nBullet Block\n\n\n\n\n\n\n#00FF00\n\n\nPass Through\n\n\nStop\n\n\nPlayer Block\n\n\n\n\n\n\n#FF8300\n\n\nBounce\n\n\nStop\n\n\nAll Block\n\n\n\n\n\n\n#FF003F\n\n\nDestroy\n\n\nDamage\n\n\nDamage Block",
+            "text": "Obstacle\n\u00b6\n\n\nclass\n \nObstacle\n \n{}\n\n\n\n\n\n\nAbstract base class used for all obstacle types in the Arena.\n\n\nHandles collisions with both \nPlayers\n and \nBullets\n.\n\n\nAlso handles the rendering of the obstacle on the canvas.\n\n\nInstance Variables\n\u00b6\n\n\n(x1, y1)\n\u00b6\n\n\nThe co-ordinates of the end of the Obstacle closer to (0, 0)\n\n\n(x2, y2)\n\u00b6\n\n\nThe co-ordinates of the end of the Obstacle further from (0, 0)\n\n\nColour\n\u00b6\n\n\nThe Colour the Obstacle will be drawn in on the canvas.\n\n\nThis value will be set by the subclasses\n\n\n\n\nSeealso\n\n\nObstacle Types\n\n\n\n\nleftNormal, rightNormal\n\u00b6\n\n\nThe unit vectors of the perpendicular lines to this Obstacle when this Obstacle is treated like a vector.\n\n\nThese values are used to calculate the reflection angle for a Bullet reflection\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \nx1\n,\n    \n// Type: Number\n\n    \ny1\n,\n    \n// Type: Number\n\n    \nx2\n,\n    \n// Type: Number\n\n    \ny2\n,\n    \n// Type: Number\n\n    \ncolour\n \n// Type: String\n\n\n)\n\n\n\n\n\n\nCreates a new Obstacle as a line between the two points (x1, y1) and (x2, y2).\n\n\n\n\nImportant\n\n\nFor now, (x1, y1) should be close to (0, 0) than (x2, y2)\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx1\n\n\nThe x co-ordinate of the end of the Obstacle closer to (0, 0)\n\n\n\n\n\n\ny1\n\n\nThe y co-ordinate of the end of the Obstacle closer to (0, 0)\n\n\n\n\n\n\nx2\n\n\nThe x co-ordinate of the end of the Obstacle further from (0, 0)\n\n\n\n\n\n\ny2\n\n\nThe y co-ordinate of the end of the Obstacle further from (0, 0)\n\n\n\n\n\n\ncolour\n\n\nA string containing the hex value of the color of the Obstacle\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nangle\n\u00b6\n\n\nget\n \nangle\n()\n \n{}\n\n\n\n\n\n\nCalculates the angle made by the Obstacle and a horizontal line passing through one of the points\n\n\nThe angle is in radians\n\n\n\n\nTip\n\n\nBecause of the \nget\n keyword, this method is run using \nobstacle.angle\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nangle\n\n\nThe angle made between this Obstacle instance and a horizontal line passing through one of the points\n\n\n\n\n\n\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n(\n\n    \ncontext\n \n// Type: CanvasRenderingContext2d\n\n\n)\n \n{}\n\n\n\n\n\n\nHandles the drawing of this Obstacle instance onto the canvas using its context\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncontext\n\n\nThe context from the canvas used for the game\n\n\n\n\n\n\n\n\n\n\nCollision Checking\n\u00b6\n\n\ncheckCollision\n\u00b6\n\n\nfunction\n \ncheckCollision\n(\n\n    \no\n \n// Type: Player || Bullet\n\n\n)\n\n\n\n\n\n\nDetermines whether or not the object o has will collide with this Obstacle during its next frame\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\no\n\n\nThe Player or Bullet instance to be checked\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncollision\n\n\nTrue if the instance collided, else false\n\n\n\n\n\n\n\n\ncheckBulletCollision\n\u00b6\n\n\nfunction\n \ncheckBulletCollision\n(\n\n    \nbullet\n \n// Type: [Bullet][2]\n\n\n)\n \n{}\n\n\n\n\n\n\nChecks if a \nBullet\n has collided with this Obstacle instance\n\n\n\n\nNote\n\n\nWill call \nonBulletCollision\n if a collision occurs\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet which is being checked for collision\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction\n \ncheckPlayerCollision\n(\n\n    \nplayer\n \n// Type: [Player][1]\n\n\n)\n \n{}\n\n\n\n\n\n\nChecks if a \nPlayer\n has collided with this Obstacle instance\n\n\n\n\nNote\n\n\nWill call \nonPlayerCollision\n if a collision occurs\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayer\n\n\nThe Player which is being checked for collision\n\n\n\n\n\n\n\n\nccw\n\u00b6\n\n\nfunction\n \nccw\n(\n\n    \na\n,\n \n// Type: Object {x, y}\n\n    \nb\n,\n \n// Type: Object {x, y}\n\n    \nc\n  \n// Type: Object {x, y}\n\n\n)\n\n\n\n\n\n\n\n\nThis is taken from \nhere\n\n\n\n\nDetermines whether or not the 3 points a, b, and c are listed in counter-clockwise order\n\n\na, b, and c are all objects representing (x, y) co-ordinates\n\n\nintersect\n\u00b6\n\n\nfunction\n \nintersect\n(\n\n    \na\n,\n \n// Type: Object {x, y}\n\n    \nb\n,\n \n// Type: Object {x, y}\n\n    \nc\n,\n \n// Type: Object {x, y}\n\n    \nd\n  \n// Type: Object {x, y}\n\n\n)\n\n\n\n\n\n\n\n\nThis is taken from \nhere\n\n\n\n\nUses the \nccw\n method to determine if the line segments \na -> b\n and \nc -> d\n intersect\n\n\nnormalise\n\u00b6\n\n\nfunction\n \nnormalise\n(\n\n    \nv\n \n// Type: Vector\n\n\n)\n\n\n\n\n\n\nConverts a vector into its unit vector form. A unit vector is a vector whose magnitude is 1.\n\n\nThe normals must be normalised to use them to find the angle of reflection\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe vector to be normalised\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe unit vector form of input vector v\n\n\n\n\n\n\n\n\nreflectionNormal\n\u00b6\n\n\nfunction\n \nreflectionNormal\n(\n\n    \no\n \n// Type: Player || Bullet\n\n\n)\n\n\n\n\n\n\nGiven a Player || Bullet instance o, which has been confirmed to be colliding with this Obstacle, determine which of the two normal vectors (\nthis.leftVector\n || \nthis.rightVector\n) to be used in the calculation for reflection\n\n\nThe vector is calculated using a combination of the Obstacles angle with the x-axis, and the (x, y) position of the object before collision\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\no\n\n\nThe Player or Bullet instance to be checked\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nv\n\n\nThe unit vector normal to be used to calculate the angle of reflection for the object\n\n\n\n\n\n\n\n\nreflect\n\u00b6\n\n\nfunction\n \nreflect\n(\n\n    \nbullet\n \n// Type: Bullet\n\n\n)\n\n\n\n\n\n\nGiven a Bullet that has been confirmed to be colliding with this Obstacle, reflect the Bullet off of the Obstacle according to the following algorithm\n\n\nlet\n \nnewDirection\n \n=\n \noldDirection\n \n-\n \n(\n \n(\n \n2\n \n*\n \n(\n \ndotProduct\n(\n \noldDirection\n,\n \nreflectionNormal\n \n)\n \n)\n \n)\n \n*\n \nreflectionNormal\n \n);\n\n\n\n\n\n\nThis method directly modifies the Bullet instance, and does not return anything\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet instance to be reflected\n\n\n\n\n\n\n\n\n\n\nCollision Handling\n\u00b6\n\n\nonBulletCollision\n\u00b6\n\n\nfunction\n \nonBulletCollision\n(\n\n    \nbullet\n \n// Type: [Bullet][2]\n\n\n)\n \n{}\n\n\n\n\n\n\nMakes changes to a \nBullet\n instance that has collided with this Obstacle\n\n\nThis method makes changes directly to the Bullet instance\n\n\n\n\nNote\n\n\nThrows a TypeError if ran from the Obstacle Base Class\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbullet\n\n\nThe Bullet that collided with this Obstacle\n\n\n\n\n\n\n\n\nonPlayerCollision\n\u00b6\n\n\nfunction\n \nonPlayerCollision\n(\n\n    \nplayer\n \n// Type: [Player][1]\n\n\n)\n \n{}\n\n\n\n\n\n\nMakes changes to a \nPlayer\n instance that has collided with this Obstacle\n\n\nThis method makes changes directly to the Player instance\n\n\n\n\nNote\n\n\nThrows a TypeError if ran from the Obstacle Base Class\n\n\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nplayer\n\n\nThe Player that collided with this Obstacle\n\n\n\n\n\n\n\n\n\n\nHelper Methods\n\u00b6\n\n\nvalidateCoordinates\n\u00b6\n\n\nfunction\n \nvalidateCoordinates\n()\n \n{}\n\n\n\n\n\n\nEnsures the (x1, y1) is closer to (0, 0) than (x2, y2).\n\n\nIf not, it will swap them\n\n\npointDistance\n\u00b6\n\n\nfunction\n \npointDistance\n(\n\n    \nx1\n,\n \n// Type: Number\n\n    \ny1\n,\n \n// Type: Number\n\n    \nx2\n,\n \n// Type: Number\n\n    \ny2\n  \n// Type: Number\n\n\n)\n \n{}\n\n\n\n\n\n\nCalculates the straight line distance between points (x1, y1) and (x2, y2)\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx1\n\n\nThe x value of the first co-ordinate\n\n\n\n\n\n\ny1\n\n\nThe y value of the first co-ordinate\n\n\n\n\n\n\nx2\n\n\nThe x value of the second co-ordinate\n\n\n\n\n\n\ny2\n\n\nThe x value of the second co-ordinate\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndistance\n\n\nThe distance between the co-ordinate pairs\n\n\n\n\n\n\n\n\n\n\nObstacle Types\n\u00b6\n\n\nThe current Obstacle types and their colours are as follows:\n\n\n\n\n\n\n\n\nColour\n\n\nBullet Reaction\n\n\nPlayer Reaction\n\n\nName\n\n\n\n\n\n\n\n\n\n\n#3ECAE8\n\n\nBounce\n\n\nPass Through\n\n\nBullet Block\n\n\n\n\n\n\n#00FF00\n\n\nPass Through\n\n\nStop\n\n\nPlayer Block\n\n\n\n\n\n\n#FF8300\n\n\nBounce\n\n\nStop\n\n\nAll Block\n\n\n\n\n\n\n#FF003F\n\n\nDestroy\n\n\nDamage\n\n\nDamage Block",
             "title": "Obstacle"
         },
         {
             "location": "/game/obstacle/#obstacle",
-            "text": "class Obstacle {}  Abstract base class used for all obstacle types in the Arena.  Handles collisions with both  Players  and  Bullets .  Also handles the rendering of the obstacle on the canvas.",
+            "text": "class   Obstacle   {}   Abstract base class used for all obstacle types in the Arena.  Handles collisions with both  Players  and  Bullets .  Also handles the rendering of the obstacle on the canvas.",
             "title": "Obstacle"
         },
         {
@@ -307,7 +307,7 @@
         },
         {
             "location": "/game/obstacle/#constructor",
-            "text": "function constructor(\n    x1,    // Type: Number\n    y1,    // Type: Number\n    x2,    // Type: Number\n    y2,    // Type: Number\n    colour // Type: String\n)  Creates a new Obstacle as a line between the two points (x1, y1) and (x2, y2).   Important  For now, (x1, y1) should be close to (0, 0) than (x2, y2)",
+            "text": "function   constructor ( \n     x1 ,      // Type: Number \n     y1 ,      // Type: Number \n     x2 ,      // Type: Number \n     y2 ,      // Type: Number \n     colour   // Type: String  )   Creates a new Obstacle as a line between the two points (x1, y1) and (x2, y2).   Important  For now, (x1, y1) should be close to (0, 0) than (x2, y2)",
             "title": "Constructor"
         },
         {
@@ -322,7 +322,7 @@
         },
         {
             "location": "/game/obstacle/#angle",
-            "text": "get angle() {}  Calculates the angle made by the Obstacle and a horizontal line passing through one of the points  The angle is in radians   Tip  Because of the  get  keyword, this method is run using  obstacle.angle",
+            "text": "get   angle ()   {}   Calculates the angle made by the Obstacle and a horizontal line passing through one of the points  The angle is in radians   Tip  Because of the  get  keyword, this method is run using  obstacle.angle",
             "title": "angle"
         },
         {
@@ -332,7 +332,7 @@
         },
         {
             "location": "/game/obstacle/#draw",
-            "text": "function draw(\n    context // Type: CanvasRenderingContext2d\n) {}  Handles the drawing of this Obstacle instance onto the canvas using its context",
+            "text": "function   draw ( \n     context   // Type: CanvasRenderingContext2d  )   {}   Handles the drawing of this Obstacle instance onto the canvas using its context",
             "title": "draw"
         },
         {
@@ -347,7 +347,7 @@
         },
         {
             "location": "/game/obstacle/#checkcollision",
-            "text": "function checkCollision(\n    o // Type: Player || Bullet\n)  Determines whether or not the object o has will collide with this Obstacle during its next frame",
+            "text": "function   checkCollision ( \n     o   // Type: Player || Bullet  )   Determines whether or not the object o has will collide with this Obstacle during its next frame",
             "title": "checkCollision"
         },
         {
@@ -362,7 +362,7 @@
         },
         {
             "location": "/game/obstacle/#checkbulletcollision",
-            "text": "function checkBulletCollision(\n    bullet // Type: [Bullet][2]\n) {}  Checks if a  Bullet  has collided with this Obstacle instance   Note  Will call  onBulletCollision  if a collision occurs",
+            "text": "function   checkBulletCollision ( \n     bullet   // Type: [Bullet][2]  )   {}   Checks if a  Bullet  has collided with this Obstacle instance   Note  Will call  onBulletCollision  if a collision occurs",
             "title": "checkBulletCollision"
         },
         {
@@ -372,7 +372,7 @@
         },
         {
             "location": "/game/obstacle/#checkplayercollision",
-            "text": "function checkPlayerCollision(\n    player // Type: [Player][1]\n) {}  Checks if a  Player  has collided with this Obstacle instance   Note  Will call  onPlayerCollision  if a collision occurs",
+            "text": "function   checkPlayerCollision ( \n     player   // Type: [Player][1]  )   {}   Checks if a  Player  has collided with this Obstacle instance   Note  Will call  onPlayerCollision  if a collision occurs",
             "title": "checkPlayerCollision"
         },
         {
@@ -382,17 +382,17 @@
         },
         {
             "location": "/game/obstacle/#ccw",
-            "text": "function ccw(\n    a, // Type: Object {x, y}\n    b, // Type: Object {x, y}\n    c  // Type: Object {x, y}\n)   This is taken from  here   Determines whether or not the 3 points a, b, and c are listed in counter-clockwise order  a, b, and c are all objects representing (x, y) co-ordinates",
+            "text": "function   ccw ( \n     a ,   // Type: Object {x, y} \n     b ,   // Type: Object {x, y} \n     c    // Type: Object {x, y}  )    This is taken from  here   Determines whether or not the 3 points a, b, and c are listed in counter-clockwise order  a, b, and c are all objects representing (x, y) co-ordinates",
             "title": "ccw"
         },
         {
             "location": "/game/obstacle/#intersect",
-            "text": "function intersect(\n    a, // Type: Object {x, y}\n    b, // Type: Object {x, y}\n    c, // Type: Object {x, y}\n    d  // Type: Object {x, y}\n)   This is taken from  here   Uses the  ccw  method to determine if the line segments  a -> b  and  c -> d  intersect",
+            "text": "function   intersect ( \n     a ,   // Type: Object {x, y} \n     b ,   // Type: Object {x, y} \n     c ,   // Type: Object {x, y} \n     d    // Type: Object {x, y}  )    This is taken from  here   Uses the  ccw  method to determine if the line segments  a -> b  and  c -> d  intersect",
             "title": "intersect"
         },
         {
             "location": "/game/obstacle/#normalise",
-            "text": "function normalise(\n    v // Type: Vector\n)  Converts a vector into its unit vector form. A unit vector is a vector whose magnitude is 1.  The normals must be normalised to use them to find the angle of reflection",
+            "text": "function   normalise ( \n     v   // Type: Vector  )   Converts a vector into its unit vector form. A unit vector is a vector whose magnitude is 1.  The normals must be normalised to use them to find the angle of reflection",
             "title": "normalise"
         },
         {
@@ -407,7 +407,7 @@
         },
         {
             "location": "/game/obstacle/#reflectionnormal",
-            "text": "function reflectionNormal(\n    o // Type: Player || Bullet\n)  Given a Player || Bullet instance o, which has been confirmed to be colliding with this Obstacle, determine which of the two normal vectors ( this.leftVector  ||  this.rightVector ) to be used in the calculation for reflection  The vector is calculated using a combination of the Obstacles angle with the x-axis, and the (x, y) position of the object before collision",
+            "text": "function   reflectionNormal ( \n     o   // Type: Player || Bullet  )   Given a Player || Bullet instance o, which has been confirmed to be colliding with this Obstacle, determine which of the two normal vectors ( this.leftVector  ||  this.rightVector ) to be used in the calculation for reflection  The vector is calculated using a combination of the Obstacles angle with the x-axis, and the (x, y) position of the object before collision",
             "title": "reflectionNormal"
         },
         {
@@ -422,7 +422,7 @@
         },
         {
             "location": "/game/obstacle/#reflect",
-            "text": "function reflect(\n    bullet // Type: Bullet\n)  Given a Bullet that has been confirmed to be colliding with this Obstacle, reflect the Bullet off of the Obstacle according to the following algorithm  let newDirection = oldDirection - ( ( 2 * ( dotProduct( oldDirection, reflectionNormal ) ) ) * reflectionNormal );  This method directly modifies the Bullet instance, and does not return anything",
+            "text": "function   reflect ( \n     bullet   // Type: Bullet  )   Given a Bullet that has been confirmed to be colliding with this Obstacle, reflect the Bullet off of the Obstacle according to the following algorithm  let   newDirection   =   oldDirection   -   (   (   2   *   (   dotProduct (   oldDirection ,   reflectionNormal   )   )   )   *   reflectionNormal   );   This method directly modifies the Bullet instance, and does not return anything",
             "title": "reflect"
         },
         {
@@ -437,7 +437,7 @@
         },
         {
             "location": "/game/obstacle/#onbulletcollision",
-            "text": "function onBulletCollision(\n    bullet // Type: [Bullet][2]\n) {}  Makes changes to a  Bullet  instance that has collided with this Obstacle  This method makes changes directly to the Bullet instance   Note  Throws a TypeError if ran from the Obstacle Base Class",
+            "text": "function   onBulletCollision ( \n     bullet   // Type: [Bullet][2]  )   {}   Makes changes to a  Bullet  instance that has collided with this Obstacle  This method makes changes directly to the Bullet instance   Note  Throws a TypeError if ran from the Obstacle Base Class",
             "title": "onBulletCollision"
         },
         {
@@ -447,7 +447,7 @@
         },
         {
             "location": "/game/obstacle/#onplayercollision",
-            "text": "function onPlayerCollision(\n    player // Type: [Player][1]\n) {}  Makes changes to a  Player  instance that has collided with this Obstacle  This method makes changes directly to the Player instance   Note  Throws a TypeError if ran from the Obstacle Base Class",
+            "text": "function   onPlayerCollision ( \n     player   // Type: [Player][1]  )   {}   Makes changes to a  Player  instance that has collided with this Obstacle  This method makes changes directly to the Player instance   Note  Throws a TypeError if ran from the Obstacle Base Class",
             "title": "onPlayerCollision"
         },
         {
@@ -462,12 +462,12 @@
         },
         {
             "location": "/game/obstacle/#validatecoordinates",
-            "text": "function validateCoordinates() {}  Ensures the (x1, y1) is closer to (0, 0) than (x2, y2).  If not, it will swap them",
+            "text": "function   validateCoordinates ()   {}   Ensures the (x1, y1) is closer to (0, 0) than (x2, y2).  If not, it will swap them",
             "title": "validateCoordinates"
         },
         {
             "location": "/game/obstacle/#pointdistance",
-            "text": "function pointDistance(\n    x1, // Type: Number\n    y1, // Type: Number\n    x2, // Type: Number\n    y2  // Type: Number\n) {}  Calculates the straight line distance between points (x1, y1) and (x2, y2)",
+            "text": "function   pointDistance ( \n     x1 ,   // Type: Number \n     y1 ,   // Type: Number \n     x2 ,   // Type: Number \n     y2    // Type: Number  )   {}   Calculates the straight line distance between points (x1, y1) and (x2, y2)",
             "title": "pointDistance"
         },
         {
@@ -487,12 +487,12 @@
         },
         {
             "location": "/game/player/",
-            "text": "Player\n\u00b6\n\n\nclass Player {}\n\n\n\n\nClass for the Player object, that represents someone's character in the game\n\n\nConstants\n\u00b6\n\n\nplayerSize\n\u00b6\n\n\nconst playerSize = 20;\n\n\n\n\nThe size of each Player object\n\n\nplayerSpeed\n\u00b6\n\n\nconst playerSpeed = 4;\n\n\n\n\nThe number of pixels a Player will move per frame in each direction\n\n\nmaxBullets\n\u00b6\n\n\nconst maxBullets = 3;\n\n\n\n\nThe maximum number of \nBullets\n that a Player can have on screen at any one time\n\n\nmaxHealth\n\u00b6\n\n\nconst maxHealth = 100;\n\n\n\n\nThe maximum value for a Player's health\n\n\nInstance Variables\n\u00b6\n\n\n(x, y)\n\u00b6\n\n\nThe co-ordinates of the top left corner of the Player.\n\n\nsize\n\u00b6\n\n\nAn instance based storage of the player size. Purely for use in collision testing\n\n\nisMoving\n\u00b6\n\n\nthis.isMoving = {\n    up: false,\n    down: false,\n    left: false,\n    right: false\n}\n\n\n\n\nA Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction\n\n\nThese booleans will be used by the \nupdatePositon\n method to determine the position of the player for the next frame\n\n\nusername\n\u00b6\n\n\nThe username of the person controlling this Player instance\n\n\ncolour\n\u00b6\n\n\nA hex string representing the colour of this Player instance\n\n\ncurrentHealth\n\u00b6\n\n\nThe health that this Player instance currently has remaining\n\n\ncurrentBullets\n\u00b6\n\n\nThe number of \nBullets\n this Player instance can currently fire\n\n\nbullets\n\u00b6\n\n\nAn array of \nBullet\n objects that the Player instance owns\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction constructor(\n    x,          // Type: Number\n    y,          // Type: Number\n    username,   // Type: String\n    colour,     // Type: String\n    local=false // Type: Boolean\n) {}\n\n\n\n\nCreates a new Player instance at the point (x, y) with the name username\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx\n\n\nThe x co-ordinate of the top left corner of the Player\n\n\n\n\n\n\ny\n\n\nThe y co-ordinate of the top left corner of the Player\n\n\n\n\n\n\nusername\n\n\nThe username of the person controlling the Player\n\n\n\n\n\n\ncolour\n\n\nThe colour that this Player will be rendered in\n\n\n\n\n\n\nlocal\n\n\nA flag that is only true for the Player instance being controlled by the Client\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nxChange, yChange\n\u00b6\n\n\nfunction get xChange() {}\nfunction get yChange() {}\n\n\n\n\nUsing the values contained in \nisMoving\n, calculates the number of pixels this Player instance will move this frame in the x and y directions respectively\n\n\n\n\nNote\n\n\nAs they have the \nget\n keyword, these methods are run as if they were instance variables\n\n\n\n\nalive\n\u00b6\n\n\nfunction get alive() {}\n\n\n\n\nA flag indicating whether the Player instance is \"alive\", meaning its health is over 0\n\n\n\n\nNote\n\n\nAs it has the \nget\n keyword, this method is run as if it was an instance variable\n\n\n\n\ndraw\n\u00b6\n\n\nfunction draw(\n    context // Type: CanvasRenderingContext2d\n) {}\n\n\n\n\nHandles the drawing of this Player instance onto the canvas using its context\n\n\nmove\n\u00b6\n\n\nfunction move(\n    e // Type: KeyboardEvent\n)\n\n\n\n\nHandles the movement of the local Player object on the screen\n\n\nCalled from a \nkeydown\n event\n\n\nstop\n\u00b6\n\n\nfunction stop(\n    e // Type: KeyboardEvent\n)\n\n\n\n\nHandles the stopping of movement of the local Player object\n\n\nCalled from a \nkeyup\n event\n\n\nupdatePosition\n\u00b6\n\n\nfunction updatePosition() {}\n\n\n\n\nReads the booleans in \nisMoving\n and updates the Player instance's x and y values according to the button(s) being pressed\n\n\nshoot\n\u00b6\n\n\nfunction shoot(\n    e,     // Type: MouseEvent\n    canvas // Type: Canvas\n)\n\n\n\n\nMakes this Player instance fire a \nBullet\n, if there are bullets remaining that can be fired.\n\n\nA pointer to the canvas is passed in as there was an issue with calculating the mouse click's location on the canvas, we now need to get some details from the canvas object itself to ensure shooting is as accurate as possible\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ne\n\n\nThe event object sent via mouse click\n\n\n\n\n\n\ncanvas\n\n\nA pointer to the game's canvas\n\n\n\n\n\n\n\n\nbulletDestroyed\n\u00b6\n\n\nfunction bulletDestroyed(\n    num // Type: Number\n)\n\n\n\n\nA callback from a Bullet that has been destroyed for whatever reason. Removed the Bullet for the Player's array and increments the number of Bullets the Player can fire by one, allowing another to be fired\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnum\n\n\nThe index of the destroyed Bullet in this Player's bullets array\n\n\n\n\n\n\n\n\ngetAngle\n\u00b6\n\n\nfunction getAngle(\n    sourceX,      // Type: Number\n    sourceY,      // Type: Number\n    destinationX, // Type: Number\n    destinationY  // Type: Number\n)\n\n\n\n\nCalculates the angle in radians between the points (sourceX, sourceY) and (destinationX, destinationY)\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsourceX\n\n\nThe x co-ordinate of the source\n\n\n\n\n\n\nsourceY\n\n\nThe y co-ordinate of the source\n\n\n\n\n\n\ndestinationX\n\n\nThe x co-ordinate of the destination\n\n\n\n\n\n\ndestinationY\n\n\nThe y co-ordinate of the destination\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nangle\n\n\nThe angle between (sourceX, sourceY) and (destinationX, destinationY)\n\n\n\n\n\n\n\n\ntakeDamage\n\u00b6\n\n\nfunction takeDamage(\n    dmg // Type: Number\n)\n\n\n\n\nCalled by an object dealing damage to the Player instance. Causes the instance to take damage immediately\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndmg\n\n\nThe amount of damage that was inflicted to the Player instance\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction checkPlayerCollision(\n    p // Type: Player\n)\n\n\n\n\nOnly run by the local Player\n\n\nChecks if the local Player is in contact with another Player instance. If so, the Player will receive 1/30 HP damage every frame they are in contact, resulting in a 2 HP/s loss\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\np\n\n\nThe Player instance to be checked against. Will not be the same as \nthis",
+            "text": "Player\n\u00b6\n\n\nclass\n \nPlayer\n \n{}\n\n\n\n\n\n\nClass for the Player object, that represents someone's character in the game\n\n\nConstants\n\u00b6\n\n\nplayerSize\n\u00b6\n\n\nconst\n \nplayerSize\n \n=\n \n20\n;\n\n\n\n\n\n\nThe size of each Player object\n\n\nplayerSpeed\n\u00b6\n\n\nconst\n \nplayerSpeed\n \n=\n \n4\n;\n\n\n\n\n\n\nThe number of pixels a Player will move per frame in each direction\n\n\nmaxBullets\n\u00b6\n\n\nconst\n \nmaxBullets\n \n=\n \n3\n;\n\n\n\n\n\n\nThe maximum number of \nBullets\n that a Player can have on screen at any one time\n\n\nmaxHealth\n\u00b6\n\n\nconst\n \nmaxHealth\n \n=\n \n100\n;\n\n\n\n\n\n\nThe maximum value for a Player's health\n\n\nInstance Variables\n\u00b6\n\n\n(x, y)\n\u00b6\n\n\nThe co-ordinates of the top left corner of the Player.\n\n\nsize\n\u00b6\n\n\nAn instance based storage of the player size. Purely for use in collision testing\n\n\nisMoving\n\u00b6\n\n\nthis\n.\nisMoving\n \n=\n \n{\n\n    \nup\n:\n \nfalse\n,\n\n    \ndown\n:\n \nfalse\n,\n\n    \nleft\n:\n \nfalse\n,\n\n    \nright\n:\n \nfalse\n\n\n}\n\n\n\n\n\n\nA Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction\n\n\nThese booleans will be used by the \nupdatePositon\n method to determine the position of the player for the next frame\n\n\nusername\n\u00b6\n\n\nThe username of the person controlling this Player instance\n\n\ncolour\n\u00b6\n\n\nA hex string representing the colour of this Player instance\n\n\ncurrentHealth\n\u00b6\n\n\nThe health that this Player instance currently has remaining\n\n\ncurrentBullets\n\u00b6\n\n\nThe number of \nBullets\n this Player instance can currently fire\n\n\nbullets\n\u00b6\n\n\nAn array of \nBullet\n objects that the Player instance owns\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \nx\n,\n          \n// Type: Number\n\n    \ny\n,\n          \n// Type: Number\n\n    \nusername\n,\n   \n// Type: String\n\n    \ncolour\n,\n     \n// Type: String\n\n    \nlocal\n=\nfalse\n \n// Type: Boolean\n\n\n)\n \n{}\n\n\n\n\n\n\nCreates a new Player instance at the point (x, y) with the name username\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx\n\n\nThe x co-ordinate of the top left corner of the Player\n\n\n\n\n\n\ny\n\n\nThe y co-ordinate of the top left corner of the Player\n\n\n\n\n\n\nusername\n\n\nThe username of the person controlling the Player\n\n\n\n\n\n\ncolour\n\n\nThe colour that this Player will be rendered in\n\n\n\n\n\n\nlocal\n\n\nA flag that is only true for the Player instance being controlled by the Client\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nxChange, yChange\n\u00b6\n\n\nfunction\n \nget\n \nxChange\n()\n \n{}\n\n\nfunction\n \nget\n \nyChange\n()\n \n{}\n\n\n\n\n\n\nUsing the values contained in \nisMoving\n, calculates the number of pixels this Player instance will move this frame in the x and y directions respectively\n\n\n\n\nNote\n\n\nAs they have the \nget\n keyword, these methods are run as if they were instance variables\n\n\n\n\nalive\n\u00b6\n\n\nfunction\n \nget\n \nalive\n()\n \n{}\n\n\n\n\n\n\nA flag indicating whether the Player instance is \"alive\", meaning its health is over 0\n\n\n\n\nNote\n\n\nAs it has the \nget\n keyword, this method is run as if it was an instance variable\n\n\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n(\n\n    \ncontext\n \n// Type: CanvasRenderingContext2d\n\n\n)\n \n{}\n\n\n\n\n\n\nHandles the drawing of this Player instance onto the canvas using its context\n\n\nmove\n\u00b6\n\n\nfunction\n \nmove\n(\n\n    \ne\n \n// Type: KeyboardEvent\n\n\n)\n\n\n\n\n\n\nHandles the movement of the local Player object on the screen\n\n\nCalled from a \nkeydown\n event\n\n\nstop\n\u00b6\n\n\nfunction\n \nstop\n(\n\n    \ne\n \n// Type: KeyboardEvent\n\n\n)\n\n\n\n\n\n\nHandles the stopping of movement of the local Player object\n\n\nCalled from a \nkeyup\n event\n\n\nupdatePosition\n\u00b6\n\n\nfunction\n \nupdatePosition\n()\n \n{}\n\n\n\n\n\n\nReads the booleans in \nisMoving\n and updates the Player instance's x and y values according to the button(s) being pressed\n\n\nshoot\n\u00b6\n\n\nfunction\n \nshoot\n(\n\n    \ne\n,\n     \n// Type: MouseEvent\n\n    \ncanvas\n \n// Type: Canvas\n\n\n)\n\n\n\n\n\n\nMakes this Player instance fire a \nBullet\n, if there are bullets remaining that can be fired.\n\n\nA pointer to the canvas is passed in as there was an issue with calculating the mouse click's location on the canvas, we now need to get some details from the canvas object itself to ensure shooting is as accurate as possible\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ne\n\n\nThe event object sent via mouse click\n\n\n\n\n\n\ncanvas\n\n\nA pointer to the game's canvas\n\n\n\n\n\n\n\n\nbulletDestroyed\n\u00b6\n\n\nfunction\n \nbulletDestroyed\n(\n\n    \nnum\n \n// Type: Number\n\n\n)\n\n\n\n\n\n\nA callback from a Bullet that has been destroyed for whatever reason. Removed the Bullet for the Player's array and increments the number of Bullets the Player can fire by one, allowing another to be fired\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnum\n\n\nThe index of the destroyed Bullet in this Player's bullets array\n\n\n\n\n\n\n\n\ngetAngle\n\u00b6\n\n\nfunction\n \ngetAngle\n(\n\n    \nsourceX\n,\n      \n// Type: Number\n\n    \nsourceY\n,\n      \n// Type: Number\n\n    \ndestinationX\n,\n \n// Type: Number\n\n    \ndestinationY\n  \n// Type: Number\n\n\n)\n\n\n\n\n\n\nCalculates the angle in radians between the points (sourceX, sourceY) and (destinationX, destinationY)\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsourceX\n\n\nThe x co-ordinate of the source\n\n\n\n\n\n\nsourceY\n\n\nThe y co-ordinate of the source\n\n\n\n\n\n\ndestinationX\n\n\nThe x co-ordinate of the destination\n\n\n\n\n\n\ndestinationY\n\n\nThe y co-ordinate of the destination\n\n\n\n\n\n\n\n\nReturns\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nangle\n\n\nThe angle between (sourceX, sourceY) and (destinationX, destinationY)\n\n\n\n\n\n\n\n\ntakeDamage\n\u00b6\n\n\nfunction\n \ntakeDamage\n(\n\n    \ndmg\n \n// Type: Number\n\n\n)\n\n\n\n\n\n\nCalled by an object dealing damage to the Player instance. Causes the instance to take damage immediately\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndmg\n\n\nThe amount of damage that was inflicted to the Player instance\n\n\n\n\n\n\n\n\ncheckPlayerCollision\n\u00b6\n\n\nfunction\n \ncheckPlayerCollision\n(\n\n    \np\n \n// Type: Player\n\n\n)\n\n\n\n\n\n\nOnly run by the local Player\n\n\nChecks if the local Player is in contact with another Player instance. If so, the Player will receive 1/30 HP damage every frame they are in contact, resulting in a 2 HP/s loss\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\np\n\n\nThe Player instance to be checked against. Will not be the same as \nthis",
             "title": "Player"
         },
         {
             "location": "/game/player/#player",
-            "text": "class Player {}  Class for the Player object, that represents someone's character in the game",
+            "text": "class   Player   {}   Class for the Player object, that represents someone's character in the game",
             "title": "Player"
         },
         {
@@ -502,22 +502,22 @@
         },
         {
             "location": "/game/player/#playersize",
-            "text": "const playerSize = 20;  The size of each Player object",
+            "text": "const   playerSize   =   20 ;   The size of each Player object",
             "title": "playerSize"
         },
         {
             "location": "/game/player/#playerspeed",
-            "text": "const playerSpeed = 4;  The number of pixels a Player will move per frame in each direction",
+            "text": "const   playerSpeed   =   4 ;   The number of pixels a Player will move per frame in each direction",
             "title": "playerSpeed"
         },
         {
             "location": "/game/player/#maxbullets",
-            "text": "const maxBullets = 3;  The maximum number of  Bullets  that a Player can have on screen at any one time",
+            "text": "const   maxBullets   =   3 ;   The maximum number of  Bullets  that a Player can have on screen at any one time",
             "title": "maxBullets"
         },
         {
             "location": "/game/player/#maxhealth",
-            "text": "const maxHealth = 100;  The maximum value for a Player's health",
+            "text": "const   maxHealth   =   100 ;   The maximum value for a Player's health",
             "title": "maxHealth"
         },
         {
@@ -537,7 +537,7 @@
         },
         {
             "location": "/game/player/#ismoving",
-            "text": "this.isMoving = {\n    up: false,\n    down: false,\n    left: false,\n    right: false\n}  A Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction  These booleans will be used by the  updatePositon  method to determine the position of the player for the next frame",
+            "text": "this . isMoving   =   { \n     up :   false , \n     down :   false , \n     left :   false , \n     right :   false  }   A Javascript Object containing the 4 cardinal directions and a boolean stating whether or not the Player instance is currently moving in that direction  These booleans will be used by the  updatePositon  method to determine the position of the player for the next frame",
             "title": "isMoving"
         },
         {
@@ -567,7 +567,7 @@
         },
         {
             "location": "/game/player/#constructor",
-            "text": "function constructor(\n    x,          // Type: Number\n    y,          // Type: Number\n    username,   // Type: String\n    colour,     // Type: String\n    local=false // Type: Boolean\n) {}  Creates a new Player instance at the point (x, y) with the name username",
+            "text": "function   constructor ( \n     x ,            // Type: Number \n     y ,            // Type: Number \n     username ,     // Type: String \n     colour ,       // Type: String \n     local = false   // Type: Boolean  )   {}   Creates a new Player instance at the point (x, y) with the name username",
             "title": "Constructor"
         },
         {
@@ -582,37 +582,37 @@
         },
         {
             "location": "/game/player/#xchange-ychange",
-            "text": "function get xChange() {}\nfunction get yChange() {}  Using the values contained in  isMoving , calculates the number of pixels this Player instance will move this frame in the x and y directions respectively   Note  As they have the  get  keyword, these methods are run as if they were instance variables",
+            "text": "function   get   xChange ()   {}  function   get   yChange ()   {}   Using the values contained in  isMoving , calculates the number of pixels this Player instance will move this frame in the x and y directions respectively   Note  As they have the  get  keyword, these methods are run as if they were instance variables",
             "title": "xChange, yChange"
         },
         {
             "location": "/game/player/#alive",
-            "text": "function get alive() {}  A flag indicating whether the Player instance is \"alive\", meaning its health is over 0   Note  As it has the  get  keyword, this method is run as if it was an instance variable",
+            "text": "function   get   alive ()   {}   A flag indicating whether the Player instance is \"alive\", meaning its health is over 0   Note  As it has the  get  keyword, this method is run as if it was an instance variable",
             "title": "alive"
         },
         {
             "location": "/game/player/#draw",
-            "text": "function draw(\n    context // Type: CanvasRenderingContext2d\n) {}  Handles the drawing of this Player instance onto the canvas using its context",
+            "text": "function   draw ( \n     context   // Type: CanvasRenderingContext2d  )   {}   Handles the drawing of this Player instance onto the canvas using its context",
             "title": "draw"
         },
         {
             "location": "/game/player/#move",
-            "text": "function move(\n    e // Type: KeyboardEvent\n)  Handles the movement of the local Player object on the screen  Called from a  keydown  event",
+            "text": "function   move ( \n     e   // Type: KeyboardEvent  )   Handles the movement of the local Player object on the screen  Called from a  keydown  event",
             "title": "move"
         },
         {
             "location": "/game/player/#stop",
-            "text": "function stop(\n    e // Type: KeyboardEvent\n)  Handles the stopping of movement of the local Player object  Called from a  keyup  event",
+            "text": "function   stop ( \n     e   // Type: KeyboardEvent  )   Handles the stopping of movement of the local Player object  Called from a  keyup  event",
             "title": "stop"
         },
         {
             "location": "/game/player/#updateposition",
-            "text": "function updatePosition() {}  Reads the booleans in  isMoving  and updates the Player instance's x and y values according to the button(s) being pressed",
+            "text": "function   updatePosition ()   {}   Reads the booleans in  isMoving  and updates the Player instance's x and y values according to the button(s) being pressed",
             "title": "updatePosition"
         },
         {
             "location": "/game/player/#shoot",
-            "text": "function shoot(\n    e,     // Type: MouseEvent\n    canvas // Type: Canvas\n)  Makes this Player instance fire a  Bullet , if there are bullets remaining that can be fired.  A pointer to the canvas is passed in as there was an issue with calculating the mouse click's location on the canvas, we now need to get some details from the canvas object itself to ensure shooting is as accurate as possible",
+            "text": "function   shoot ( \n     e ,       // Type: MouseEvent \n     canvas   // Type: Canvas  )   Makes this Player instance fire a  Bullet , if there are bullets remaining that can be fired.  A pointer to the canvas is passed in as there was an issue with calculating the mouse click's location on the canvas, we now need to get some details from the canvas object itself to ensure shooting is as accurate as possible",
             "title": "shoot"
         },
         {
@@ -622,7 +622,7 @@
         },
         {
             "location": "/game/player/#bulletdestroyed",
-            "text": "function bulletDestroyed(\n    num // Type: Number\n)  A callback from a Bullet that has been destroyed for whatever reason. Removed the Bullet for the Player's array and increments the number of Bullets the Player can fire by one, allowing another to be fired",
+            "text": "function   bulletDestroyed ( \n     num   // Type: Number  )   A callback from a Bullet that has been destroyed for whatever reason. Removed the Bullet for the Player's array and increments the number of Bullets the Player can fire by one, allowing another to be fired",
             "title": "bulletDestroyed"
         },
         {
@@ -632,7 +632,7 @@
         },
         {
             "location": "/game/player/#getangle",
-            "text": "function getAngle(\n    sourceX,      // Type: Number\n    sourceY,      // Type: Number\n    destinationX, // Type: Number\n    destinationY  // Type: Number\n)  Calculates the angle in radians between the points (sourceX, sourceY) and (destinationX, destinationY)",
+            "text": "function   getAngle ( \n     sourceX ,        // Type: Number \n     sourceY ,        // Type: Number \n     destinationX ,   // Type: Number \n     destinationY    // Type: Number  )   Calculates the angle in radians between the points (sourceX, sourceY) and (destinationX, destinationY)",
             "title": "getAngle"
         },
         {
@@ -647,7 +647,7 @@
         },
         {
             "location": "/game/player/#takedamage",
-            "text": "function takeDamage(\n    dmg // Type: Number\n)  Called by an object dealing damage to the Player instance. Causes the instance to take damage immediately",
+            "text": "function   takeDamage ( \n     dmg   // Type: Number  )   Called by an object dealing damage to the Player instance. Causes the instance to take damage immediately",
             "title": "takeDamage"
         },
         {
@@ -657,7 +657,7 @@
         },
         {
             "location": "/game/player/#checkplayercollision",
-            "text": "function checkPlayerCollision(\n    p // Type: Player\n)  Only run by the local Player  Checks if the local Player is in contact with another Player instance. If so, the Player will receive 1/30 HP damage every frame they are in contact, resulting in a 2 HP/s loss",
+            "text": "function   checkPlayerCollision ( \n     p   // Type: Player  )   Only run by the local Player  Checks if the local Player is in contact with another Player instance. If so, the Player will receive 1/30 HP damage every frame they are in contact, resulting in a 2 HP/s loss",
             "title": "checkPlayerCollision"
         },
         {

@@ -137,21 +137,24 @@
 <p>All that is required is <a href="https://nodejs.org/en/download/">Node.js</a></p>
 <p>Development is currently done using <code>v8.1.3</code></p>
 <p>For Debian based Linux distros:</p>
-<pre class="codehilite"><code class="language-bash">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs</code></pre>
+<div class="codehilite"><pre><span></span>curl -sL https://deb.nodesource.com/setup_8.x <span class="p">|</span> sudo -E bash -
+sudo apt-get install -y nodejs
+</pre></div>
 
 
 <h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link">&para;</a></h3>
 <p>Access the repo folder in a terminal and install the development packages</p>
-<pre class="codehilite"><code class="language-bash">git clone https://github.com/ExceptionalVoid/Arena-Electron.git
-cd Arena-Electron
-npm install</code></pre>
+<div class="codehilite"><pre><span></span>git clone https://github.com/ExceptionalVoid/Arena-Electron.git
+<span class="nb">cd</span> Arena-Electron
+npm install
+</pre></div>
 
 
 <p>If there are any errors, open an issue following the Issue section of the <a href="CONTRIBUTING.md">Contribution Guide</a></p>
 <h2 id="running-the-tests">Running the tests<a class="headerlink" href="#running-the-tests" title="Permanent link">&para;</a></h2>
 <p>To run unit tests, simply run</p>
-<pre class="codehilite"><code class="language-bash">npm test</code></pre>
+<div class="codehilite"><pre><span></span>npm <span class="nb">test</span>
+</pre></div>
 
 
 <h3 id="adding-new-unit-tests">Adding New Unit Tests<a class="headerlink" href="#adding-new-unit-tests" title="Permanent link">&para;</a></h3>
@@ -160,7 +163,8 @@ npm install</code></pre>
 <p>If you are instead editing an existing file, then add some new test cases to the test file for that class.</p>
 <p>We use the <code>describe</code> method very heavily to group our tests by the value or set of functions being tested</p>
 <p>If there are any methods that cannot be tested, i.e methods that handle drawing on the canvas, then we add <code>/* istanbul ignore next */</code> like so:</p>
-<pre class="codehilite"><code>draw /* istanbul ignore next */ (context)</code></pre>
+<div class="codehilite"><pre><span></span>draw /* istanbul ignore next */ (context)
+</pre></div>
 
 
 <blockquote>
@@ -215,5 +219,5 @@ npm install</code></pre>
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-09-08 00:44:55
+Build Date UTC : 2017-09-08 00:46:06
 -->

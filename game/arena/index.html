@@ -125,7 +125,8 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="arena">Arena<a class="headerlink" href="#arena" title="Permanent link">&para;</a></h1>
-<pre class="codehilite"><code class="language-js">class Arena {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Arena</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Class that manages the running of the game on screen.</p>
@@ -149,9 +150,10 @@
 <p>Used to determine the object that is controlled by player input</p>
 <hr />
 <h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-js">function constructor(
-    canvas // Type: Canvas
-) {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">constructor</span><span class="p">(</span>
+    <span class="nx">canvas</span> <span class="c1">// Type: Canvas</span>
+<span class="p">)</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Given a canvas object, sets up all necessary objects to start the game</p>
@@ -173,7 +175,8 @@
 <hr />
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <h3 id="setupobstacles">setupObstacles<a class="headerlink" href="#setupobstacles" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function setupObstacles() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupObstacles</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.</p>
@@ -182,7 +185,8 @@
 <p>Will be updated later to load obstacles from a json file</p>
 </div>
 <h3 id="setupplayers">setupPlayers<a class="headerlink" href="#setupplayers" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function setupPlayers() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupPlayers</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.</p>
@@ -191,7 +195,8 @@
 <p>Will be updated later to load Player spawn points from a json file</p>
 </div>
 <h3 id="setuplisteners">setupListeners<a class="headerlink" href="#setuplisteners" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function setupListeners() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupListeners</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Creates any necessary event listeners and adds the required functionality</p>
@@ -204,17 +209,20 @@
 </ul>
 </div>
 <h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function update() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>The heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering</p>
 <h3 id="draw">draw<a class="headerlink" href="#draw" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function draw() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen</p>
 <h3 id="checkcollisions">checkCollisions<a class="headerlink" href="#checkcollisions" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-js">function checkCollisions() {}</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span> <span class="p">{}</span>
+</pre></div>
 
 
 <p>Checks for collisions between Player, Bullet and Obstacle instances</p></div>
