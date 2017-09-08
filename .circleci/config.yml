@@ -48,13 +48,13 @@ jobs:
 
   document:
     docker:
-      - image: squidfunk/mkdocs-material:latest
+      - image: python3:latest
 
     working_directory: ~/repo
 
     steps:
       - checkout
-
+      - pip3 install mkdocs mkdocs-material
       - run: mkdocs gh-deploy
 workflows:
   version: 2
