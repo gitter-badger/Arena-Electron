@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - checkout
-      - python3 -m pip install mkdocs mkdocs-material
+      - run: python3 -m pip install mkdocs mkdocs-material
       - run: mkdocs gh-deploy
 workflows:
   version: 2
