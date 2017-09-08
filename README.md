@@ -32,7 +32,7 @@ cd Arena-Electron
 npm install
 ```
 
-If there are any errors, open an issue following the Issue section of the [Contribution Guide](CONTRIBUTION.md)
+If there are any errors, open an issue following the Issue section of the [Contribution Guide](CONTRIBUTING.md)
 
 ## Running the tests
 
