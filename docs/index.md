@@ -4,6 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/coverage.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron/coverage)
 [![Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/gpa.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
 [![Issue Count](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/issue_count.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
+[![Known Vulnerabilities](https://snyk.io/test/github/crnlpanic/arena-electron/badge.svg)](https://snyk.io/test/github/crnlpanic/arena-electron)
 
 A port of [Arena: A Game of Tanks](https://github.com/ExceptionalVoid/Arena), written in ES6 and built using GitHub's [Electron](https://electron.atom.io/)
 
@@ -72,6 +73,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Ciaran Broderick** - *Creator of Arena: A Game of Tanks*
+* **Grzegorz Ikwanty** - *Assistant Developer for Arena: AGoT*
 
 See also the list of [contributors](https://github.com/crnlPanic/Arena-Electron/contributors) who participated in this project.
 
