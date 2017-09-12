@@ -5,6 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/gpa.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
 [![Issue Count](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/issue_count.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
 [![Known Vulnerabilities](https://snyk.io/test/github/crnlpanic/arena-electron/badge.svg)](https://snyk.io/test/github/crnlpanic/arena-electron)
+[![Stories in Ready](https://badge.waffle.io/crnlPanic/Arena-Electron.svg?label=ready&title=Ready)](http://waffle.io/crnlPanic/Arena-Electron)
 
 A port of [Arena: A Game of Tanks](https://github.com/ExceptionalVoid/Arena), written in ES6 and built using GitHub's [Electron](https://electron.atom.io/)
 
