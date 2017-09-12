@@ -72,6 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Ciaran Broderick** - *Creator of Arena: A Game of Tanks*
+* **Grzegorz Ikwanty** - *Assistant Developer for Arena: AGoT*
 
 See also the list of [contributors](https://github.com/crnlPanic/Arena-Electron/contributors) who participated in this project.
 
