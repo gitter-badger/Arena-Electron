@@ -13,7 +13,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Documentation
 
-We are using [MkDocs](http://www.mkdocs.org/) to create our [docs](https://docs.exceptionalvoid.com/Arena-Electron)
+We are using [MkDocs](http://www.mkdocs.org/) to create our [docs](https://crnlPanic.github.io/Arena-Electron)
 
 To add a doc file:
 
