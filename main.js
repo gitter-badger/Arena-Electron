@@ -147,6 +147,8 @@ let joinGame = (address, username, password) => {
     gameWin.webContents.once('did-finish-load', () => {
         client.connect(`ws://${serverIp}:44444`, 'arena-electron');
     });
+
+    // Use the gameWinFailure method to display error messages
 };
 
 let gameWinSuccess = () => {
