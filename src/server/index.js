@@ -55,21 +55,21 @@ class Server {
                 if (message.command !== 'JOIN'){
                     connection.sendUTF(JSON.stringify({
                         command: 'ERROR',
-                        message: 'Invalid Protocol Header'
+                        errorMessage: 'Invalid Protocol Header'
                     }));
                     connection.close();
                 }
                 else if (message.password !== this.password) {
                     connection.sendUTF(JSON.stringify({
                         command: 'ERROR',
-                        message: 'Incorrect Password'
+                        errorMessage: 'Incorrect Password'
                     }));
                     connection.close();
                 }
                 else if (this.numPlayers === 4) {
                     connection.sendUTF(JSON.stringify({
                         command: 'ERROR',
-                        message: 'Lobby Full'
+                        errorMessage: 'Lobby Full'
                     }));
                     connection.close();
                 }
