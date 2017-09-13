@@ -74,6 +74,15 @@ app.on('activate', () => {
     }
 });
 
+app.on('will-quit', () => {
+    if (host) {
+        try{
+            serverProc.send(JSON.stringify({command: 'CLOSE'}));
+        }
+        catch(e) {}
+    }
+});
+
 function createGameWindow() {
     // Create the window for the game
     gameWin = new BrowserWindow({
