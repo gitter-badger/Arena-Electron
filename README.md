@@ -13,6 +13,21 @@ A port of [Arena: A Game of Tanks](https://github.com/ExceptionalVoid/Arena), wr
 
 To download a development version of the project, simply checkout this repo or download the zipfile.
 
+### Dev Tools
+
+As part of the development process of Arena, we use a few different tools after having moved to GitHub.
+
+These tools are as follows;
+
+- [CircleCI](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master)
+  - Continuous Integration. Testing and Documentation.
+- [Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron)
+  - Code Coverage and Automated Code Review
+- [Snyk](https://snyk.io/test/github/crnlpanic/arena-electron)
+  - Find security vulnerabilities in dependencies
+- [Waffle.io](http://waffle.io/crnlPanic/Arena-Electron)
+  - Automated project management tool.
+
 ### Prerequisites
 
 All that is required is [Node.js](https://nodejs.org/en/download/)
