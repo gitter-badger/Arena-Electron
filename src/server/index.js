@@ -6,10 +6,8 @@ const Lobby = require('./lobby').Lobby;
 // and game servers
 
 class Server {
-    constructor(password, done) {
-        process.send('Server starting up at ' + new Date());
+    constructor(password) {
         process.on('message', (message) => {
-            process.send(message);
             message = JSON.parse(message);
             switch (message.command) {
                 case 'CLOSE': {
@@ -27,17 +25,20 @@ class Server {
             }
         });
         // Save the function allowing for the Server to close
-        this.done = done;
         this.password = password;
-        this.players = 0;
+        this.numPlayers = 0;
         this.playerObjects = [null, null, null, null];
         this.sockets = [null, null, null, null];
 
         // Message handling system
-        this.handler = new Lobby(this.playerObjects, this.sockets);
+        this.handler = new Lobby(this);
 
         // Set up the websocket server
         let httpServer = http.createServer();
+        httpServer.on('error', (e) => {
+            console.log(e);
+        });
+
         httpServer.listen(44444, () => {});
         this.server = new WebSocketServer({
             httpServer: httpServer,
@@ -51,8 +52,29 @@ class Server {
             // Initial handler for Players JOINing the game
             connection.on('message', (message) => {
                 message = JSON.parse(message.utf8Data);
-                if (message.command === 'JOIN' && this.players < 4){
-                    this.players ++;
+                if (message.command !== 'JOIN'){
+                    connection.sendUTF(JSON.stringify({
+                        command: 'ERROR',
+                        message: 'Invalid Protocol Header'
+                    }));
+                    connection.close();
+                }
+                else if (message.password !== this.password) {
+                    connection.sendUTF(JSON.stringify({
+                        command: 'ERROR',
+                        message: 'Incorrect Password'
+                    }));
+                    connection.close();
+                }
+                else if (this.numPlayers === 4) {
+                    connection.sendUTF(JSON.stringify({
+                        command: 'ERROR',
+                        message: 'Lobby Full'
+                    }));
+                    connection.close();
+                }
+                else {
+                    this.numPlayers ++;
                     // Find the first null spot in objects
                     let i;
                     for(i = 0; i < this.playerObjects.length; i ++) {
@@ -62,8 +84,6 @@ class Server {
                     }
                     this.playerObjects[i] = message.username; // new Player(message.username);
                     this.sockets[i] = connection;
-
-                    process.send(message.username + ' joined the game');
 
                     // Send new lobby state to players
                     let data = {
@@ -88,5 +108,13 @@ class Server {
 exports.Server = Server;
 
 if(require.main === module) {
-    new Server('', () => {});
+    let password = '';
+    // Get the password from the argv
+    process.argv.forEach((val) => {
+        let split = val.split('password=');
+        if (split.length > 1) {
+            password = split[1];
+        }
+    });
+    new Server(password);
 }
