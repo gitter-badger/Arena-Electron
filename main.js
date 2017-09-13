@@ -155,12 +155,13 @@ let gameWinSuccess = () => {
     win.hide();
 };
 
-let gameWinFailure = () => {
+let gameWinFailure = (error_message) => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
     host = false;
     // display error
+    win.webContents.send('error', error_message);
 };
 
 let leaveServer = () => {
