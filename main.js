@@ -118,7 +118,7 @@ let createGame = (username, password) => {
         .on('uncaughtException', (e) => {
             console.log('Catch exception from main process', e);
             leaveServer();
-            gameWinFailure();
+            gameWinFailure('Failed by Uncaught Exception: ' + e);
         });
 
     // After setting up the server, we want to join it
@@ -137,11 +137,23 @@ let joinGame = (address, username, password) => {
     };
     data = JSON.stringify(data);
     let client = new Client();
+    client.on('connectFailed', (e) => {
+        console.log(e);
+        gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?')
+    });
     client.on('connect', (conn) => {
+        gameWinSuccess();
+        console.log('Connected');
         socket = conn;
         socket.sendUTF(data);
         socket.on('message', (message) => {
-            gameWin.webContents.send('server-message', message);
+            let parsedMessage = JSON.parse(message.utf8Data);
+            if (parsedMessage.command !== 'ERROR') {
+                gameWin.webContents.send('server-message', message);
+            }
+            else{
+                gameWinFailure(parsedMessage.errorMessage);
+            }
         });
     });
 
@@ -158,13 +170,14 @@ let gameWinSuccess = () => {
     win.hide();
 };
 
-let gameWinFailure = (error_message) => {
+let gameWinFailure = (errorMessage) => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
     host = false;
     // display error
-    win.webContents.send('error', error_message);
+    win.show();
+    win.webContents.send('server-error', errorMessage);
 };
 
 let leaveServer = () => {
