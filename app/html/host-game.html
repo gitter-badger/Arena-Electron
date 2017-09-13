@@ -22,6 +22,10 @@
     </nav>
     <div class="container">
         <div class="row">
+            <!-- Space for error messages -->
+            <div class="col-xs-12"><div class="card danger-color-dark text-center" id="error-card"></div></div>
+        </div>
+        <div class="row">
             <div class="col-xs-12">
                 <div class="card elegant-color-dark">
                     <div class="card-block">
@@ -67,8 +71,9 @@
     <script src="https://use.fontawesome.com/8ce091879b.js"></script>
     <!-- /Electron fix -->
     <script>if (window.module) module = window.module;</script>
+    <script src="../js/server_errors.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(() => {
             const main = require('electron').remote.require('./main.js');
             $('button').click((e) => {
                 main.createGame(
