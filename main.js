@@ -76,10 +76,11 @@ app.on('activate', () => {
 
 app.on('will-quit', () => {
     if (host) {
-        try{
-            serverProc.send(JSON.stringify({command: 'CLOSE'}));
-        }
-        catch(e) {}
+        serverProc.send(JSON.stringify({command: 'CLOSE'}));
+    }
+    else if (socket !== null) {
+        socket.sendUTF(JSON.stringify({command: 'QUIT'}));
+        socket.close();
     }
 });
 
