@@ -110,14 +110,14 @@ let createGame = (username, password) => {
     serverIp = require('ip').address();
 
     // Spawn the server
-    serverProc = fork(path.join(__dirname, 'src/server/index.js'))
-        .on('uncaughtException', (e) => {
-            console.log('Catch exception from main proc', e);
-            leaveServer();
-            gameWinFailure();
-        })
+    serverProc = fork(path.join(__dirname, 'src/server/index.js'), ['password=' + password])
         .on('message', (message) => {
             console.log(message);
+        })
+        .on('uncaughtException', (e) => {
+            console.log('Catch exception from main process', e);
+            leaveServer();
+            gameWinFailure();
         });
 
     // After setting up the server, we want to join it
