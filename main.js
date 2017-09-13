@@ -90,7 +90,7 @@ function createGameWindow() {
         width: 650,
         height: 650,
         resizable: false,
-        // show: false,
+        show: false,
         useContentSize: true,
         title: 'Arena Electron'
     });
