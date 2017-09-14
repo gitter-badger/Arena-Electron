@@ -73,7 +73,7 @@ class Server {
                     // Send new lobby state to players
                     let data = {
                         command: 'LOBBY',
-                        data: this.playerObjects // TODO - Replace with list of user names when Player object is made
+                        players: this.playerObjects // TODO - Replace with list of user names when Player object is made
                     };
                     data = JSON.stringify(data);
                     this.sockets.forEach((sock) => {

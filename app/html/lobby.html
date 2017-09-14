@@ -90,7 +90,7 @@
                         // Lobby status update
                         let host = true;
                         let playerTable = $('#players').empty();
-                        for(let i = 0; i < message.data.length; i ++) {
+                        for(let i = 0; i < message.players.length; i ++) {
                             let p = message.data[i];
                             if(p === null) continue;
                             playerTable.append(
