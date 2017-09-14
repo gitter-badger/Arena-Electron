@@ -139,7 +139,7 @@ let joinGame = (address, username, password) => {
     let client = new Client();
     client.on('connectFailed', (e) => {
         console.log(e);
-        gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?')
+        gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?');
     });
     client.on('connect', (conn) => {
         gameWinSuccess();
