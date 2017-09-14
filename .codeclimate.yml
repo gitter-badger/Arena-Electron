@@ -1,2 +1,12 @@
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+
 exclude_paths:
   - "app/lib/*"
