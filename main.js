@@ -133,7 +133,7 @@ let joinGame = (address, username, password) => {
     };
     data = JSON.stringify(data);
     let client = new Client();
-    client.on('connectFailed', (e) => {
+    client.on('connectFailed', () => {
         gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?');
     });
     client.on('connect', (conn) => {
