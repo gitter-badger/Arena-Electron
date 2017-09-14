@@ -124,7 +124,7 @@ class Player {
 
     // marking this function to not be covered as it's a rendering method
     // I know it's an ugly syntax but sure look
-    draw /* istanbul ignore next */(context) {
+    draw /* istanbul ignore next */ (context) {
         let displayHealth = '' + parseInt(this.currentHealth);
         context.fillStyle = this.colour;
         context.fillRect(this.x, this.y, playerSize, playerSize);
@@ -255,7 +255,7 @@ class Player {
 
     checkPlayerCollision(p) {
         // The local check is done in index.js
-        /* istanbul ignore if */
+        /* istanbul ignore else */
         if (!(!p.alive || (this.x + this.size) < p.x || (this.x > p.x + p.size) ||
                 (this.y + this.size) < p.y || this.y > (p.y + p.size))) {
             this.takeDamage(2 / 60);
