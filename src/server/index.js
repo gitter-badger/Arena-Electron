@@ -35,9 +35,6 @@ class Server {
 
         // Set up the websocket server
         let httpServer = http.createServer();
-        httpServer.on('error', (e) => {
-            console.log(e);
-        });
 
         httpServer.listen(44444, () => {});
         this.server = new WebSocketServer({

@@ -112,11 +112,7 @@ let createGame = (username, password) => {
 
     // Spawn the server
     serverProc = fork(path.join(__dirname, 'src/server/index.js'), ['password=' + password])
-        .on('message', (message) => {
-            console.log(message);
-        })
         .on('uncaughtException', (e) => {
-            console.log('Catch exception from main process', e);
             leaveServer();
             gameWinFailure('Failed by Uncaught Exception: ' + e);
         });
@@ -138,12 +134,10 @@ let joinGame = (address, username, password) => {
     data = JSON.stringify(data);
     let client = new Client();
     client.on('connectFailed', (e) => {
-        console.log(e);
         gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?');
     });
     client.on('connect', (conn) => {
         gameWinSuccess();
-        console.log('Connected');
         socket = conn;
         socket.sendUTF(data);
         socket.on('message', (message) => {
