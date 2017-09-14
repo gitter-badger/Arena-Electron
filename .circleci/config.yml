@@ -5,7 +5,7 @@
 version: 2
 general:
   artifacts:
-    - "coverage/"
+    - "coverage/lcov-report"
 jobs:
   test:
     environment:
