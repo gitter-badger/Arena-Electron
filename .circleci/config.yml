@@ -3,9 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
-general:
-  artifacts:
-    - "coverage/lcov-report"
 jobs:
   test:
     environment:
@@ -48,6 +45,8 @@ jobs:
       - run: npm test
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
+      # Move the coverage reports to the artifacts folder
+      - run: ls
 
   document:
     docker:
