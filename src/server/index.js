@@ -50,25 +50,13 @@ class Server {
             connection.on('message', (message) => {
                 message = JSON.parse(message.utf8Data);
                 if (message.command !== 'JOIN'){
-                    connection.sendUTF(JSON.stringify({
-                        command: 'ERROR',
-                        errorMessage: 'Invalid Protocol Header'
-                    }));
-                    connection.close();
+                    this.sendError(connection, 'Invalid Protocol Header');
                 }
                 else if (message.password !== this.password) {
-                    connection.sendUTF(JSON.stringify({
-                        command: 'ERROR',
-                        errorMessage: 'Incorrect Password'
-                    }));
-                    connection.close();
+                    this.sendError(connection, 'Incorrect Password');
                 }
                 else if (this.numPlayers === 4) {
-                    connection.sendUTF(JSON.stringify({
-                        command: 'ERROR',
-                        errorMessage: 'Lobby Full'
-                    }));
-                    connection.close();
+                    this.sendError(connection, 'Lobby Full')
                 }
                 else {
                     this.numPlayers ++;
@@ -99,6 +87,14 @@ class Server {
                 }
             });
         });
+    }
+
+    sendError(socket, errorMessage) {
+        socket.sendUTF(JSON.stringify({
+            command: 'ERROR',
+            errorMessage: errorMessage
+        }));
+        socket.close();
     }
 }
 
