@@ -34,7 +34,7 @@ class Lobby {
 
         let data = {
             command: 'LOBBY',
-            players: this.server.playerObjects // TODO - Replace with Player Objects once implemented
+            players: this.server.playerObjects // NOTE - Replace with Player Objects once implemented
         };
         data = JSON.stringify(data);
         this.server.sockets.forEach((sock) => {
