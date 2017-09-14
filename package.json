@@ -4,6 +4,7 @@
   "description": "An Electron port of the widely successful game Arena: A Game of Tanks",
   "main": "main.js",
   "scripts": {
+    "pretest": "./node_modules/eslint/bin/eslint.js --fix .",
     "test": "./node_modules/babel-cli/bin/babel-node.js node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha --",
     "start": "./node_modules/electron/cli.js .",
     "snyk-protect": "snyk protect",
