@@ -46,7 +46,7 @@ jobs:
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
       # Move the coverage reports to the artifacts folder
-      - run: tar -cvzf coverage/lcov-report coverage/lcov-report.tar.gz
+      - run: tar -cvzf coverage/lcov-report.tar.gz coverage/lcov-report
       - store_artifacts: 
           path: coverage/lcov-report.tar.gz
 
