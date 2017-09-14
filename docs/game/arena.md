@@ -66,7 +66,7 @@ Given a canvas object, sets up all necessary objects to start the game
 function setupObstacles() {}
 ```
 
-Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.
+Currently creates the preset 4 Obstacles used in the original Arena, along with 4 new angled Obstacles, and adds them to the obstacles array.
 
 !!! note
     Will be updated later to load obstacles from a json file
