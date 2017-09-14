@@ -11,6 +11,14 @@ engines:
   fixme:
     enabled: true
 
+ratings:
+  paths:
+    - "app/js/*"
+    - "main.js"
+    - "src/*
+    
+
 exclude_paths:
   - "app/lib/*"
   - "test/*"
+  - "docs/*"
