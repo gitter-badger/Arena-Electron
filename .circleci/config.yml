@@ -46,7 +46,7 @@ jobs:
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
       # Upload coverage report as an artifact
-      - run: cp coverage $CIRCLE_ARTIFACTS
+      - run: cp coverage "$CIRCLE_ARTIFACTS"
 
   document:
     docker:
