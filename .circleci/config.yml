@@ -46,8 +46,8 @@ jobs:
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
       # Move the coverage reports to the artifacts folder
-      - run: mkdir $CIRCLE_ARTIFACTS/coverage-report
-      - run: mv coverage/lcov-report "$CIRCLE_ARTIFACTS/coverage-report"
+      - store_artifacts: 
+          path: coverage/lcov-report
 
   document:
     docker:
