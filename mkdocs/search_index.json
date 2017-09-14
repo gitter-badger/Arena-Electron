@@ -56,8 +56,48 @@
             "title": "License"
         },
         {
+            "location": "/api/",
+            "text": "API\n\u00b6\n\n\nThe following page documents the API used in Client-Server communication for Arena: Electron\n\n\nThe API uses a selection of JSON messages, with a \ncommand\n key and a selection of other keys depending on the \ncommand\n.\n\n\nAll of the different messages and their use cases are outlined below.\n\n\nMessages\n\u00b6\n\n\nCLOSE\n\u00b6\n\n\n{\n\n  \n\"command\"\n:\n \n\"CLOSE\"\n\n\n}\n\n\n\n\n\n\nWhen the host wants to close the server, they will send a message to the server process informing it to close.\n\n\nWhen the server received this message, it will send out the above \nCLOSE\n message to all Players in its array informing\neach that the host is closing the server.\n\n\nThe \nCLOSE\n message informs clients that the server they are connected to is closing by external forces.\n\n\nERROR\n\u00b6\n\n\n{\n\n  \n\"command\"\n:\n \n\"ERROR\"\n,\n\n  \n\"errorMessage\"\n:\n \n\"\"\n\n\n}\n\n\n\n\n\n\nThe \nERROR\n message is currently used to inform incoming connections that they cannot connect for a given reason.\n\n\nThis message provides the ability to pass error messages from the server to a client(s) in a uniform manner.\n\n\nJOIN\n\u00b6\n\n\n{\n\n  \n\"command\"\n:\n \n\"JOIN\"\n,\n\n  \n\"username\"\n:\n \n\"\"\n,\n\n  \n\"password\"\n:\n \n\"\"\n\n\n}\n\n\n\n\n\n\nThe \nJOIN\n message is used to inform the Server that a client wishes to join the lobby.\n\n\nThe \nusername\n key will contain the Player's username, and if a password was set for the server, the \npassword\n must be\npassed as well\n\n\nLOBBY\n\u00b6\n\n\n{\n\n  \n\"command\"\n:\n \n\"LOBBY\"\n,\n\n  \n\"players\"\n:\n \n[]\n\n\n}\n\n\n\n\n\n\nThe \nLOBBY\n message is used to inform all connected clients of updates to the current state of the Lobby.\n\n\nThis is sent to all clients connected whenever a Player \nJOINS\n or \nQUITS\n the server while it's in the Lobby state.\n\n\nQUIT\n\u00b6\n\n\n{\n\n  \n\"command\"\n:\n \n\"QUIT\"\n\n\n}\n\n\n\n\n\n\nThe \nQUIT\n message is used by non-host Players who want to leave the server.\n\n\nDepending on the state of the server, this message will have different outcomes.\n\n\n\n\nLobby\n : Removes the Player's username and socket from the respective arrays and updates all connected Players",
+            "title": "API"
+        },
+        {
+            "location": "/api/#api",
+            "text": "The following page documents the API used in Client-Server communication for Arena: Electron  The API uses a selection of JSON messages, with a  command  key and a selection of other keys depending on the  command .  All of the different messages and their use cases are outlined below.",
+            "title": "API"
+        },
+        {
+            "location": "/api/#messages",
+            "text": "",
+            "title": "Messages"
+        },
+        {
+            "location": "/api/#close",
+            "text": "{ \n   \"command\" :   \"CLOSE\"  }   When the host wants to close the server, they will send a message to the server process informing it to close.  When the server received this message, it will send out the above  CLOSE  message to all Players in its array informing\neach that the host is closing the server.  The  CLOSE  message informs clients that the server they are connected to is closing by external forces.",
+            "title": "CLOSE"
+        },
+        {
+            "location": "/api/#error",
+            "text": "{ \n   \"command\" :   \"ERROR\" , \n   \"errorMessage\" :   \"\"  }   The  ERROR  message is currently used to inform incoming connections that they cannot connect for a given reason.  This message provides the ability to pass error messages from the server to a client(s) in a uniform manner.",
+            "title": "ERROR"
+        },
+        {
+            "location": "/api/#join",
+            "text": "{ \n   \"command\" :   \"JOIN\" , \n   \"username\" :   \"\" , \n   \"password\" :   \"\"  }   The  JOIN  message is used to inform the Server that a client wishes to join the lobby.  The  username  key will contain the Player's username, and if a password was set for the server, the  password  must be\npassed as well",
+            "title": "JOIN"
+        },
+        {
+            "location": "/api/#lobby",
+            "text": "{ \n   \"command\" :   \"LOBBY\" , \n   \"players\" :   []  }   The  LOBBY  message is used to inform all connected clients of updates to the current state of the Lobby.  This is sent to all clients connected whenever a Player  JOINS  or  QUITS  the server while it's in the Lobby state.",
+            "title": "LOBBY"
+        },
+        {
+            "location": "/api/#quit",
+            "text": "{ \n   \"command\" :   \"QUIT\"  }   The  QUIT  message is used by non-host Players who want to leave the server.  Depending on the state of the server, this message will have different outcomes.   Lobby  : Removes the Player's username and socket from the respective arrays and updates all connected Players",
+            "title": "QUIT"
+        },
+        {
             "location": "/game/arena/",
-            "text": "Arena\n\u00b6\n\n\nclass\n \nArena\n \n{}\n\n\n\n\n\n\nClass that manages the running of the game on screen.\n\n\nHandles drawing of all Player, Obstacle and Bullet objects on screen.\n\n\nAlso handles all communication with the Server for updating remote players\n\n\nInstance Variables\n\u00b6\n\n\nCanvas\n\u00b6\n\n\nThe canvas object that the game will be drawn onto\n\n\nContext\n\u00b6\n\n\nThe context object used to render onto the game's canvas\n\n\nWidth\n\u00b6\n\n\nThe width in pixels of the game's canvas\n\n\nHeight\n\u00b6\n\n\nThe height in pixels of the game's canvas\n\n\nPlayers\n\u00b6\n\n\nAn array of Player objects representing the Player in the current game\n\n\nObstacles\n\u00b6\n\n\nAn array of Obstacle objects that are in the current map\n\n\nLocal\n\u00b6\n\n\nAn integer pointing to the object in the Players array representing the person playing.\n\n\nUsed to determine the object that is controlled by player input\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \ncanvas\n \n// Type: Canvas\n\n\n)\n \n{}\n\n\n\n\n\n\nGiven a canvas object, sets up all necessary objects to start the game\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameters\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncanvas\n\n\nThe canvas object that the game will be drawn on\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nsetupObstacles\n\u00b6\n\n\nfunction\n \nsetupObstacles\n()\n \n{}\n\n\n\n\n\n\nCurrently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.\n\n\n\n\nNote\n\n\nWill be updated later to load obstacles from a json file\n\n\n\n\nsetupPlayers\n\u00b6\n\n\nfunction\n \nsetupPlayers\n()\n \n{}\n\n\n\n\n\n\nCurrently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.\n\n\n\n\nNote\n\n\nWill be updated later to load Player spawn points from a json file\n\n\n\n\nsetupListeners\n\u00b6\n\n\nfunction\n \nsetupListeners\n()\n \n{}\n\n\n\n\n\n\nCreates any necessary event listeners and adds the required functionality\n\n\n\n\nCurrent Listeners\n\n\n\n\nkeydown\n: For moving a player\n\n\nkeyup\n: For stopping movement\n\n\nclick\n: For firing bullets\n\n\n\n\n\n\nupdate\n\u00b6\n\n\nfunction\n \nupdate\n()\n \n{}\n\n\n\n\n\n\nThe heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n()\n \n{}\n\n\n\n\n\n\nClears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen\n\n\ncheckCollisions\n\u00b6\n\n\nfunction\n \ncheckCollisions\n()\n \n{}\n\n\n\n\n\n\nChecks for collisions between Player, Bullet and Obstacle instances",
+            "text": "Arena\n\u00b6\n\n\nclass\n \nArena\n \n{}\n\n\n\n\n\n\nClass that manages the running of the game on screen.\n\n\nHandles drawing of all Player, Obstacle and Bullet objects on screen.\n\n\nAlso handles all communication with the Server for updating remote players\n\n\nInstance Variables\n\u00b6\n\n\nCanvas\n\u00b6\n\n\nThe canvas object that the game will be drawn onto\n\n\nContext\n\u00b6\n\n\nThe context object used to render onto the game's canvas\n\n\nWidth\n\u00b6\n\n\nThe width in pixels of the game's canvas\n\n\nHeight\n\u00b6\n\n\nThe height in pixels of the game's canvas\n\n\nPlayers\n\u00b6\n\n\nAn array of Player objects representing the Player in the current game\n\n\nObstacles\n\u00b6\n\n\nAn array of Obstacle objects that are in the current map\n\n\nLocal\n\u00b6\n\n\nAn integer pointing to the object in the Players array representing the person playing.\n\n\nUsed to determine the object that is controlled by player input\n\n\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \ncanvas\n \n// Type: Canvas\n\n\n)\n \n{}\n\n\n\n\n\n\nGiven a canvas object, sets up all necessary objects to start the game\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nParameters\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncanvas\n\n\nThe canvas object that the game will be drawn on\n\n\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nsetupObstacles\n\u00b6\n\n\nfunction\n \nsetupObstacles\n()\n \n{}\n\n\n\n\n\n\nCurrently creates the preset 4 Obstacles used in the original Arena, along with 4 new angled Obstacles, and adds them to the obstacles array.\n\n\n\n\nNote\n\n\nWill be updated later to load obstacles from a json file\n\n\n\n\nsetupPlayers\n\u00b6\n\n\nfunction\n \nsetupPlayers\n()\n \n{}\n\n\n\n\n\n\nCurrently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.\n\n\n\n\nNote\n\n\nWill be updated later to load Player spawn points from a json file\n\n\n\n\nsetupListeners\n\u00b6\n\n\nfunction\n \nsetupListeners\n()\n \n{}\n\n\n\n\n\n\nCreates any necessary event listeners and adds the required functionality\n\n\n\n\nCurrent Listeners\n\n\n\n\nkeydown\n: For moving a player\n\n\nkeyup\n: For stopping movement\n\n\nclick\n: For firing bullets\n\n\n\n\n\n\nupdate\n\u00b6\n\n\nfunction\n \nupdate\n()\n \n{}\n\n\n\n\n\n\nThe heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering\n\n\ndraw\n\u00b6\n\n\nfunction\n \ndraw\n()\n \n{}\n\n\n\n\n\n\nClears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen\n\n\ncheckCollisions\n\u00b6\n\n\nfunction\n \ncheckCollisions\n()\n \n{}\n\n\n\n\n\n\nChecks for collisions between Player, Bullet and Obstacle instances",
             "title": "Arena"
         },
         {
@@ -122,7 +162,7 @@
         },
         {
             "location": "/game/arena/#setupobstacles",
-            "text": "function   setupObstacles ()   {}   Currently creates the preset 4 Obstacles used in the original Arena, and adds them to the obstacles array.   Note  Will be updated later to load obstacles from a json file",
+            "text": "function   setupObstacles ()   {}   Currently creates the preset 4 Obstacles used in the original Arena, along with 4 new angled Obstacles, and adds them to the obstacles array.   Note  Will be updated later to load obstacles from a json file",
             "title": "setupObstacles"
         },
         {
@@ -663,6 +703,131 @@
         {
             "location": "/game/player/#parameters_5",
             "text": "Parameter  Description      p  The Player instance to be checked against. Will not be the same as  this",
+            "title": "Parameters"
+        },
+        {
+            "location": "/server/server/",
+            "text": "Server\n\u00b6\n\n\nclass\n \nServer\n \n{}\n\n\n\n\n\n\nBase class for handling interactions with the Players in the game.\n\n\nThis class provides the functionality for Players to JOIN the game.\n\n\nAll other functionality required by Players will be handled by the two handler classes: Lobby and Game\n\n\nInstance Variables\n\u00b6\n\n\nPassword\n\u00b6\n\n\nThe password for the server.\n\n\nThis will be supplied to the process by the host, and checked against all JOIN messages for access.\n\n\nNum Players\n\u00b6\n\n\nThe number of Players currently in the game at any moment in time.\n\n\nUsed to save time by not calculating this value when checking if the lobby is full.\n\n\nPlayer Objects\n\u00b6\n\n\nAn array of four spaces to house Player objects\n\n\n\n\nNote\n\n\nAt the moment, this array only stores the Players' usernames in strings.\nIf Player objects are determined to be needed in the backend, this will be changed at that point in time\n\n\n\n\nSockets\n\u00b6\n\n\nAn array of four spaces to house WebSocketConnection instances.\n\n\nThe index of each socket is mapped to the username in \nPlayer Objects\n\n\nHandler\n\u00b6\n\n\nThe handler class that is currently used to handle incoming messages from sockets in the \nSockets array\n.\n\n\nThere is currently a handler for the Lobby, and there will be one for the Game side in the future.\n\n\nServer\n\u00b6\n\n\nAn instance of WebSocketServer that receives incoming new connections.\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \npassword\n \n// Type: string\n\n\n)\n \n{}\n\n\n\n\n\n\nSets up a new instance of an Arena server.\n\n\nThis class is forked as a part of the Host Game feature, but it also can be run standalone.\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\npassword\n\n\nThe password used to protect the server\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nsendError\n\u00b6\n\n\nfunction\n \nsendError\n(\n\n    \nsocket\n,\n       \n// Type: WebSocketConnection\n\n    \nerrorMessage\n  \n// Type: string\n\n\n)\n \n{}\n\n\n\n\n\n\nSends an error message to the connecting socket, and then closes that socket.\n\n\nThis is typically to relay information to the Player that the server is full or the password is incorrect.\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsocket\n\n\nThe connection that the failed JOIN attempt was received from\n\n\n\n\n\n\nerrorMessage\n\n\nThe error message to be displayed on the user's screen",
+            "title": "Server"
+        },
+        {
+            "location": "/server/server/#server",
+            "text": "class   Server   {}   Base class for handling interactions with the Players in the game.  This class provides the functionality for Players to JOIN the game.  All other functionality required by Players will be handled by the two handler classes: Lobby and Game",
+            "title": "Server"
+        },
+        {
+            "location": "/server/server/#instance-variables",
+            "text": "",
+            "title": "Instance Variables"
+        },
+        {
+            "location": "/server/server/#password",
+            "text": "The password for the server.  This will be supplied to the process by the host, and checked against all JOIN messages for access.",
+            "title": "Password"
+        },
+        {
+            "location": "/server/server/#num-players",
+            "text": "The number of Players currently in the game at any moment in time.  Used to save time by not calculating this value when checking if the lobby is full.",
+            "title": "Num Players"
+        },
+        {
+            "location": "/server/server/#player-objects",
+            "text": "An array of four spaces to house Player objects   Note  At the moment, this array only stores the Players' usernames in strings.\nIf Player objects are determined to be needed in the backend, this will be changed at that point in time",
+            "title": "Player Objects"
+        },
+        {
+            "location": "/server/server/#sockets",
+            "text": "An array of four spaces to house WebSocketConnection instances.  The index of each socket is mapped to the username in  Player Objects",
+            "title": "Sockets"
+        },
+        {
+            "location": "/server/server/#handler",
+            "text": "The handler class that is currently used to handle incoming messages from sockets in the  Sockets array .  There is currently a handler for the Lobby, and there will be one for the Game side in the future.",
+            "title": "Handler"
+        },
+        {
+            "location": "/server/server/#server_1",
+            "text": "An instance of WebSocketServer that receives incoming new connections.",
+            "title": "Server"
+        },
+        {
+            "location": "/server/server/#constructor",
+            "text": "function   constructor ( \n     password   // Type: string  )   {}   Sets up a new instance of an Arena server.  This class is forked as a part of the Host Game feature, but it also can be run standalone.",
+            "title": "Constructor"
+        },
+        {
+            "location": "/server/server/#parameters",
+            "text": "Name  Description      password  The password used to protect the server",
+            "title": "Parameters"
+        },
+        {
+            "location": "/server/server/#methods",
+            "text": "",
+            "title": "Methods"
+        },
+        {
+            "location": "/server/server/#senderror",
+            "text": "function   sendError ( \n     socket ,         // Type: WebSocketConnection \n     errorMessage    // Type: string  )   {}   Sends an error message to the connecting socket, and then closes that socket.  This is typically to relay information to the Player that the server is full or the password is incorrect.",
+            "title": "sendError"
+        },
+        {
+            "location": "/server/server/#parameters_1",
+            "text": "Name  Description      socket  The connection that the failed JOIN attempt was received from    errorMessage  The error message to be displayed on the user's screen",
+            "title": "Parameters"
+        },
+        {
+            "location": "/server/lobby/",
+            "text": "Lobby Handler\n\u00b6\n\n\nclass\n \nLobby\n \n{}\n\n\n\n\n\n\nOne of the two handler classes implemented for the server.\n\n\nHandles incoming Player messages while the game is in the \nLobby\n state.\n\n\nInstance Variables\n\u00b6\n\n\nServer\n\u00b6\n\n\nMaintains a pointer back to the server instance in order to manipulate data.\n\n\nConstructor\n\u00b6\n\n\nfunction\n \nconstructor\n(\n\n    \nserver\n \n// Type: Server\n\n\n)\n \n{}\n\n\n\n\n\n\nConstructs a Lobby handler for the server \nserver\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nserver\n\n\nThe currently running Server instance\n\n\n\n\n\n\n\n\nMethods\n\u00b6\n\n\nhandle\n\u00b6\n\n\nfunction\n \nhandle\n(\n\n    \nmessage\n,\n  \n// Type: UTF8 WebsocketMessage\n\n    \nsocket\n,\n   \n// Type: WebSocketConnection\n\n\n)\n\n\n\n\n\n\nHandles an incoming \nmessage\n received from \nsocket\n.\n\n\nBased on the \n\"command\"\n value of the received message, this method will call a different method\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nThe received message\n\n\n\n\n\n\nsocket\n\n\nThe socket from which the message was received\n\n\n\n\n\n\n\n\nquit\n\u00b6\n\n\nfunction\n \nquit\n(\n\n    \nsocket\n \n// Type: WebSocketConnection\n\n\n)\n\n\n\n\n\n\nHandles a \nQUIT\n message received from \nsocket\n.\n\n\nRemoves the owning Player from the arrays and informs all Players in game of this update.\n\n\nParameters\n\u00b6\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsocket\n\n\nThe socket from which the message was received",
+            "title": "Lobby Handler"
+        },
+        {
+            "location": "/server/lobby/#lobby-handler",
+            "text": "class   Lobby   {}   One of the two handler classes implemented for the server.  Handles incoming Player messages while the game is in the  Lobby  state.",
+            "title": "Lobby Handler"
+        },
+        {
+            "location": "/server/lobby/#instance-variables",
+            "text": "",
+            "title": "Instance Variables"
+        },
+        {
+            "location": "/server/lobby/#server",
+            "text": "Maintains a pointer back to the server instance in order to manipulate data.",
+            "title": "Server"
+        },
+        {
+            "location": "/server/lobby/#constructor",
+            "text": "function   constructor ( \n     server   // Type: Server  )   {}   Constructs a Lobby handler for the server  server",
+            "title": "Constructor"
+        },
+        {
+            "location": "/server/lobby/#parameters",
+            "text": "Name  Description      server  The currently running Server instance",
+            "title": "Parameters"
+        },
+        {
+            "location": "/server/lobby/#methods",
+            "text": "",
+            "title": "Methods"
+        },
+        {
+            "location": "/server/lobby/#handle",
+            "text": "function   handle ( \n     message ,    // Type: UTF8 WebsocketMessage \n     socket ,     // Type: WebSocketConnection  )   Handles an incoming  message  received from  socket .  Based on the  \"command\"  value of the received message, this method will call a different method",
+            "title": "handle"
+        },
+        {
+            "location": "/server/lobby/#parameters_1",
+            "text": "Name  Description      message  The received message    socket  The socket from which the message was received",
+            "title": "Parameters"
+        },
+        {
+            "location": "/server/lobby/#quit",
+            "text": "function   quit ( \n     socket   // Type: WebSocketConnection  )   Handles a  QUIT  message received from  socket .  Removes the owning Player from the arrays and informs all Players in game of this update.",
+            "title": "quit"
+        },
+        {
+            "location": "/server/lobby/#parameters_2",
+            "text": "Name  Description      socket  The socket from which the message was received",
             "title": "Parameters"
         },
         {

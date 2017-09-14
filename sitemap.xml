@@ -10,6 +10,14 @@
     
 
     
+    <url>
+     <loc>http://crnlpanic.github.io/Arena-Electron/api/</loc>
+     <lastmod>2017-09-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
         
     <url>
      <loc>http://crnlpanic.github.io/Arena-Electron/game/arena/</loc>
@@ -31,6 +39,22 @@
         
     <url>
      <loc>http://crnlpanic.github.io/Arena-Electron/game/player/</loc>
+     <lastmod>2017-09-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://crnlpanic.github.io/Arena-Electron/server/server/</loc>
+     <lastmod>2017-09-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://crnlpanic.github.io/Arena-Electron/server/lobby/</loc>
      <lastmod>2017-09-14</lastmod>
      <changefreq>daily</changefreq>
     </url>

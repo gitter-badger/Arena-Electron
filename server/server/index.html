@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="http://crnlpanic.github.io/Arena-Electron/game/arena/">
+        <link rel="canonical" href="http://crnlpanic.github.io/Arena-Electron/server/server/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Arena - Arena-Electron</title>
+        <title>Server - Arena-Electron</title>
       
     
     
@@ -80,11 +80,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Game
+                  Server
                 </span>
               
             
-            Arena
+            Server
           
         </span>
       </div>
@@ -215,12 +215,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Game
@@ -228,6 +226,80 @@
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         Game
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../game/arena/" title="Arena" class="md-nav__link">
+      Arena
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../game/bullet/" title="Bullet" class="md-nav__link">
+      Bullet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../game/obstacle/" title="Obstacle" class="md-nav__link">
+      Obstacle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../game/player/" title="Player" class="md-nav__link">
+      Player
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Server
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -247,11 +319,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Arena
+        Server
       </label>
     
-    <a href="./" title="Arena" class="md-nav__link md-nav__link--active">
-      Arena
+    <a href="./" title="Server" class="md-nav__link md-nav__link--active">
+      Server
     </a>
     
       
@@ -273,50 +345,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#canvas" title="Canvas" class="md-nav__link">
-    Canvas
+  <a href="#password" title="Password" class="md-nav__link">
+    Password
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#context" title="Context" class="md-nav__link">
-    Context
+  <a href="#num-players" title="Num Players" class="md-nav__link">
+    Num Players
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#width" title="Width" class="md-nav__link">
-    Width
+  <a href="#player-objects" title="Player Objects" class="md-nav__link">
+    Player Objects
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#height" title="Height" class="md-nav__link">
-    Height
+  <a href="#sockets" title="Sockets" class="md-nav__link">
+    Sockets
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#players" title="Players" class="md-nav__link">
-    Players
+  <a href="#handler" title="Handler" class="md-nav__link">
+    Handler
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#obstacles" title="Obstacles" class="md-nav__link">
-    Obstacles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local" title="Local" class="md-nav__link">
-    Local
+  <a href="#server_1" title="Server" class="md-nav__link">
+    Server
   </a>
   
 </li>
@@ -355,44 +420,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setupobstacles" title="setupObstacles" class="md-nav__link">
-    setupObstacles
+  <a href="#senderror" title="sendError" class="md-nav__link">
+    sendError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#setupplayers" title="setupPlayers" class="md-nav__link">
-    setupPlayers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setuplisteners" title="setupListeners" class="md-nav__link">
-    setupListeners
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" title="update" class="md-nav__link">
-    update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#draw" title="draw" class="md-nav__link">
-    draw
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checkcollisions" title="checkCollisions" class="md-nav__link">
-    checkCollisions
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -416,79 +459,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../bullet/" title="Bullet" class="md-nav__link">
-      Bullet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../obstacle/" title="Obstacle" class="md-nav__link">
-      Obstacle
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../player/" title="Player" class="md-nav__link">
-      Player
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Server
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Server
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../server/server/" title="Server" class="md-nav__link">
-      Server
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../server/lobby/" title="Lobby Handler" class="md-nav__link">
+    <a href="../lobby/" title="Lobby Handler" class="md-nav__link">
       Lobby Handler
     </a>
   </li>
@@ -588,50 +559,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#canvas" title="Canvas" class="md-nav__link">
-    Canvas
+  <a href="#password" title="Password" class="md-nav__link">
+    Password
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#context" title="Context" class="md-nav__link">
-    Context
+  <a href="#num-players" title="Num Players" class="md-nav__link">
+    Num Players
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#width" title="Width" class="md-nav__link">
-    Width
+  <a href="#player-objects" title="Player Objects" class="md-nav__link">
+    Player Objects
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#height" title="Height" class="md-nav__link">
-    Height
+  <a href="#sockets" title="Sockets" class="md-nav__link">
+    Sockets
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#players" title="Players" class="md-nav__link">
-    Players
+  <a href="#handler" title="Handler" class="md-nav__link">
+    Handler
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#obstacles" title="Obstacles" class="md-nav__link">
-    Obstacles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#local" title="Local" class="md-nav__link">
-    Local
+  <a href="#server_1" title="Server" class="md-nav__link">
+    Server
   </a>
   
 </li>
@@ -670,44 +634,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#setupobstacles" title="setupObstacles" class="md-nav__link">
-    setupObstacles
+  <a href="#senderror" title="sendError" class="md-nav__link">
+    sendError
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" title="Parameters" class="md-nav__link">
+    Parameters
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#setupplayers" title="setupPlayers" class="md-nav__link">
-    setupPlayers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setuplisteners" title="setupListeners" class="md-nav__link">
-    setupListeners
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" title="update" class="md-nav__link">
-    update
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#draw" title="draw" class="md-nav__link">
-    draw
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checkcollisions" title="checkCollisions" class="md-nav__link">
-    checkCollisions
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -731,108 +673,90 @@
               
                 
                 
-                <h1 id="arena">Arena<a class="headerlink" href="#arena" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Arena</span> <span class="p">{}</span>
+                <h1 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Server</span> <span class="p">{}</span>
 </pre></div>
 
 
-<p>Class that manages the running of the game on screen.</p>
-<p>Handles drawing of all Player, Obstacle and Bullet objects on screen.</p>
-<p>Also handles all communication with the Server for updating remote players</p>
+<p>Base class for handling interactions with the Players in the game.</p>
+<p>This class provides the functionality for Players to JOIN the game.</p>
+<p>All other functionality required by Players will be handled by the two handler classes: Lobby and Game</p>
 <h2 id="instance-variables">Instance Variables<a class="headerlink" href="#instance-variables" title="Permanent link">&para;</a></h2>
-<h3 id="canvas">Canvas<a class="headerlink" href="#canvas" title="Permanent link">&para;</a></h3>
-<p>The canvas object that the game will be drawn onto</p>
-<h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
-<p>The context object used to render onto the game's canvas</p>
-<h3 id="width">Width<a class="headerlink" href="#width" title="Permanent link">&para;</a></h3>
-<p>The width in pixels of the game's canvas</p>
-<h3 id="height">Height<a class="headerlink" href="#height" title="Permanent link">&para;</a></h3>
-<p>The height in pixels of the game's canvas</p>
-<h3 id="players">Players<a class="headerlink" href="#players" title="Permanent link">&para;</a></h3>
-<p>An array of Player objects representing the Player in the current game</p>
-<h3 id="obstacles">Obstacles<a class="headerlink" href="#obstacles" title="Permanent link">&para;</a></h3>
-<p>An array of Obstacle objects that are in the current map</p>
-<h3 id="local">Local<a class="headerlink" href="#local" title="Permanent link">&para;</a></h3>
-<p>An integer pointing to the object in the Players array representing the person playing.</p>
-<p>Used to determine the object that is controlled by player input</p>
-<hr />
+<h3 id="password">Password<a class="headerlink" href="#password" title="Permanent link">&para;</a></h3>
+<p>The password for the server.</p>
+<p>This will be supplied to the process by the host, and checked against all JOIN messages for access.</p>
+<h3 id="num-players">Num Players<a class="headerlink" href="#num-players" title="Permanent link">&para;</a></h3>
+<p>The number of Players currently in the game at any moment in time.</p>
+<p>Used to save time by not calculating this value when checking if the lobby is full.</p>
+<h3 id="player-objects">Player Objects<a class="headerlink" href="#player-objects" title="Permanent link">&para;</a></h3>
+<p>An array of four spaces to house Player objects</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the moment, this array only stores the Players' usernames in strings.
+If Player objects are determined to be needed in the backend, this will be changed at that point in time</p>
+</div>
+<h3 id="sockets">Sockets<a class="headerlink" href="#sockets" title="Permanent link">&para;</a></h3>
+<p>An array of four spaces to house WebSocketConnection instances.</p>
+<p>The index of each socket is mapped to the username in <a href="#player-objects">Player Objects</a></p>
+<h3 id="handler">Handler<a class="headerlink" href="#handler" title="Permanent link">&para;</a></h3>
+<p>The handler class that is currently used to handle incoming messages from sockets in the <a href="#sockets-array">Sockets array</a>.</p>
+<p>There is currently a handler for the Lobby, and there will be one for the Game side in the future.</p>
+<h3 id="server_1">Server<a class="headerlink" href="#server_1" title="Permanent link">&para;</a></h3>
+<p>An instance of WebSocketServer that receives incoming new connections.</p>
 <h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">constructor</span><span class="p">(</span>
-    <span class="nx">canvas</span> <span class="c1">// Type: Canvas</span>
+    <span class="nx">password</span> <span class="c1">// Type: string</span>
 <span class="p">)</span> <span class="p">{}</span>
 </pre></div>
 
 
-<p>Given a canvas object, sets up all necessary objects to start the game</p>
+<p>Sets up a new instance of an Arena server.</p>
+<p>This class is forked as a part of the Host Game feature, but it also can be run standalone.</p>
 <h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Parameters</th>
+<th>Name</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>canvas</td>
-<td>The canvas object that the game will be drawn on</td>
+<td>password</td>
+<td>The password used to protect the server</td>
 </tr>
 </tbody>
 </table>
-<hr />
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
-<h3 id="setupobstacles">setupObstacles<a class="headerlink" href="#setupobstacles" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupObstacles</span><span class="p">()</span> <span class="p">{}</span>
+<h3 id="senderror">sendError<a class="headerlink" href="#senderror" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">sendError</span><span class="p">(</span>
+    <span class="nx">socket</span><span class="p">,</span>       <span class="c1">// Type: WebSocketConnection</span>
+    <span class="nx">errorMessage</span>  <span class="c1">// Type: string</span>
+<span class="p">)</span> <span class="p">{}</span>
 </pre></div>
 
 
-<p>Currently creates the preset 4 Obstacles used in the original Arena, along with 4 new angled Obstacles, and adds them to the obstacles array.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Will be updated later to load obstacles from a json file</p>
-</div>
-<h3 id="setupplayers">setupPlayers<a class="headerlink" href="#setupplayers" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupPlayers</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>Currently creates 4 Player objects, places them in the original spawn positions from Arena, and adds them to the players array.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Will be updated later to load Player spawn points from a json file</p>
-</div>
-<h3 id="setuplisteners">setupListeners<a class="headerlink" href="#setuplisteners" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">setupListeners</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>Creates any necessary event listeners and adds the required functionality</p>
-<div class="admonition note">
-<p class="admonition-title">Current Listeners</p>
-<ul>
-<li><code>keydown</code>: For moving a player</li>
-<li><code>keyup</code>: For stopping movement</li>
-<li><code>click</code>: For firing bullets</li>
-</ul>
-</div>
-<h3 id="update">update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">update</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>The heartbeat of the game, this method is called every frame to manage tasks that need to occur on a frame by frame basis, i.e rendering</p>
-<h3 id="draw">draw<a class="headerlink" href="#draw" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">draw</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>Clears the canvas, then loops through the arrays of Players, Bullets, and Obstacles and re-draws them to the screen</p>
-<h3 id="checkcollisions">checkCollisions<a class="headerlink" href="#checkcollisions" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kd">function</span> <span class="nx">checkCollisions</span><span class="p">()</span> <span class="p">{}</span>
-</pre></div>
-
-
-<p>Checks for collisions between Player, Bullet and Obstacle instances</p>
+<p>Sends an error message to the connecting socket, and then closes that socket.</p>
+<p>This is typically to relay information to the Player that the server is full or the password is incorrect.</p>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>socket</td>
+<td>The connection that the failed JOIN attempt was received from</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>The error message to be displayed on the user's screen</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
@@ -851,7 +775,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../api/" title="API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../game/player/" title="Player" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -860,19 +784,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                API
+                Player
               </span>
             </div>
           </a>
         
         
-          <a href="../bullet/" title="Bullet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../lobby/" title="Lobby Handler" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Bullet
+                Lobby Handler
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
