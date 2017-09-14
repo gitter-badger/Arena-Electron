@@ -1,4 +1,6 @@
 const {app, BrowserWindow} = require('electron');
+const Client = require('websocket').client;
+const { fork } = require('child_process');
 const path = require('path');
 const url = require('url');
 
@@ -8,7 +10,8 @@ let win;
 let gameWin;
 
 // Game globals
-let server = null;
+let host = false;
+let serverProc = null;
 let socket = null;
 // Set ip to be this machine by default
 let serverIp = require('ip').address();
@@ -20,7 +23,7 @@ function createWindow () {
         height: 600,
         resizable: false,
         show: false,
-        title: "Arena Electron"
+        title: 'Arena Electron'
     });
 
     // and load the index.html of the app.
@@ -46,7 +49,7 @@ function createWindow () {
 
     win.once('ready-to-show', () => {
         win.show();
-    })
+    });
 }
 
 // This method will be called when Electron has finished
@@ -59,7 +62,7 @@ app.on('window-all-closed', () => {
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
-        app.quit()
+        app.quit();
     }
 });
 
@@ -67,17 +70,21 @@ app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (win === null) {
-        createWindow()
+        createWindow();
     }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-let createGame = (username, password) => {
-    serverIp = require('ip').address();
-    // Spawn the server
-    // server = new Server(password);
+app.on('will-quit', () => {
+    if (host) {
+        serverProc.send(JSON.stringify({command: 'CLOSE'}));
+    }
+    else if (socket !== null) {
+        socket.sendUTF(JSON.stringify({command: 'QUIT'}));
+        socket.close();
+    }
+});
 
+function createGameWindow() {
     // Create the window for the game
     gameWin = new BrowserWindow({
         width: 650,
@@ -85,11 +92,9 @@ let createGame = (username, password) => {
         resizable: false,
         show: false,
         useContentSize: true,
-        title: "Arena Electron"
+        title: 'Arena Electron'
     });
-
-    // socket = new WebSocket(`ws://${serverIp}:44444`);
-    // socket.send("JOIN", username, password);
+    // gameWin.webContents.openDevTools();
 
     // The window will attempt to connect to the server and show or close itself as needed
     gameWin.loadURL(url.format({
@@ -97,25 +102,89 @@ let createGame = (username, password) => {
         protocol: 'file:',
         slashes: true
     }));
+}
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
+let createGame = (username, password) => {
+    host = true;
+    serverIp = require('ip').address();
+
+    // Spawn the server
+    serverProc = fork(path.join(__dirname, 'src/server/index.js'), ['password=' + password])
+        .on('uncaughtException', (e) => {
+            leaveServer();
+            gameWinFailure('Failed by Uncaught Exception: ' + e);
+        });
+
+    // After setting up the server, we want to join it
+    joinGame(serverIp, username, password);
+};
+
+let joinGame = (address, username, password) => {
+    // Join the Game hosted at the given address
+    serverIp = address;
+    createGameWindow();
+
+    let data = {
+        command: 'JOIN',
+        username: username,
+        password: password
+    };
+    data = JSON.stringify(data);
+    let client = new Client();
+    client.on('connectFailed', () => {
+        gameWinFailure('Connection to server failed. Are you sure the IP is correct and that the server is running?');
+    });
+    client.on('connect', (conn) => {
+        gameWinSuccess();
+        socket = conn;
+        socket.sendUTF(data);
+        socket.on('message', (message) => {
+            let parsedMessage = JSON.parse(message.utf8Data);
+            if (parsedMessage.command !== 'ERROR') {
+                gameWin.webContents.send('server-message', message);
+            }
+            else{
+                gameWinFailure(parsedMessage.errorMessage);
+            }
+        });
+    });
+
+    gameWin.webContents.once('did-finish-load', () => {
+        client.connect(`ws://${serverIp}:44444`, 'arena-electron');
+    });
+
+    // Use the gameWinFailure method to display error messages
 };
 
 let gameWinSuccess = () => {
     // Close old window and show new one
     gameWin.show();
+    win.hide();
 };
 
-let gameWinFailure = () => {
+let gameWinFailure = (errorMessage) => {
     // Close this window and display an error on the main window
     gameWin.close();
     gameWin = null;
+    host = false;
     // display error
+    win.show();
+    win.webContents.send('server-error', errorMessage);
 };
 
 let leaveServer = () => {
-    // if (server !== null) { close the server } else { socket.send("QUIT") }
-    console.log("close");
+    if (host) {
+        serverProc.send(JSON.stringify({command: 'CLOSE'}));
+    }
+    else {
+        socket.sendUTF(JSON.stringify({command: 'QUIT'}));
+    }
+    socket.close();
     gameWin.close();
     gameWin = null;
+    win.show();
 };
 
 // Exports
@@ -123,6 +192,7 @@ let leaveServer = () => {
 exports.gameWinSuccess = gameWinSuccess;
 exports.gameWinFailure = gameWinFailure;
 exports.createGame = createGame;
+exports.joinGame = joinGame;
 exports.leaveServer = leaveServer;
 
 // Variables

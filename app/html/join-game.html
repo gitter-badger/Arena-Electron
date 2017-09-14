@@ -1,82 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="elegant-color">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arena: Host Game</title>
-    <!-- Stylesheets -->
-    <!-- Bootstrap minified -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <!-- MDBootstrap -->
-    <link rel="stylesheet" href="../css/mdb.min.css" />
-    <!-- Custom -->
-    <link rel="stylesheet" href="../css/style.css" />
-</head>
-<body class="elegant-color">
-<nav class="navbar navbar-dark elegant-color-dark">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Arena: Electron</a></li>
-        <li class="breadcrumb-item active">Join Game</li>
-    </ol>
-</nav>
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card elegant-color-dark">
-                <div class="card-block">
+    <head class="elegant-color">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Arena: Host Game</title>
+        <!-- Stylesheets -->
+        <!-- Bootstrap minified -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <!-- MDBootstrap -->
+        <link rel="stylesheet" href="../css/mdb.min.css" />
+        <!-- Custom -->
+        <link rel="stylesheet" href="../css/style.css" />
+    </head>
+    <body class="elegant-color">
+    <nav class="navbar navbar-dark elegant-color-dark">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Arena: Electron</a></li>
+            <li class="breadcrumb-item active">Join Game</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <!-- Space for error messages -->
+            <div class="col-xs-12"><div class="card danger-color-dark text-center" id="error-card"></div></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card elegant-color-dark">
+                    <div class="card-block">
 
-                    <div class="form-header purple-gradient">
-                        <h3><i class="fa fa-gamepad"></i> Join Game</h3>
+                        <div class="form-header purple-gradient">
+                            <h3><i class="fa fa-gamepad"></i> Join Game</h3>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-server prefix"></i>
+                            <input type="text" id="address" class="form-control">
+                            <label for="address">Server IP</label>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <input type="text" id="username" class="form-control" required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix"></i>
+                            <input type="password" id="password" class="form-control">
+                            <label for="password">Server Password (if any)</label>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-secondary">Join Game</button>
+                        </div>
+
                     </div>
-
-                    <div class="md-form">
-                        <i class="fa fa-server prefix"></i>
-                        <input type="password" id="address" class="form-control">
-                        <label for="address">Server IP</label>
-                    </div>
-
-                    <div class="md-form">
-                        <i class="fa fa-user prefix"></i>
-                        <input type="text" id="username" class="form-control" required>
-                        <label for="username">Username</label>
-                    </div>
-
-                    <div class="md-form">
-                        <i class="fa fa-lock prefix"></i>
-                        <input type="password" id="password" class="form-control">
-                        <label for="password">Server Password (if any)</label>
-                    </div>
-
-                    <div class="text-center">
-                        <button class="btn btn-secondary">Join Game</button>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Scripts -->
-<!-- Fix for electron -->
-<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-<!--jQuery-->
-<script src="../lib/jquery-3.2.1.min.js"></script>
-<!-- Tether -->
-<script src="../lib/tether.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="../lib/bootstrap.min.js"></script>
-<!-- MDBootstrap -->
-<script src="../lib/mdb.min.js"></script>
-<!--Font Awesome-->
-<script src="https://use.fontawesome.com/8ce091879b.js"></script>
-<!-- /Electron fix -->
-<script>if (window.module) module = window.module;</script>
-<script>
-    $(document).ready(function(){
-
-    })
-</script>
-</body>
+    <!-- Scripts -->
+    <!-- Fix for electron -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <!--jQuery-->
+    <script src="../lib/jquery-3.2.1.min.js"></script>
+    <!-- Tether -->
+    <script src="../lib/tether.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../lib/bootstrap.min.js"></script>
+    <!-- MDBootstrap -->
+    <script src="../lib/mdb.min.js"></script>
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/8ce091879b.js"></script>
+    <!-- /Electron fix -->
+    <script>if (window.module) module = window.module;</script>
+    <script src="../js/server_errors.js"></script>
+    <script>
+        $(document).ready(function(){
+            const main = require('electron').remote.require('./main.js');
+            $('button').click((e) => {
+                $('button').attr('disabled', true);
+                main.joinGame(
+                    $('#address').val(),
+                    $('#username').val(),
+                    $('#password').val()
+                );
+            })
+        })
+    </script>
+    </body>
 </html>

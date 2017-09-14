@@ -7,112 +7,112 @@ chai.should();
 let Player = require(path.join(__dirname, '..', 'src', 'game', 'player')).Player;
 let playerSize = 20;
 
-describe("Player", () => {
+describe('Player', () => {
     let player;
 
     beforeEach(() => {
-        player = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8", true);
+        player = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), 'Testy McTestface', '#3E75E8', true);
     });
 
-    describe("x", () => {
-        it("returns the value", () => {
+    describe('x', () => {
+        it('returns the value', () => {
             // Ensures the x value is correct
             player.x.should.equal(200);
         });
 
-        it("can be moved in the x direction", () => {
+        it('can be moved in the x direction', () => {
             player.x += 10;
             player.x.should.equal(210);
         });
 
-        it("only accepts numerical values", () => {
+        it('only accepts numerical values', () => {
             (() => {
-                player.x = "x";
+                player.x = 'x';
             }).should.throw(Error);
         });
     });
 
-    describe("y", () => {
-        it("returns the value", () => {
+    describe('y', () => {
+        it('returns the value', () => {
             // Ensures the x value is correct
             player.y.should.equal(200);
         });
 
-        it("can be moved in the x direction", () => {
+        it('can be moved in the x direction', () => {
             player.y += 10;
             player.y.should.equal(210);
         });
 
-        it("only accepts numerical values", () => {
+        it('only accepts numerical values', () => {
             (() => {
-                player.y = "y";
+                player.y = 'y';
             }).should.throw(Error);
         });
     });
 
-    describe("username", () => {
-        it("returns the value", () => {
+    describe('username', () => {
+        it('returns the value', () => {
             // Ensures the x value is correct
-            player.username.should.equal("Testy McTestface");
+            player.username.should.equal('Testy McTestface');
         });
 
-        it("can be changed", () => {
+        it('can be changed', () => {
             let newName = 'New Test';
             player.username = newName;
             player.username.should.equal(newName);
         });
 
-        it("only accepts string values", () => {
+        it('only accepts string values', () => {
             (() => {
                 player.username = 100;
             }).should.throw(Error);
         });
     });
 
-    describe("health", () => {
-        it("returns the value", () => {
+    describe('health', () => {
+        it('returns the value', () => {
             // Ensures the x value is correct
             player.currentHealth.should.equal(100);
         });
 
-        it("can be changed", () => {
+        it('can be changed', () => {
             player.currentHealth = 99;
             player.currentHealth.should.equal(99);
         });
 
-        it("cannot be more than the max", () => {
+        it('cannot be more than the max', () => {
             (() => {
                 player.currentHealth = 200;
             }).should.throw(Error);
         });
 
-        it("only accepts numeric values", () => {
+        it('only accepts numeric values', () => {
             (() => {
-                player.currentHealth = "Genji needs healing";
+                player.currentHealth = 'Genji needs healing';
             }).should.throw(Error);
         });
     });
 
-    describe("bullets", () => {
-        it("returns the value", () => {
+    describe('bullets', () => {
+        it('returns the value', () => {
             // Ensures the x value is correct
             player.currentBullets.should.equal(3);
         });
 
-        it("can be changed", () => {
+        it('can be changed', () => {
             player.currentBullets = 1;
             player.currentBullets.should.equal(1);
         });
 
-        it("cannot be more than the max", () => {
+        it('cannot be more than the max', () => {
             (() => {
                 player.currentBullets = 4;
             }).should.throw(Error);
         });
 
-        it("only accepts numeric values", () => {
+        it('only accepts numeric values', () => {
             (() => {
-                player.currentBullets = "Reloading";
+                player.currentBullets = 'Reloading';
             }).should.throw(Error);
         });
     });
@@ -189,59 +189,59 @@ describe("Player", () => {
         });
     });
 
-    describe("movement", () => {
+    describe('movement', () => {
         let playerSpeed = 4;
-        describe("can move", () => {
-            it("north with the w key", () => {
+        describe('can move', () => {
+            it('north with the w key', () => {
                 let o = {keyCode: 87};
                 player.move(o);
                 player.updatePosition();
                 player.y.should.equal(200 - playerSpeed);
             });
 
-            it("north with the up arrow", () => {
+            it('north with the up arrow', () => {
                 let o = {keyCode: 38};
                 player.move(o);
                 player.updatePosition();
                 player.y.should.equal(200 - playerSpeed);
             });
 
-            it("south with the s key", () => {
+            it('south with the s key', () => {
                 let o = {keyCode: 83};
                 player.move(o);
                 player.updatePosition();
                 player.y.should.equal(200 + playerSpeed);
             });
 
-            it("south with the down arrow", () => {
+            it('south with the down arrow', () => {
                 let o = {keyCode: 40};
                 player.move(o);
                 player.updatePosition();
                 player.y.should.equal(200 + playerSpeed);
             });
 
-            it("west with the a key", () => {
+            it('west with the a key', () => {
                 let o = {keyCode: 65};
                 player.move(o);
                 player.updatePosition();
                 player.x.should.equal(200 - playerSpeed);
             });
 
-            it("west with the left arrow", () => {
+            it('west with the left arrow', () => {
                 let o = {keyCode: 37};
                 player.move(o);
                 player.updatePosition();
                 player.x.should.equal(200 - playerSpeed);
             });
 
-            it("east with the d key", () => {
+            it('east with the d key', () => {
                 let o = {keyCode: 68};
                 player.move(o);
                 player.updatePosition();
                 player.x.should.equal(200 + playerSpeed);
             });
 
-            it("east with the right arrow", () => {
+            it('east with the right arrow', () => {
                 let o = {keyCode: 39};
                 player.move(o);
                 player.updatePosition();
@@ -249,8 +249,8 @@ describe("Player", () => {
             });
         });
 
-        describe("will stop when moving", () => {
-            it("north with the w key", () => {
+        describe('will stop when moving', () => {
+            it('north with the w key', () => {
                 let o = {keyCode: 87};
                 player.move(o);
                 player.updatePosition();
@@ -262,7 +262,7 @@ describe("Player", () => {
                 player.y.should.equal(200 - (2 * playerSpeed));
             });
 
-            it("north with the up arrow", () => {
+            it('north with the up arrow', () => {
                 let o = {keyCode: 38};
                 player.move(o);
                 player.updatePosition();
@@ -274,7 +274,7 @@ describe("Player", () => {
                 player.y.should.equal(200 - (2 * playerSpeed));
             });
 
-            it("south with the s key", () => {
+            it('south with the s key', () => {
                 let o = {keyCode: 83};
                 player.move(o);
                 player.updatePosition();
@@ -286,7 +286,7 @@ describe("Player", () => {
                 player.y.should.equal(200 + (2 * playerSpeed));
             });
 
-            it("south with the down arrow", () => {
+            it('south with the down arrow', () => {
                 let o = {keyCode: 40};
                 player.move(o);
                 player.updatePosition();
@@ -298,7 +298,7 @@ describe("Player", () => {
                 player.y.should.equal(200 + (2 * playerSpeed));
             });
 
-            it("west with the a key", () => {
+            it('west with the a key', () => {
                 let o = {keyCode: 65};
                 player.move(o);
                 player.updatePosition();
@@ -310,7 +310,7 @@ describe("Player", () => {
                 player.x.should.equal(200 - (2 * playerSpeed));
             });
 
-            it("west with the left arrow", () => {
+            it('west with the left arrow', () => {
                 let o = {keyCode: 37};
                 player.move(o);
                 player.updatePosition();
@@ -322,7 +322,7 @@ describe("Player", () => {
                 player.x.should.equal(200 - (2 * playerSpeed));
             });
 
-            it("east with the d key", () => {
+            it('east with the d key', () => {
                 let o = {keyCode: 68};
                 player.move(o);
                 player.updatePosition();
@@ -334,7 +334,7 @@ describe("Player", () => {
                 player.x.should.equal(200 + (2 * playerSpeed));
             });
 
-            it("east with the d key", () => {
+            it('east with the d key', () => {
                 let o = {keyCode: 39};
                 player.move(o);
                 player.updatePosition();
@@ -346,8 +346,8 @@ describe("Player", () => {
             });
         });
 
-        describe("can move diagonally", () => {
-            it("north-east", () => {
+        describe('can move diagonally', () => {
+            it('north-east', () => {
                 // -y + x - 87, 68
                 player.move({keyCode: 87});
                 player.move({keyCode: 68});
@@ -356,7 +356,7 @@ describe("Player", () => {
                 player.y.should.equal(200 - playerSpeed);
             });
 
-            it("north-west", () => {
+            it('north-west', () => {
                 // -y -x - 87, 65
                 player.move({keyCode: 87});
                 player.move({keyCode: 65});
@@ -365,7 +365,7 @@ describe("Player", () => {
                 player.y.should.equal(200 - playerSpeed);
             });
 
-            it("south-east", () => {
+            it('south-east', () => {
                 // +y +x - 83, 68
                 player.move({keyCode: 83});
                 player.move({keyCode: 68});
@@ -374,7 +374,7 @@ describe("Player", () => {
                 player.y.should.equal(200 + playerSpeed);
             });
 
-            it("south-west", () => {
+            it('south-west', () => {
                 // +y -x - 83, 65
                 player.move({keyCode: 83});
                 player.move({keyCode: 65});
@@ -384,14 +384,14 @@ describe("Player", () => {
             });
         });
 
-        it("cannot move in both horizontal directions at once", () => {
+        it('cannot move in both horizontal directions at once', () => {
             player.move({keyCode: 65});
             player.move({keyCode: 68});
             player.updatePosition();
             player.x.should.equal(200);
         });
 
-        it("cannot move in both vertical directions at once", () => {
+        it('cannot move in both vertical directions at once', () => {
             player.move({keyCode: 87});
             player.move({keyCode: 83});
             player.updatePosition();
@@ -401,7 +401,7 @@ describe("Player", () => {
 
     describe('player - player collisions', () => {
         it('damage dealt on contact with another player', () => {
-            let player2 = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), "Testy McTestface", "#3E75E8");
+            let player2 = new Player(200 + (playerSize / 2), 200 + (playerSize / 2), 'Testy McTestface', '#3E75E8');
             player.checkPlayerCollision(player2);
             player.currentHealth.should.not.equal(100);
         });

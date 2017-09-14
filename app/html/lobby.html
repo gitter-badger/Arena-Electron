@@ -42,27 +42,8 @@
                                     <th class="text-center col-xs-2">Host</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>crnbrdrck</td>
-                                    <td></td>
-                                    <td><i class="fa fa-check"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Gelo147</td>
-                                    <td></td>
-                                    <td><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>MurkyFelix</td>
-                                    <td></td>
-                                    <td><i class="fa fa-times"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>TheTwig</td>
-                                    <td></td>
-                                    <td><i class="fa fa-times"></i></td>
-                                </tr>
+                            <tbody id="players">
+
                             </tbody>
                         </table>
 
@@ -94,15 +75,41 @@
     <script>
         $(document).ready(() => {
             const main = require('electron').remote.require('./main.js');
-            const sock = main.socket;
             // Set up display and link
             $('#ip').html(main.serverIp);
             $('#leave').click(() => {
                 main.leaveServer();
             });
+            require('electron').ipcRenderer.on('server-message', (event, message) => {
+                message = message.utf8Data;
+                message = JSON.parse(message);
+                console.log(message);
+                // Assume first player is host due to how server works now
+                switch (message.command) {
+                    case 'LOBBY':
+                        // Lobby status update
+                        let host = true;
+                        let playerTable = $('#players').empty();
+                        for(let i = 0; i < message.players.length; i ++) {
+                            let p = message.data[i];
+                            if(p === null) continue;
+                            playerTable.append(
+                                `<tr>
+                                    <td>${p}</td>
+                                    <td></td>
+                                    <td><i class="fa fa-${host ? 'check': 'times'}"></i></td>
+                                </tr>`
+                            );
+                            host = false;
+                        }
+                        break;
+                    case 'CLOSE':
+                        main.leaveServer();
+                }
+            });
             // Reveal window
-            main.gameWinSuccess();
-        })
+//            main.gameWinSuccess();
+        });
     </script>
 </body>
 </html>
