@@ -3,6 +3,9 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+general:
+  artifacts:
+    - "coverage/"
 jobs:
   test:
     environment:
@@ -45,8 +48,6 @@ jobs:
       - run: npm test
       # Send up the report
       - run: ./cc-test-reporter after-build -t lcov --exit-code $?
-      # Upload coverage report as an artifact
-      - run: cp coverage "$CIRCLE_ARTIFACTS"
 
   document:
     docker:
