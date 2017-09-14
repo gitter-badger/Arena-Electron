@@ -4,3 +4,4 @@ node_modules/*
 docs/*
 *.md
 app/lib/*
+site/*
