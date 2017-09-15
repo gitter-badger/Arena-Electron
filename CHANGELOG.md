@@ -1,3 +1,10 @@
+# 0.0.6
+- Implemented Lobby Backend
+  - Lobby server is created by Host Game
+  - Lobby can be joined via IP address
+  - Server can be password protected
+  - Various error messages are displayed on failure
+
 # 0.0.5
 - Implemented collisions
   - Bullets bounce off blue and orange walls
