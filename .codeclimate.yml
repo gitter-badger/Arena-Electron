@@ -13,9 +13,9 @@ engines:
 
 ratings:
   paths:
-    - "app/js/*"
-    - "main.js"
-    - "src/*
+    - app/js/*
+    - main.js
+    - src/*
     
 
 exclude_paths:
