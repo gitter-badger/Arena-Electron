@@ -27,6 +27,7 @@ extra:
     primary: 'purple'
     accent: 'purple'
   font:
+    text: 'Lato'
     code: 'Ubuntu Mono'
   social:
     - type: 'twitter'
