@@ -1,5 +1,7 @@
 # Arena: Electron
 
+[![Join the chat at https://gitter.im/crnlPanic/Arena-Electron](https://badges.gitter.im/crnlPanic/Arena-Electron.svg)](https://gitter.im/crnlPanic/Arena-Electron?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![CircleCI](https://img.shields.io/circleci/project/github/crnlPanic/Arena-Electron/master.svg)](https://circleci.com/gh/crnlPanic/Arena-Electron/tree/master)
 [![Test Coverage](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/coverage.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron/coverage)
 [![Code Climate](https://codeclimate.com/github/crnlPanic/Arena-Electron/badges/gpa.svg)](https://codeclimate.com/github/crnlPanic/Arena-Electron)
